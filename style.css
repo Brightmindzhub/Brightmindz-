@@ -1,0 +1,21 @@
+body {
+    background-color: #f0f8ff; /* Light blue background */
+    font-family: Arial, sans-serif; /* Arial font apply karega */
+}
+
+h1 {
+    color: #4682b4; /* Blue heading color */
+    text-align: center; /* Center align heading */
+}
+
+p {
+    font-size: 18px; /* Paragraph text size */
+    color: #333; /* Dark gray paragraph color */
+    text-align: center; /* Center align paragraph */
+}
+
+@media (max-width: 600px) {
+    body {
+        background-color: lightgray;
+    }
+}
