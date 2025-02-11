@@ -231,7 +231,7 @@ footer {
 }
 
 #categoryBtn {
-    background-color: #A9D6E5;
+    background-color: #0466C8;
     color: white;
     font-size: 20px;
     padding: 15px 20px;
@@ -280,7 +280,7 @@ footer {
 }
 
 #categoryList li:hover {
-    background: #012A4A;
+    background: #0466C8;
     color: white;
 }
 
