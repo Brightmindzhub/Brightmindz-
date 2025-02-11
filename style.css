@@ -1,48 +1,370 @@
-/* Testing Notice */
-.notice {
-    background-color: red;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    font-weight: bold;
+body{
+          background-color: #EAFDF8;
+          margin: 0px;
+          padding: 0px;
+          padding-top: 60px;
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh; /* Puri screen height tak stretch hoga */
+}
 }
 
-/* Search Bar */
+
+.content {
+    flex-grow: 1; /* Jo bhi bacha hua space hoga vo le lega */
+}
+
+.welcome-text {
+    font-size: 40px;  /* Font size bada */
+    font-weight: bold; /* Mota text */
+    color: #012A4A; /* Dark blue shade */
+    text-align: center; /* Center me karega */
+    margin-top: 50px; /* Thoda neeche shift */
+    text-transform: uppercase; /* Sare letters capital */
+    letter-spacing: 2px; /* Letters ke beech gap */
+    animation: fadeIn 1s ease-in-out; /* Smooth fade-in animation */
+}
+
+/* Animation effect */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+/* Header Styling */
+header {
+    position: fixed; /* Header ko screen ke top pe fix karne ke liye */
+    top: 0;
+    left: 0;
+    width: 100%; /* Pure screen ke width ke liye */
+    background: #A9D6E5; /* Header ka background color */
+    color: white; /* Text color */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0; /* Koi extra gap na ho */
+    padding: 0px 0px; /* Thoda spacing better dikhane ke liye */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    z-index: 1000; /* Header ko sabse upar rakhne ke liye */
+}
+
+/* Menu Icon (Three Lines) */
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.menu-icon:hover {
+    background: rgba(255, 255, 255, 0.2); /* Hover Effect */
+}
+
 .search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 100px;
+    padding: 5px;
+    transition: all 0.3s ease-in-out;
+    width: 150px; /* By default chhota hoga */
+    overflow: hidden;
+}
+
+.search-bar {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding: 5px;
+    width: 100px; /* Hidden initially */
+    transition: width 0.3s ease-in-out;
+    border-radius: 250px;
+}
+
+/* Jab search container active hoga tab search bar full expand hoga */
+.search-container.active {
+    width: 200px; 
+}
+
+.search-container.active .search-bar {
+    width: 160px; 
+}
+
+/* Search Icon Fix */
+.search-icon {
+    width: 29px;
+    height: 29px;
+    cursor: pointer;
+    position: relative; /* Absolute se problem ho rahi thi */
+}
+
+/* User Icon */
+.user-icon img {
+    width: 40px;  /* Icon ka size */
+    height: 40px;
+    border-radius: 50%;  /* Round icon ke liye */
+    border: 2px solid #ccc; /* Border add karne ke liye */
+    margin-right: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.user-icon img:hover {
+    transform: scale(1.1); /* Hover par thoda bada hoga */
+}
+
+h1{
+       
+}
+
+
+
+/* Sidebar ka design */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Default hidden */
+    width: 180px;
+    height: 100%;
+    background: #A9D6E5;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+    z-index: 2;
+}
+
+.sidebar.active {
+    left: 0; /* Open hone par left se show hoga */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    display: block;
+}
+
+.sidebar ul li:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Menu icon styling */
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.menu-icon:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
+
+/* Menu icon styling */
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.menu-icon:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
+
+/* Footer ko neeche fix karne ke liye */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 60px; /* Header ke liye space */
+}
+
+.content {
+    flex: 1; /* Content ko beech me rakhne ke liye */
+}
+
+footer {
+    background: #A9D6E5;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    position: relative;
+    max-width: 100%;
+    bottom: 0;
+}
+
+
+
+#categoryContainer {
+    position: relative;
+    text-align: center;
+    margin: 5px auto;
+    width: calc(100% - 20px); /* Left-right se gap */
+    max-width: 400px;
+    z-index: 1;
+}
+
+#categoryBtn {
+    background-color: #A9D6E5;
+    color: white;
+    font-size: 20px;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px; /* Teekha corner */
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* List ko button ke neeche position dena */
+#categoryList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background: #A9D6E5;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 100%; /* Button ke bilkul neeche */
+    left: 0;
+    z-index: 1000;
+    
+    /* Max height ko adjust karke fix kiya */
+    max-height: 0;
+    opacity: 0;
+    overflow-y: hidden; /* overflow-y: auto karenge to scrollbar aayega */
+    transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Open Class */
+#categoryList.open {
+    max-height: 500px; /* Increase kiya taki sab categories dikhein */
+    opacity: 1;
+    overflow-y: auto; /* Scrollbar show karega agar categories zyada hain */
+}
+
+#categoryList li {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#categoryList li:hover {
+    background: #012A4A;
+    color: white;
+}
+
+/* Open state ke liye class */
+.open {
+    max-height: 300px; /* Yaha list ka max height adjust karein */
+    opacity: 1;
+    overflow: visible;
+}
+
+
+
+
+#filterContainer {
     display: flex;
     justify-content: center;
-    margin: 20px;
+    gap: 15px; /* Buttons ke beech gap badhane ke liye */
+    margin: 10px auto;
+    position: relative;
+    top: -5px; /* Upar move karne ke liye */
 }
 
-.search-box {
-    width: 250px;
-    padding: 10px;
-    border: 1px solid #ccc;
-}
-
-.search-btn {
-    padding: 10px;
-    background-color: blue;
+#sortBtn, #viewBtn {
+    background-color: #A9D6E5;
     color: white;
+    font-size: 18px;
+    padding: 12px 20px; /* Buttons thode bade ho jayenge */
     border: none;
+    border-radius: 5px;
     cursor: pointer;
-}
-
-/* Categories Section */
-.categories {
+    width: 160px; /* Fixed Width */
     text-align: center;
-    margin-top: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.categories ul {
-    list-style-type: none;
+#sortBtn:hover, #viewBtn:hover {
+    background: #89C2D9;
+}
+
+/* Grid/List Button Size Fix */
+#viewBtn {
+    flex-shrink: 0; /* Resize hone se rokne ke liye */
+}
+
+/* Sort List Style */
+#sortList {
+    list-style: none;
     padding: 0;
+    margin: 0;
+    width: 160px; /* List ka size button ke barabar ho */
+    background: #A9D6E5;
+    position: absolute;
+    top: 45px;
+    left: 0;
+    z-index: 1000;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-.categories li {
-    display: inline-block;
-    margin: 10px;
-    padding: 8px 15px;
-    background-color: lightgray;
+#sortList li {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
     cursor: pointer;
+    transition: background 0.3s;
+    text-align: center;
 }
+
+#sortList li:hover {
+    background: #012A4A;
+    color: white;
+}
+
+/* Open Class */
+#sortList.open {
+    max-height: 150px;
+    opacity: 1;
+}
+
+
+
