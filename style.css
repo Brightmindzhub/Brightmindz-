@@ -47,7 +47,7 @@ header {
     align-items: center;
     justify-content: space-between;
     margin: 0; /* Koi extra gap na ho */
-    padding: 0px 0px; /* Thoda spacing better dikhane ke liye */
+    padding: 10px 10px; /* Thoda spacing better dikhane ke liye */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
     z-index: 1000; /* Header ko sabse upar rakhne ke liye */
 }
@@ -73,8 +73,8 @@ header {
     border-radius: 100px;
     padding: 5px;
     transition: all 0.3s ease-in-out;
-    width: auto;/* By default chhota hoga */
-    max-width: 120;
+    width: fit-content/* By default chhota hoga */
+    max-width: 200;
     overflow: hidden;
 }
 
