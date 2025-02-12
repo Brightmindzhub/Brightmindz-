@@ -1,0 +1,16 @@
+[
+    {
+        "title": "The Rise of Generative AI",
+        "category": "Technology",
+        "content": "Generative AI is revolutionizing content creation...",
+        "tags": ["AI", "Innovation", "Machine Learning"],
+        "url": "articles/ai-revolution.html"
+    },
+    {
+        "title": "Future of Education with AI",
+        "category": "Education",
+        "content": "AI is transforming the way we learn...",
+        "tags": ["AI", "Education", "Future"],
+        "url": "articles/future-education.html"
+    }
+]
