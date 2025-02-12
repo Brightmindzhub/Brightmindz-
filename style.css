@@ -231,7 +231,7 @@ footer {
 }
 
 #categoryBtn {
-    background-color: #0466C8;
+    background-color: #A9D6E5;
     color: white;
     font-size: 20px;
     padding: 15px 20px;
@@ -280,7 +280,7 @@ footer {
 }
 
 #categoryList li:hover {
-    background: #0466C8;
+    background: #012A4A;
     color: white;
 }
 
@@ -290,6 +290,19 @@ footer {
     opacity: 1;
     overflow: visible;
 }
+#categoryList li a {
+    text-decoration: none; /* Underline hatane ke liye */
+    color: black; /* Default color */
+    display: block; /* Pura list item clickable */
+    padding: 10px;
+    font-weight: bold; /* Bold text */
+}
+#categoryList li a:hover {
+    color: red; /* Hover effect */
+}
+
+
+
 
 
 
