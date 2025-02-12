@@ -431,7 +431,7 @@ footer {
 @media (max-width: 768px) {
     .post-preview {
         width: 95%;
-        max-width: 250px; /* ✅ Mobile view me aur compact */
+        max-width: 280px; /* ✅ Mobile view me aur compact */
         margin: 6px auto;
     }
 }
