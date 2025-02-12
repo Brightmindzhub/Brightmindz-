@@ -401,11 +401,13 @@ footer {
     flex-direction: column;
     justify-content: space-between;
     background: #012A4A;
-    padding: 15px; /* ✅ Comfortable padding */
+    padding: 12px; /* ✅ Thoda chhota padding */
     border-radius: 10px;
-    width: 45%; /* ✅ Thoda compact but bada */
-    max-width: 350px; /* ✅ Box ki max width set */
-    margin: 10px; /* ✅ Gap maintain */
+    width: 45%; /* ✅ Compact but readable */
+    max-width: 350px;
+    height: 200px; /* ✅ Fixed height */
+    overflow: hidden; /* ✅ Extra content cut ho jayega */
+    margin: 10px;
     transition: transform 0.3s, box-shadow 0.3s;
     color: #fff;
     cursor: pointer;
@@ -414,31 +416,49 @@ footer {
 
 /* 🔹 Hover Effect */
 .post-preview:hover {
-    transform: scale(1.03); /* ✅ Thoda halka zoom */
+    transform: scale(1.03);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* 🔹 Container Fix */
-.posts-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px; /* ✅ Box ke beech spacing */
-    padding: 0 20px; /* ✅ 1cm ka gap dono sides me */
+/* 🔹 Title Styling */
+.post-preview h2 {
+    font-size: 18px; /* ✅ Font thoda chhota */
+    margin-bottom: 5px;
+    white-space: nowrap; /* ✅ Ek hi line me aaye */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 🔹 Category & Date Styling */
+.post-preview p {
+    font-size: 13px;
+    opacity: 0.9;
+    max-height: 40px; /* ✅ Chhota content */
+    overflow: hidden;
+}
+
+/* 🔹 Read More Button */
+.post-preview .read-more {
+    font-size: 13px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
 }
 
 /* 🔹 Responsive Layout */
 @media (max-width: 1024px) {
     .post-preview {
-        width: 48%; /* ✅ Tablets ke liye adjust */
+        width: 48%;
         max-width: 320px;
+        height: 180px; /* ✅ Tablets ke liye adjust */
     }
 }
 
 @media (max-width: 768px) {
     .post-preview {
-        width: 90%; /* ✅ Mobile view ke liye full width */
+        width: 90%;
         max-width: 280px;
+        height: 170px; /* ✅ Mobile view ke liye aur chhota */
         margin: 8px auto;
     }
 }
