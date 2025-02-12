@@ -1,21 +1,36 @@
-// URL se article ID get karna
-const urlParams = new URLSearchParams(window.location.search);
-const articleId = urlParams.get("id");
+document.addEventListener("DOMContentLoaded", function () {
+    const articleContainer = document.getElementById("article-content");
 
-// Articles JSON file se data fetch karke, selected article ko dikhana
-fetch("articles.json")
-    .then(response => response.json())
-    .then(data => {
-        let selectedArticle = data.find(article => article.id == articleId);
-        if (selectedArticle) {
-            document.getElementById("article-content").innerHTML = `
-                <h2>${selectedArticle.title}</h2>
-                <p><strong>Category:</strong> ${selectedArticle.category} | <strong>Date:</strong> ${selectedArticle.date}</p>
-                <p>${selectedArticle.content}</p>
+    // ✅ URL se `id` get karo
+    const urlParams = new URLSearchParams(window.location.search);
+    const articleId = parseInt(urlParams.get("id"), 10); // Convert to number
+
+    if (!articleId) {
+        articleContainer.innerHTML = "<p>❌ Article not found.</p>";
+        return;
+    }
+
+    // ✅ Articles load karo
+    fetch("articles.json")
+        .then(response => response.json())
+        .then(articles => {
+            const article = articles.find(a => a.id === articleId);
+
+            if (!article) {
+                articleContainer.innerHTML = "<p>❌ Article not found.</p>";
+                return;
+            }
+
+            // ✅ Article display karo
+            articleContainer.innerHTML = `
+                <h1>${article.title}</h1>
+                <p><strong>Category:</strong> ${article.category} | <strong>Date:</strong> ${article.date}</p>
+                <p>${article.preview}</p>
                 <a href="index.html">← Back to Home</a>
             `;
-        } else {
-            document.getElementById("article-content").innerHTML = `<p>Article not found!</p>`;
-        }
-    })
-    .catch(error => console.error("Error loading article:", error));
+        })
+        .catch(error => {
+            console.error("❌ Error loading article:", error);
+            articleContainer.innerHTML = "<p>❌ Error loading article.</p>";
+        });
+});
