@@ -92,7 +92,8 @@ header {
     width: 29px;
     height: 29px;
     cursor: pointer;
-    position: relative;
+    position: absolute;
+    right: 10px;
     transition: transform 0.3s ease-in-out;
 }
 
@@ -104,6 +105,15 @@ header {
 .search-container.active .search-bar {
     width: 160px;
 }
+
+.search-container.active {
+    width: 200px; /* Isko 180px ya 190px karo */
+}
+
+.search-container.active .search-bar {
+    width: 160px; /* Isko 140px ya 150px karo */
+}
+
 
 /* Search Icon Moves */
 .search-container.active .search-icon {
