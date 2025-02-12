@@ -400,9 +400,10 @@ footer {
     flex-direction: column;
     justify-content: space-between;
     background: linear-gradient(135deg, #007bff, #00d4ff); /* 🔹 Gradient Background */
-    padding: 10px 15px;
+    padding: 12px;
     border-radius: 10px;
-    margin: 10px;
+    max-width: 90%;
+    margin: 5px;
     transition: none, box-shadow 0.3s;
     color: #fff;
     cursor: pointer;
