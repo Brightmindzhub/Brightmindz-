@@ -7,11 +7,38 @@
     
 <meta name="theme-color" content="#A9D6E5">
 <meta name="theme-color" content="#012A4A" media="(prefers-color-scheme: dark)">
-<link rel="icon" type="image/png" href="https://LKDlovepreet.github.io/My-website01/favicon.png">
+
+
+<!-- Basic SEO -->
+<meta name="description" content="Yahan apni website ka chhota intro likho. (Max 160 characters)">
+<meta name="keywords" content="blog, articles, education, tech, etc">
+<meta name="author" content="Lovepreet Singh">
+
+<!-- Mobile Responsive -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<!-- Open Graph for Facebook -->
+<meta property="og:title" content="Apni Website Ka Naam">
+<meta property="og:description" content="Apni website ka chhota intro yahan likho">
+<meta property="og:image" content="https://yourwebsite.com/images/thumbnail.jpg">
+<meta property="og:url" content="https://yourwebsite.com">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Apni Website Ka Naam">
+<meta name="twitter:description" content="Apni website ka chhota intro yahan likho">
+<meta name="twitter:image" content="https://yourwebsite.com/images/thumbnail.jpg">
+
+
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+
+
 
     <title>My Answer - Home</title>
-    <link rel="stylesheet" href="style.css">
-     <script src="script.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </head>
 <body>
 
@@ -21,11 +48,11 @@
     
     <div class="search-container">
         <input type="text" class="search-bar" id="searchInput" placeholder="Search...">
-        <img src="https://raw.githubusercontent.com/LKDlovepreet/My-website01/main/search-icon.png" class="search-icon">
+        <img src="/static/images/search-icon.png" class="search-icon">
     </div>
 
     <div class="user-icon">
-        <img src="https://raw.githubusercontent.com/LKDlovepreet/My-website01/main/user-icon.png" alt="User" />
+        <img src="/static/images/user-icon.png" alt="User" />
     </div>
 </header>
 
@@ -40,19 +67,21 @@
 </div>
 
 
+
+
 <div id="categoryContainer">
     <button id="categoryBtn">Browse Categories ⬇️</button>
     <ul id="categoryList" class="hidden">
-        <li>Technology</li>
-        <li>Artificial Intelligence</li>
-        <li>Programming & Web Development</li>
-        <li>Cybersecurity</li>
-        <li>Finance & Cryptocurrency</li>
-        <li>Health & Wellness</li>
-        <li>Education & E-learning</li>
-        <li>Science & Space</li>
-        <li>Entertainment & Movies</li>
-        <li>Gaming & Esports</li>
+        <li onclick="location.href='/category/Technology'">Technology</li>
+        <li onclick="location.href='/category/Artificial Intelligence'">Artificial Intelligence</li>
+        <li onclick="location.href='/category/Programming & Web Development'">Programming & Web Development</li>
+        <li onclick="location.href='/category/Cybersecurity'">Cybersecurity</li>
+        <li onclick="location.href='/category/Finance & Cryptocurrency'">Finance & Cryptocurrency</li>
+        <li onclick="location.href='/category/Health & Wellness'">Health & Wellness</li>
+        <li onclick="location.href='/category/Education & E-learning'">Education & E-learning</li>
+        <li onclick="location.href='/category/Science & Space'">Science & Space</li>
+        <li onclick="location.href='/category/Entertainment & Movies'">Entertainment & Movies</li>
+        <li onclick="location.href='/category/Gaming & Esports'">Gaming & Esports</li>
     </ul>
 </div>
 
@@ -71,8 +100,35 @@
 
 
    <div class="content">
-    <h1 class="welcome-text">🛑Testing 🛑</h1>
+    <h1 class="welcome-text">Welcome!</h1>
 </div>
+
+<div id="latest-articles">
+    <h2>Latest Articles</h2>
+    <ul>
+        {% for article in articles %}
+            <li>{{ article[1] }} - {{ article[2] }} (Views: {{ article[3] }})</li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+  <script>
+        // Fetching articles from Flask API
+        fetch('/get_articles')
+            .then(response => response.json())
+            .then(data => {
+                const articlesList = document.getElementById('articles');
+                data.forEach(article => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="/category/${article.category}">${article.title}</a>`;
+                    articlesList.appendChild(li);
+                });
+            })
+            .catch(error => console.error('Error fetching articles:', error));
+    </script>
+    
+    
 
     
     <footer>
