@@ -71,7 +71,10 @@ document.addEventListener("DOMContentLoaded", function () {
   fetch("articles.json")
     .then(response => response.json())
     .then(data => {
-        data.sort((a, b) => new Date(b.date) - new Date(a.date)); // ✅ Newest first
+  
+
+data.sort((a, b) => new Date(b.date) - new Date(a.date));
+console.log("Sorted Articles:", data);  // ✅ Dekho articles sahi sort ho rahe hain ya nahi
 
         let postsContainer = document.getElementById("posts");
         let perPage = 10;
