@@ -403,8 +403,9 @@ footer {
     background: #012A4A;
     padding: 12px;
     border-radius: 10px;
-    width: 90%;
-    margin: 5px;
+    width: 90%; /* ✅ 90% width */
+    max-width: 350px; /* ✅ Box ka max size fix kiya */
+    margin: 10px auto; /* ✅ Har taraf equal spacing */
     transition: none, box-shadow 0.3s;
     color: #fff;
     cursor: pointer;
@@ -417,41 +418,20 @@ footer {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* 🔹 Title Styling */
-.post-preview h2 {
-    font-size: 20px;
-    margin-bottom: 8px;
-}
-
-/* 🔹 Category & Date Styling */
-.post-preview p {
-    font-size: 14px;
-    opacity: 0.9;
-}
-
-/* 🔹 Button Effect for Read More */
-.post-preview a {
-    display: inline-block;
-    text-decoration: none;
-    background: #fff;
-    color: #007bff;
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s, color 0.3s;
-}
-
-.post-preview a:hover {
-    background: #007bff;
-    color: #fff;
+/* 🔹 Container Fix */
+.posts-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* ✅ Center me lane ke liye */
+    gap: 15px; /* ✅ Boxes ke beech gap */
+    padding: 0 10px; /* ✅ 1cm ki jagah dono sides me */
 }
 
 /* 🔹 Responsive Layout */
 @media (max-width: 768px) {
     .post-preview {
-        padding: 12px;
-    }
-    .post-preview h2 {
-        font-size: 18px;
+        width: 95%;
+        max-width: none;
+        margin: 8px auto;
     }
 }
