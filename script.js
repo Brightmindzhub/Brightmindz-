@@ -28,6 +28,35 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    // ✅ Category Dropdown Toggle
+    const categoryBtn = document.getElementById("categoryBtn");
+    const categoryList = document.getElementById("categoryList");
+
+    if (categoryBtn && categoryList) {
+        categoryBtn.addEventListener("click", function () {
+            categoryList.classList.toggle("open");
+            categoryList.style.maxHeight = categoryList.classList.contains("open") ? "300px" : "0px";
+            categoryList.style.opacity = categoryList.classList.contains("open") ? "1" : "0";
+        });
+    }
+
+    // ✅ Sorting Options Toggle
+    const sortBtn = document.getElementById("sortBtn");
+    const sortList = document.getElementById("sortList");
+
+    if (sortBtn && sortList) {
+        sortBtn.addEventListener("click", function (event) {
+            event.stopPropagation();
+            sortList.classList.toggle("open");
+        });
+
+        document.addEventListener("click", function (event) {
+            if (!sortBtn.contains(event.target) && !sortList.contains(event.target)) {
+                sortList.classList.remove("open");
+            }
+        });
+    }
+
     // ✅ View Toggle (Grid ↔ List)
     const viewBtn = document.getElementById("viewBtn");
     const postsContainer = document.getElementById("posts");
