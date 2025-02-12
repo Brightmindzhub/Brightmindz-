@@ -397,9 +397,10 @@ footer {
 /* 🔹 Article Preview Cards Styling */
 .post-preview {
     display: flex;
+    position: static;
     flex-direction: column;
     justify-content: space-between;
-    background: linear-gradient(135deg, #007bff, #00d4ff); /* 🔹 Gradient Background */
+    background: #EAFDF8;
     padding: 12px;
     border-radius: 10px;
     max-width: 90%;
