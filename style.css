@@ -32,15 +32,17 @@ body{
 }
 
 
+
+
 /* Header Styling */
 header {
     position: fixed; /* Header ko screen ke top pe fix karne ke liye */
     top: 0;
     left: 0;
-    width: 100%; /* Pure screen ke width ke liye */
+    width: 100%; /* Pure screen ke width ke liye */
     background: #A9D6E5; /* Header ka background color */
     color: white; /* Text color */
-    display: flex;
+    display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 0; /* Koi extra gap na ho */
@@ -70,17 +72,16 @@ header {
     border-radius: 100px;
     padding: 5px;
     transition: all 0.3s ease-in-out;
-    width: fit-content/* By default chhota hoga */
-    max-width: 300;
+    width: 150px; /* By default chhota hoga */
     overflow: hidden;
 }
 
 .search-bar {
     border: none;
     outline: none;
-    font-size: 14px;
-    padding: 4px;
-    width: 80px; /* Hidden initially */
+    font-size: 16px;
+    padding: 5px;
+    width: 100px; /* Hidden initially */
     transition: width 0.3s ease-in-out;
     border-radius: 250px;
 }
@@ -115,8 +116,6 @@ header {
 .user-icon img:hover {
     transform: scale(1.1); /* Hover par thoda bada hoga */
 }
-
-
 
 
 
