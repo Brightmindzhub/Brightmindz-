@@ -402,7 +402,7 @@ footer {
     background: linear-gradient(135deg, #007bff, #00d4ff); /* 🔹 Gradient Background */
     padding: 10px 15px;
     border-radius: 10px;
-    margin: 5px;
+    margin: 10px;
     transition: none, box-shadow 0.3s;
     color: #fff;
     cursor: pointer;
