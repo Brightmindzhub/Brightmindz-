@@ -78,5 +78,85 @@
         "date": "2025-02-03",
         "preview": "How esports is becoming a billion-dollar industry with global tournaments.",
         "url": "article.html?id=10"
+    },
+    {
+        "id": 11,
+        "title": "5G Networks: Faster Than Ever",
+        "category": "Technology",
+        "date": "2025-02-02",
+        "preview": "How 5G is revolutionizing internet speeds and connectivity worldwide.",
+        "url": "article.html?id=11"
+    },
+    {
+        "id": 12,
+        "title": "AI Chatbots: Future of Customer Service",
+        "category": "Artificial Intelligence",
+        "date": "2025-02-01",
+        "preview": "Chatbots powered by AI are changing how businesses interact with customers.",
+        "url": "article.html?id=12"
+    },
+    {
+        "id": 13,
+        "title": "Python vs JavaScript: Which One to Learn?",
+        "category": "Programming & Web Development",
+        "date": "2025-01-31",
+        "preview": "A detailed comparison of Python and JavaScript for beginners and developers.",
+        "url": "article.html?id=13"
+    },
+    {
+        "id": 14,
+        "title": "10 Cybersecurity Myths You Should Ignore",
+        "category": "Cybersecurity",
+        "date": "2025-01-30",
+        "preview": "Don't fall for these common cybersecurity misconceptions and stay safe online.",
+        "url": "article.html?id=14"
+    },
+    {
+        "id": 15,
+        "title": "How to Start Investing in Crypto?",
+        "category": "Finance & Cryptocurrency",
+        "date": "2025-01-29",
+        "preview": "A beginner-friendly guide to understanding and investing in cryptocurrencies.",
+        "url": "article.html?id=15"
+    },
+    {
+        "id": 16,
+        "title": "Best Home Workouts Without Equipment",
+        "category": "Health & Wellness",
+        "date": "2025-01-28",
+        "preview": "Stay fit with these effective home workouts without needing a gym membership.",
+        "url": "article.html?id=16"
+    },
+    {
+        "id": 17,
+        "title": "How AI is Changing Education?",
+        "category": "Education & E-learning",
+        "date": "2025-01-27",
+        "preview": "AI tools and platforms are making education more interactive and accessible.",
+        "url": "article.html?id=17"
+    },
+    {
+        "id": 18,
+        "title": "SpaceX’s Newest Rocket: What to Expect?",
+        "category": "Science & Space",
+        "date": "2025-01-26",
+        "preview": "Elon Musk’s SpaceX is set to launch its most powerful rocket yet.",
+        "url": "article.html?id=18"
+    },
+    {
+        "id": 19,
+        "title": "Most Anticipated TV Shows of 2025",
+        "category": "Entertainment & Movies",
+        "date": "2025-01-25",
+        "preview": "Get ready for the biggest TV show releases coming in 2025.",
+        "url": "article.html?id=19"
+    },
+    {
+        "id": 20,
+        "title": "Mobile Gaming: The Next Big Thing?",
+        "category": "Gaming & Esports",
+        "date": "2025-01-24",
+        "preview": "How mobile gaming is taking over the gaming industry with massive revenue growth.",
+        "url": "article.html?id=20"
     }
 ]
