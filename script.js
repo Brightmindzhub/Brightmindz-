@@ -68,15 +68,27 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // ✅ Fetch Articles (Only ONCE)
     fetch("articles.json")
-        .then(response => response.json())
-        .then(articles => {
-            const postsContainer = document.getElementById("posts");
-            articles.forEach(post => {
-                const postElement = document.createElement("div");
-                postElement.classList.add("post-preview");
+    .then(response => response.json())
+    .then(data => {
+        // ✅ Date ke basis par sort karna (newest first)
+        data.sort((a, b) => new Date(b.date) - new Date(a.date));
 
+        let postsContainer = document.getElementById("posts");
+        let perPage = 10;  // ✅ Sirf 10 articles ek page pe
+
+        let currentPage = 1;
+        let totalPages = Math.ceil(data.length / perPage);
+
+        function renderArticles(page) {
+            postsContainer.innerHTML = ""; // Pehle wale articles hatao
+            let start = (page - 1) * perPage;
+            let end = start + perPage;
+            let articlesToShow = data.slice(start, end);
+
+            articlesToShow.forEach(post => {
+                let postElement = document.createElement("div");
+                postElement.classList.add("post-preview");
                 postElement.innerHTML = `
                     <div class="post-button" onclick="window.location.href='article.html?id=${post.id}'">
                         <h2>${post.title}</h2>
@@ -85,9 +97,31 @@ document.addEventListener("DOMContentLoaded", function () {
                         <span class="read-more">Read More</span>
                     </div>
                 `;
-
                 postsContainer.appendChild(postElement);
             });
-        })
-        .catch(error => console.error("Error loading JSON:", error));
-});
+
+            renderPagination();
+        }
+
+        function renderPagination() {
+            let paginationContainer = document.getElementById("pagination");
+            paginationContainer.innerHTML = ""; // Purana clear karo
+
+            for (let i = 1; i <= totalPages; i++) {
+                let pageBtn = document.createElement("button");
+                pageBtn.textContent = i;
+                pageBtn.classList.add("page-btn");
+                if (i === currentPage) pageBtn.classList.add("active");
+
+                pageBtn.addEventListener("click", function () {
+                    currentPage = i;
+                    renderArticles(currentPage);
+                });
+
+                paginationContainer.appendChild(pageBtn);
+            }
+        }
+
+        renderArticles(currentPage);
+    })
+    .catch(error => console.error("Error loading JSON:", error));
