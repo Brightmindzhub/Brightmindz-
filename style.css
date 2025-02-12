@@ -35,12 +35,13 @@ body{
 
 
 /* Header Styling */
-/*header */{
+header {
     position: fixed; /* Header ko screen ke top pe fix karne ke liye */
     top: 0;
     left: 0;
+    height: 20px;
     width: 100%; /* Pure screen ke width ke liye */
-    max-width: 200px;
+    max-width: auto;
     background: #A9D6E5; /* Header ka background color */
     color: white; /* Text color */
     display: flex;
