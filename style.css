@@ -107,7 +107,7 @@ header {
 
 /* Search Icon Moves */
 .search-container.active .search-icon {
-    transform: translateX(10px);
+    transform: translateX(5px);
 }
 
 /* User Icon */
