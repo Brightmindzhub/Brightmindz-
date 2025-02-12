@@ -400,10 +400,10 @@ footer {
     position: static;
     flex-direction: column;
     justify-content: space-between;
-    background: #EAFDF8;
+    background: #012A4A;
     padding: 12px;
     border-radius: 10px;
-    max-width: 90%;
+    width: 90%;
     margin: 5px;
     transition: none, box-shadow 0.3s;
     color: #fff;
