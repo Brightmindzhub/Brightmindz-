@@ -75,3 +75,18 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    fetch("articles.json")
+        .then(response => response.json())
+        .then(articles => {
+            const articleList = document.getElementById("article-list");
+            articles.forEach(article => {
+                const listItem = document.createElement("li");
+                listItem.innerHTML = `<a href="${article.url}">${article.title}</a> - <strong>${article.category}</strong>`;
+                articleList.appendChild(listItem);
+            });
+        })
+        .catch(error => console.error("Error loading articles:", error));
+});
