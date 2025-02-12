@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // ✅ Search Bar Expand with Animation
+    // ✅ Search Bar Expand
     const searchContainer = document.querySelector(".search-container");
     const searchInput = document.getElementById("searchInput");
 
@@ -28,68 +28,43 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // ✅ Category Dropdown Toggle
-    const categoryBtn = document.getElementById("categoryBtn");
-    const categoryList = document.getElementById("categoryList");
-
-    if (categoryBtn && categoryList) {
-        categoryBtn.addEventListener("click", function () {
-            categoryList.classList.toggle("open");
-            categoryList.style.maxHeight = categoryList.classList.contains("open") ? "300px" : "0px";
-            categoryList.style.opacity = categoryList.classList.contains("open") ? "1" : "0";
-        });
-    }
-
-    // ✅ Sorting Options Toggle
-    const sortBtn = document.getElementById("sortBtn");
-    const sortList = document.getElementById("sortList");
-
-    if (sortBtn && sortList) {
-        sortBtn.addEventListener("click", function (event) {
-            event.stopPropagation();
-            sortList.classList.toggle("open");
-        });
-
-        document.addEventListener("click", function (event) {
-            if (!sortBtn.contains(event.target) && !sortList.contains(event.target)) {
-                sortList.classList.remove("open");
-            }
-        });
-    }
-
-    // ✅ View Toggle (Grid ↔ List)
-    const viewBtn = document.getElementById("viewBtn");
-
-    if (viewBtn) {
-        let isGridView = true;
-        viewBtn.addEventListener("click", function () {
-            isGridView = !isGridView;
-            viewBtn.textContent = isGridView ? "Grid View" : "List View";
-        });
-    }
-
-  fetch("articles.json")
+    // ✅ Load Articles
+    fetch("articles.json")
     .then(response => response.json())
     .then(data => {
-  
+        if (!Array.isArray(data) || data.length === 0) {
+            console.error("❌ JSON is empty or not an array!");
+            return;
+        }
 
-data.sort((a, b) => new Date(b.date) - new Date(a.date));
-console.log("Sorted Articles:", data);  // ✅ Dekho articles sahi sort ho rahe hain ya nahi
+        console.log("✅ Loaded Articles:", data);
+
+        // ✅ Sort articles (newest first)
+        data.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        console.log("✅ Sorted Articles:", data);
 
         let postsContainer = document.getElementById("posts");
-        let perPage = 10;
-        let currentIndex = 0;
+        let perPage = 10;  // ✅ Only 10 articles per page
+        let currentPage = 1;
+        let totalPages = Math.ceil(data.length / perPage);
 
-        function loadArticles() {
-            let end = currentIndex + perPage;
-            let articlesToShow = data.slice(currentIndex, end);
-            currentIndex = end;
+        function renderArticles(page) {
+            postsContainer.innerHTML = ""; // ✅ Clear old content
+            let start = (page - 1) * perPage;
+            let end = start + perPage;
+            let articlesToShow = data.slice(start, end);
+
+            if (articlesToShow.length === 0) {
+                postsContainer.innerHTML = "<p>No articles available.</p>";
+                return;
+            }
 
             articlesToShow.forEach(post => {
                 let postElement = document.createElement("div");
                 postElement.classList.add("post-preview");
                 postElement.innerHTML = `
-                    <div class="post-button" onclick="window.location.href='article.html?id=${post.id}'">
+                    <div class="post-button" onclick="window.location.href='${post.url}'">
                         <h2>${post.title}</h2>
                         <p><strong>Category:</strong> ${post.category} | <strong>Date:</strong> ${post.date}</p>
                         <p>${post.preview}</p>
@@ -99,12 +74,29 @@ console.log("Sorted Articles:", data);  // ✅ Dekho articles sahi sort ho rahe 
                 postsContainer.appendChild(postElement);
             });
 
-            if (currentIndex >= data.length) {
-                document.getElementById("loadMore").style.display = "none"; // ✅ Last page pe button hide
+            renderPagination();
+        }
+
+        function renderPagination() {
+            let paginationContainer = document.getElementById("pagination");
+            paginationContainer.innerHTML = ""; // ✅ Clear old pagination
+
+            for (let i = 1; i <= totalPages; i++) {
+                let pageBtn = document.createElement("button");
+                pageBtn.textContent = i;
+                pageBtn.classList.add("page-btn");
+                if (i === currentPage) pageBtn.classList.add("active");
+
+                pageBtn.addEventListener("click", function () {
+                    currentPage = i;
+                    renderArticles(currentPage);
+                });
+
+                paginationContainer.appendChild(pageBtn);
             }
         }
 
-        document.getElementById("loadMore").addEventListener("click", loadArticles);
-        loadArticles();
+        renderArticles(currentPage);
     })
-    .catch(error => console.error("Error loading JSON:", error));
+    .catch(error => console.error("❌ Error loading JSON:", error));
+});
