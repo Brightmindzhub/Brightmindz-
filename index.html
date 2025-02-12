@@ -32,25 +32,28 @@
 <meta name="twitter:image" content="https://yourwebsite.com/images/thumbnail.jpg">
 
 
-<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+
 
 
     <title>My Answer - Home</title>
-   <script src="script.js"></script>
-   <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </head>
 <body>
 
 
-    
     <header>
-    <div class="menu-icon">☰</div>  <!-- Menu Icon Left -->
-    <div class="user-icon">👤</div>  <!-- User Icon Right -->
-   
+    <div class="menu-icon">☰</div>
     
+    <div class="search-container">
+        <input type="text" class="search-bar" id="searchInput" placeholder="Search...">
+        <img src="/s/search-icon.png" class="search-icon">
+    </div>
 
-    
+    <div class="user-icon">
+        <img src="/static/images/user-icon.png" alt="User" />
+    </div>
 </header>
 
     
