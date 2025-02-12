@@ -28,6 +28,46 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    // ✅ Category Dropdown Toggle (Wapas La Diya)
+    const categoryBtn = document.getElementById("categoryBtn");
+    const categoryList = document.getElementById("categoryList");
+
+    if (categoryBtn && categoryList) {
+        categoryBtn.addEventListener("click", function () {
+            categoryList.classList.toggle("open");
+            categoryList.style.maxHeight = categoryList.classList.contains("open") ? "300px" : "0px";
+            categoryList.style.opacity = categoryList.classList.contains("open") ? "1" : "0";
+        });
+    }
+
+    // ✅ Sorting Options Toggle (Wapas La Diya)
+    const sortBtn = document.getElementById("sortBtn");
+    const sortList = document.getElementById("sortList");
+
+    if (sortBtn && sortList) {
+        sortBtn.addEventListener("click", function (event) {
+            event.stopPropagation();
+            sortList.classList.toggle("open");
+        });
+
+        document.addEventListener("click", function (event) {
+            if (!sortBtn.contains(event.target) && !sortList.contains(event.target)) {
+                sortList.classList.remove("open");
+            }
+        });
+    }
+
+    // ✅ View Toggle (Grid ↔ List) Wapas La Diya
+    const viewBtn = document.getElementById("viewBtn");
+
+    if (viewBtn) {
+        let isGridView = true;
+        viewBtn.addEventListener("click", function () {
+            isGridView = !isGridView;
+            viewBtn.textContent = isGridView ? "Grid View" : "List View";
+        });
+    }
+
     // ✅ Load Articles
     fetch("articles.json")
     .then(response => response.json())
@@ -63,6 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
             articlesToShow.forEach(post => {
                 let postElement = document.createElement("div");
                 postElement.classList.add("post-preview");
+
                 postElement.innerHTML = `
                     <div class="post-button" onclick="window.location.href='${post.url}'">
                         <h2>${post.title}</h2>
