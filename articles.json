@@ -1,18 +1,82 @@
 [
     {
         "id": 1,
-        "title": "First Blog Post",
+        "title": "Latest Tech Innovations in 2025",
         "category": "Technology",
         "date": "2025-02-12",
-        "preview": "This is a short preview of the first article.",
-        "url": "article1.html"
+        "preview": "Discover the latest advancements in AI, robotics, and smart devices shaping our future.",
+        "url": "article.html?id=1"
     },
     {
         "id": 2,
-        "title": "Second Blog Post",
-        "category": "Education",
+        "title": "AI Revolution: What's Next?",
+        "category": "Artificial Intelligence",
         "date": "2025-02-11",
-        "preview": "This is a short preview of the second article.",
-        "url": "article2.html"
+        "preview": "Explore how AI is transforming industries and what we can expect in the near future.",
+        "url": "article.html?id=2"
+    },
+    {
+        "id": 3,
+        "title": "Top 10 Web Development Trends",
+        "category": "Programming & Web Development",
+        "date": "2025-02-10",
+        "preview": "Stay ahead with the latest web development frameworks, tools, and best practices.",
+        "url": "article.html?id=3"
+    },
+    {
+        "id": 4,
+        "title": "How to Stay Safe Online",
+        "category": "Cybersecurity",
+        "date": "2025-02-09",
+        "preview": "Learn essential cybersecurity tips to protect your data and privacy from hackers.",
+        "url": "article.html?id=4"
+    },
+    {
+        "id": 5,
+        "title": "Bitcoin vs Ethereum: Which is Better?",
+        "category": "Finance & Cryptocurrency",
+        "date": "2025-02-08",
+        "preview": "A deep dive into the key differences between Bitcoin and Ethereum for investors.",
+        "url": "article.html?id=5"
+    },
+    {
+        "id": 6,
+        "title": "Top 5 Superfoods for a Healthy Life",
+        "category": "Health & Wellness",
+        "date": "2025-02-07",
+        "preview": "Boost your health with these powerful superfoods packed with essential nutrients.",
+        "url": "article.html?id=6"
+    },
+    {
+        "id": 7,
+        "title": "Best Online Learning Platforms in 2025",
+        "category": "Education & E-learning",
+        "date": "2025-02-06",
+        "preview": "A guide to the best e-learning platforms for students and professionals in 2025.",
+        "url": "article.html?id=7"
+    },
+    {
+        "id": 8,
+        "title": "NASA’s Latest Mars Mission",
+        "category": "Science & Space",
+        "date": "2025-02-05",
+        "preview": "NASA is set to launch a new mission to explore the mysteries of the Red Planet.",
+        "url": "article.html?id=8"
+    },
+    {
+        "id": 9,
+        "title": "Upcoming Blockbuster Movies in 2025",
+        "category": "Entertainment & Movies",
+        "date": "2025-02-04",
+        "preview": "A sneak peek into the most anticipated movies releasing in 2025.",
+        "url": "article.html?id=9"
+    },
+    {
+        "id": 10,
+        "title": "Esports: The Future of Competitive Gaming",
+        "category": "Gaming & Esports",
+        "date": "2025-02-03",
+        "preview": "How esports is becoming a billion-dollar industry with global tournaments.",
+        "url": "article.html?id=10"
     }
 ]
