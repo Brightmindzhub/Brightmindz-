@@ -424,7 +424,7 @@ footer {
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px; /* ✅ Box ke beech spacing */
-    padding: 0 10px; /* ✅ 1cm ki jagah dono sides me */
+    padding: 0 50px; /* ✅ 1cm ki jagah dono sides me */
 }
 
 /* 🔹 Responsive Layout */
