@@ -90,3 +90,23 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .catch(error => console.error("Error loading articles:", error));
 });
+
+
+// Articles JSON file se data fetch karna aur homepage pe preview dikhana
+fetch("articles.json")
+    .then(response => response.json())
+    .then(data => {
+        let postsContainer = document.getElementById("posts");
+        data.forEach(post => {
+            let postElement = document.createElement("div");
+            postElement.classList.add("post-preview");
+            postElement.innerHTML = `
+                <h2><a href="article.html?id=${post.id}">${post.title}</a></h2>
+                <p><strong>Category:</strong> ${post.category} | <strong>Date:</strong> ${post.date}</p>
+                <p>${post.preview}</p>
+                <a href="article.html?id=${post.id}">Read More</a>
+            `;
+            postsContainer.appendChild(postElement);
+        });
+    })
+    .catch(error => console.error("Error loading JSON:", error));
