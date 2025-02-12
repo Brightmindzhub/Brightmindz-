@@ -394,42 +394,62 @@ footer {
 
 
 
-/* Article Cards ka Style */
-.article-card {
-    background-color: #ffffff;
-    border: 2px solid #012A4A;
-    border-radius: 10px;
+/* 🔹 Article Preview Cards Styling */
+.post-preview {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #007bff, #00d4ff); /* 🔹 Gradient Background */
     padding: 15px;
-    margin: 10px 0;
+    border-radius: 10px;
+    margin: 15px 0;
+    transition: transform 0.2s, box-shadow 0.3s;
+    color: #fff;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    text-align: center;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-    width: 80%;
-    margin: 10px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.article-card:hover {
-    background-color: #012A4A;
-    color: white;
+/* 🔹 Hover Effect */
+.post-preview:hover {
     transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
-.article-card h2 {
-    margin: 0;
-    padding: 10px 0;
+/* 🔹 Title Styling */
+.post-preview h2 {
     font-size: 20px;
+    margin-bottom: 8px;
 }
 
-.article-card p {
-    font-size: 16px;
-    color: #333;
+/* 🔹 Category & Date Styling */
+.post-preview p {
+    font-size: 14px;
+    opacity: 0.9;
 }
 
-/* Responsive Layout */
+/* 🔹 Button Effect for Read More */
+.post-preview a {
+    display: inline-block;
+    text-decoration: none;
+    background: #fff;
+    color: #007bff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s, color 0.3s;
+}
+
+.post-preview a:hover {
+    background: #007bff;
+    color: #fff;
+}
+
+/* 🔹 Responsive Layout */
 @media (max-width: 768px) {
-    .article-card {
-        width: 95%;
+    .post-preview {
+        padding: 12px;
+    }
+    .post-preview h2 {
+        font-size: 18px;
     }
 }
-
