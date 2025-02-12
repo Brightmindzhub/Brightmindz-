@@ -92,21 +92,26 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-// Articles JSON file se data fetch karna aur homepage pe preview dikhana
-fetch("articles.json")
-    .then(response => response.json())
-    .then(data => {
-        let postsContainer = document.getElementById("posts");
-        data.forEach(post => {
-            let postElement = document.createElement("div");
-            postElement.classList.add("post-preview");
-            postElement.innerHTML = `
-                <h2><a href="article.html?id=${post.id}">${post.title}</a></h2>
-                <p><strong>Category:</strong> ${post.category} | <strong>Date:</strong> ${post.date}</p>
-                <p>${post.preview}</p>
-                <a href="article.html?id=${post.id}">Read More</a>
-            `;
-            postsContainer.appendChild(postElement);
-        });
-    })
-    .catch(error => console.error("Error loading JSON:", error));
+document.addEventListener("DOMContentLoaded", function () {
+    fetch("articles.json")
+        .then(response => response.json())
+        .then(data => {
+            let postsContainer = document.getElementById("posts");
+            data.forEach(post => {
+                let postElement = document.createElement("div");
+                postElement.classList.add("post-preview"); // ✅ Button-style preview
+
+                postElement.innerHTML = `
+                    <div class="post-button" onclick="window.location.href='article.html?id=${post.id}'">
+                        <h2>${post.title}</h2>
+                        <p><strong>Category:</strong> ${post.category} | <strong>Date:</strong> ${post.date}</p>
+                        <p>${post.preview}</p>
+                        <span class="read-more">Read More</span>
+                    </div>
+                `;
+
+                postsContainer.appendChild(postElement);
+            });
+        })
+        .catch(error => console.error("Error loading JSON:", error));
+});
