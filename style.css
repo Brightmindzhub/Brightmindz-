@@ -40,6 +40,7 @@ header {
     top: 0;
     left: 0;
     width: 100%; /* Pure screen ke width ke liye */
+    max-width: 200px;
     background: #A9D6E5; /* Header ka background color */
     color: white; /* Text color */
     display: flex;
