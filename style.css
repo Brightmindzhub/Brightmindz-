@@ -72,7 +72,8 @@ header {
     border-radius: 100px;
     padding: 5px;
     transition: all 0.3s ease-in-out;
-    width: 150px; /* By default chhota hoga */
+    width: auto;/* By default chhota hoga */
+    max-width: 120;
     overflow: hidden;
 }
 
