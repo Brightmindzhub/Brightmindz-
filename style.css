@@ -403,7 +403,7 @@ footer {
     background: #012A4A;
     padding: 10px; /* ✅ Padding thodi kam ki */
     border-radius: 10px;
-    width: 85%; /* ✅ Box thoda chhota kiya */
+    width: 50%; /* ✅ Box thoda chhota kiya */
     max-width: 280px; /* ✅ Box ki max-width aur kam ki */
     margin: 8px; /* ✅ Gap maintain */
     transition: none, box-shadow 0.3s;
