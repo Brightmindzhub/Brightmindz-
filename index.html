@@ -112,19 +112,7 @@
 
 
   <script>
-        // Fetching articles from Flask API
-        fetch('/get_articles')
-            .then(response => response.json())
-            .then(data => {
-                const articlesList = document.getElementById('articles');
-                data.forEach(article => {
-                    const li = document.createElement('li');
-                    li.innerHTML = `<a href="/category/${article.category}">${article.title}</a>`;
-                    articlesList.appendChild(li);
-                });
-            })
-            .catch(error => console.error('Error fetching articles:', error));
-    
+       
 
 
     
