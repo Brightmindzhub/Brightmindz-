@@ -37,8 +37,6 @@ body{
 /* Header Styling */
 header {
     position: relative;
-    top: 0;
-    left: 0;
     width: 100%;
     background: #A9D6E5;
     color: white;
