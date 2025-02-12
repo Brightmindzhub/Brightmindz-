@@ -397,25 +397,25 @@ footer {
 /* 🔹 Article Preview Cards Styling */
 .post-preview {
     display: flex;
-    position: static;
+    position: relative;
     flex-direction: column;
     justify-content: space-between;
     background: #012A4A;
-    padding: 10px; /* ✅ Padding thodi kam ki */
+    padding: 15px; /* ✅ Comfortable padding */
     border-radius: 10px;
-    width: 50%; /* ✅ Box thoda chhota kiya */
-    max-width: 28px; /* ✅ Box ki max-width aur kam ki */
-    margin: 8px; /* ✅ Gap maintain */
-    transition: none, box-shadow 0.3s;
+    width: 45%; /* ✅ Thoda compact but bada */
+    max-width: 350px; /* ✅ Box ki max width set */
+    margin: 10px; /* ✅ Gap maintain */
+    transition: transform 0.3s, box-shadow 0.3s;
     color: #fff;
     cursor: pointer;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* 🔹 Hover Effect */
 .post-preview:hover {
-    transform: scale(1.04); /* ✅ Scale effect thoda kam kiya */
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+    transform: scale(1.03); /* ✅ Thoda halka zoom */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* 🔹 Container Fix */
@@ -423,15 +423,22 @@ footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px; /* ✅ Box ke beech spacing */
-    padding: 0 50px; /* ✅ 1cm ki jagah dono sides me */
+    gap: 15px; /* ✅ Box ke beech spacing */
+    padding: 0 20px; /* ✅ 1cm ka gap dono sides me */
 }
 
 /* 🔹 Responsive Layout */
+@media (max-width: 1024px) {
+    .post-preview {
+        width: 48%; /* ✅ Tablets ke liye adjust */
+        max-width: 320px;
+    }
+}
+
 @media (max-width: 768px) {
     .post-preview {
-        width: 95%;
-        max-width: 280px; /* ✅ Mobile view me aur compact */
-        margin: 6px auto;
+        width: 90%; /* ✅ Mobile view ke liye full width */
+        max-width: 280px;
+        margin: 8px auto;
     }
 }
