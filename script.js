@@ -68,23 +68,19 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    fetch("articles.json")
+  fetch("articles.json")
     .then(response => response.json())
     .then(data => {
-        // ✅ Date ke basis par sort karna (newest first)
-        data.sort((a, b) => new Date(b.date) - new Date(a.date));
+        data.sort((a, b) => new Date(b.date) - new Date(a.date)); // ✅ Newest first
 
         let postsContainer = document.getElementById("posts");
-        let perPage = 10;  // ✅ Sirf 10 articles ek page pe
+        let perPage = 10;
+        let currentIndex = 0;
 
-        let currentPage = 1;
-        let totalPages = Math.ceil(data.length / perPage);
-
-        function renderArticles(page) {
-            postsContainer.innerHTML = ""; // Pehle wale articles hatao
-            let start = (page - 1) * perPage;
-            let end = start + perPage;
-            let articlesToShow = data.slice(start, end);
+        function loadArticles() {
+            let end = currentIndex + perPage;
+            let articlesToShow = data.slice(currentIndex, end);
+            currentIndex = end;
 
             articlesToShow.forEach(post => {
                 let postElement = document.createElement("div");
@@ -100,28 +96,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 postsContainer.appendChild(postElement);
             });
 
-            renderPagination();
-        }
-
-        function renderPagination() {
-            let paginationContainer = document.getElementById("pagination");
-            paginationContainer.innerHTML = ""; // Purana clear karo
-
-            for (let i = 1; i <= totalPages; i++) {
-                let pageBtn = document.createElement("button");
-                pageBtn.textContent = i;
-                pageBtn.classList.add("page-btn");
-                if (i === currentPage) pageBtn.classList.add("active");
-
-                pageBtn.addEventListener("click", function () {
-                    currentPage = i;
-                    renderArticles(currentPage);
-                });
-
-                paginationContainer.appendChild(pageBtn);
+            if (currentIndex >= data.length) {
+                document.getElementById("loadMore").style.display = "none"; // ✅ Last page pe button hide
             }
         }
 
-        renderArticles(currentPage);
+        document.getElementById("loadMore").addEventListener("click", loadArticles);
+        loadArticles();
     })
     .catch(error => console.error("Error loading JSON:", error));
