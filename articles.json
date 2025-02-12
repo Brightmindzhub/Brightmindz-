@@ -1,29 +1,18 @@
 [
     {
         "id": 1,
-        "title": "The Future of AI in 2025",
-        "category": "Artificial Intelligence",
+        "title": "First Blog Post",
+        "category": "Technology",
         "date": "2025-02-12",
-        "views": 1500,
-        "preview": "AI is rapidly evolving and transforming industries...",
-        "content": "Artificial Intelligence (AI) is set to revolutionize many sectors..."
+        "preview": "This is a short preview of the first article.",
+        "url": "article1.html"
     },
     {
         "id": 2,
-        "title": "Best Web Development Practices",
-        "category": "Programming & Web Development",
-        "date": "2025-02-10",
-        "views": 1200,
-        "preview": "Web development has changed drastically over the years...",
-        "content": "In 2025, the best web development practices include..."
-    },
-    {
-        "id": 3,
-        "title": "Cybersecurity Tips for Beginners",
-        "category": "Cybersecurity",
-        "date": "2025-02-08",
-        "views": 900,
-        "preview": "Cyber threats are increasing daily. Here’s how you can stay safe...",
-        "content": "Cybersecurity is crucial in today’s digital world..."
+        "title": "Second Blog Post",
+        "category": "Education",
+        "date": "2025-02-11",
+        "preview": "This is a short preview of the second article.",
+        "url": "article2.html"
     }
 ]
