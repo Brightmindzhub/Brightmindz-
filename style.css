@@ -35,7 +35,7 @@ body{
 
 
 /* Header Styling */
-header {
+/*header */{
     position: fixed; /* Header ko screen ke top pe fix karne ke liye */
     top: 0;
     left: 0;
