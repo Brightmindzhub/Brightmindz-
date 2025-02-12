@@ -36,22 +36,21 @@ body{
 
 /* Header Styling */
 header {
-    position: fixed; /* Header ko screen ke top pe fix karne ke liye */
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%; /* Pure screen ke width ke liye */
-    background: #A9D6E5; /* Header ka background color */
-    color: white; /* Text color */
+    width: 100%;
+    background: #A9D6E5;
+    color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0; /* Koi extra gap na ho */
-    padding: 0px 0px; /* Thoda spacing better dikhane ke liye */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
-    z-index: 1000; /* Header ko sabse upar rakhne ke liye */
+    padding: 10px 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
-/* Menu Icon (Three Lines) */
+/* Menu Button */
 .menu-icon {
     font-size: 24px;
     cursor: pointer;
@@ -61,9 +60,10 @@ header {
 }
 
 .menu-icon:hover {
-    background: rgba(255, 255, 255, 0.2); /* Hover Effect */
+    background: rgba(255, 255, 255, 0.2);
 }
 
+/* Search Bar Container */
 .search-container {
     position: relative;
     display: flex;
@@ -72,49 +72,56 @@ header {
     border-radius: 100px;
     padding: 5px;
     transition: all 0.3s ease-in-out;
-    width: 150px; /* By default chhota hoga */
+    width: 150px; /* Default small size */
     overflow: hidden;
 }
 
+/* Search Input */
 .search-bar {
     border: none;
     outline: none;
     font-size: 16px;
     padding: 5px;
-    width: 100px; /* Hidden initially */
+    width: 100px;
     transition: width 0.3s ease-in-out;
     border-radius: 250px;
 }
 
-/* Jab search container active hoga tab search bar full expand hoga */
-.search-container.active {
-    width: 200px; 
-}
-
-.search-container.active .search-bar {
-    width: 160px; 
-}
-
-/* Search Icon Fix */
+/* Search Icon */
 .search-icon {
     width: 29px;
     height: 29px;
     cursor: pointer;
-    position: relative; /* Absolute se problem ho rahi thi */
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Expand Effect */
+.search-container.active {
+    width: 200px;
+}
+
+.search-container.active .search-bar {
+    width: 160px;
+}
+
+/* Search Icon Moves */
+.search-container.active .search-icon {
+    transform: translateX(10px);
 }
 
 /* User Icon */
 .user-icon img {
-    width: 40px;  /* Icon ka size */
+    width: 40px;
     height: 40px;
-    border-radius: 50%;  /* Round icon ke liye */
-    border: 2px solid #ccc; /* Border add karne ke liye */
+    border-radius: 50%;
+    border: 2px solid #ccc;
     margin-right: 10px;
     transition: transform 0.3s ease-in-out;
 }
 
 .user-icon img:hover {
-    transform: scale(1.1); /* Hover par thoda bada hoga */
+    transform: scale(1.1);
 }
 
 
