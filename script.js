@@ -28,82 +28,69 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // ✅ Category Dropdown Toggle (Wapas La Diya)
-    const categoryBtn = document.getElementById("categoryBtn");
-    const categoryList = document.getElementById("categoryList");
-
-    if (categoryBtn && categoryList) {
-        categoryBtn.addEventListener("click", function () {
-            categoryList.classList.toggle("open");
-            categoryList.style.maxHeight = categoryList.classList.contains("open") ? "300px" : "0px";
-            categoryList.style.opacity = categoryList.classList.contains("open") ? "1" : "0";
-        });
-    }
-
-    // ✅ Sorting Options Toggle (Wapas La Diya)
-    const sortBtn = document.getElementById("sortBtn");
-    const sortList = document.getElementById("sortList");
-
-    if (sortBtn && sortList) {
-        sortBtn.addEventListener("click", function (event) {
-            event.stopPropagation();
-            sortList.classList.toggle("open");
-        });
-
-        document.addEventListener("click", function (event) {
-            if (!sortBtn.contains(event.target) && !sortList.contains(event.target)) {
-                sortList.classList.remove("open");
-            }
-        });
-    }
-
-    // ✅ View Toggle (Grid ↔ List) Wapas La Diya
+    // ✅ View Toggle (Grid ↔ List)
     const viewBtn = document.getElementById("viewBtn");
+    const postsContainer = document.getElementById("posts");
+    let isGridView = false; // Default: List View
+    let perPage = 10; // Default for list view
 
     if (viewBtn) {
-        let isGridView = true;
         viewBtn.addEventListener("click", function () {
             isGridView = !isGridView;
-            viewBtn.textContent = isGridView ? "Grid View" : "List View";
+            perPage = isGridView ? 20 : 10; // Grid = 20, List = 10
+            viewBtn.textContent = isGridView ? "List View" : "Grid View";
+            postsContainer.classList.toggle("grid-view", isGridView);
+            postsContainer.classList.toggle("list-view", !isGridView);
+            renderArticles(1);
         });
     }
 
     // ✅ Load Articles
+    let data = [];
+    let currentPage = 1;
+    let totalPages = 1;
+
     fetch("articles.json")
     .then(response => response.json())
-    .then(data => {
-        if (!Array.isArray(data) || data.length === 0) {
+    .then(jsonData => {
+        if (!Array.isArray(jsonData) || jsonData.length === 0) {
             console.error("❌ JSON is empty or not an array!");
             return;
         }
 
+        data = jsonData;
+        totalPages = Math.ceil(data.length / perPage);
+        
         console.log("✅ Loaded Articles:", data);
 
-        // ✅ Sort articles (newest first)
-        data.sort((a, b) => new Date(b.date) - new Date(a.date));
+        renderArticles(currentPage);
+    })
+    .catch(error => console.error("❌ Error loading JSON:", error));
 
-        console.log("✅ Sorted Articles:", data);
+    function renderArticles(page) {
+        postsContainer.innerHTML = "";
+        let start = (page - 1) * perPage;
+        let end = start + perPage;
+        let articlesToShow = data.slice(0, end); 
 
-        let postsContainer = document.getElementById("posts");
-        let perPage = 10;  // ✅ Only 10 articles per page
-        let currentPage = 1;
-        let totalPages = Math.ceil(data.length / perPage);
+        if (articlesToShow.length === 0) {
+            postsContainer.innerHTML = "<p>No articles available.</p>";
+            return;
+        }
 
-        function renderArticles(page) {
-            postsContainer.innerHTML = ""; // ✅ Clear old content
-            let start = (page - 1) * perPage;
-            let end = start + perPage;
-            let articlesToShow = data.slice(start, end);
+        articlesToShow.forEach(post => {
+            let postElement = document.createElement("div");
+            postElement.classList.add("post-preview");
 
-            if (articlesToShow.length === 0) {
-                postsContainer.innerHTML = "<p>No articles available.</p>";
-                return;
-            }
-
-            articlesToShow.forEach(post => {
-                let postElement = document.createElement("div");
-                postElement.classList.add("post-preview");
-
+            if (isGridView) {
+                postElement.innerHTML = `
+                    <div class="post-button" onclick="window.location.href='${post.url}'">
+                        <h2>${post.title}</h2>
+                        <p>${post.preview}</p>
+                        <span class="read-more">Read More</span>
+                    </div>
+                `;
+            } else {
                 postElement.innerHTML = `
                     <div class="post-button" onclick="window.location.href='${post.url}'">
                         <h2>${post.title}</h2>
@@ -112,47 +99,66 @@ document.addEventListener("DOMContentLoaded", function () {
                         <span class="read-more">Read More</span>
                     </div>
                 `;
-                postsContainer.appendChild(postElement);
+            }
+
+            postsContainer.appendChild(postElement);
+        });
+
+        renderPagination();
+    }
+
+    function renderPagination() {
+        let paginationContainer = document.getElementById("pagination");
+        paginationContainer.innerHTML = "";
+
+        for (let i = 1; i <= totalPages; i++) {
+            let pageBtn = document.createElement("button");
+            pageBtn.textContent = i;
+            pageBtn.classList.add("page-btn");
+            if (i === currentPage) pageBtn.classList.add("active");
+
+            pageBtn.addEventListener("click", function () {
+                currentPage = i;
+                renderArticles(currentPage);
             });
 
-            renderPagination();
+            paginationContainer.appendChild(pageBtn);
         }
+    }
 
-        function renderPagination() {
-            let paginationContainer = document.getElementById("pagination");
-            paginationContainer.innerHTML = ""; // ✅ Clear old pagination
+    // ✅ Sorting Functionality
+    const sortOptions = document.querySelectorAll("#sortList li");
 
-            for (let i = 1; i <= totalPages; i++) {
-                let pageBtn = document.createElement("button");
-                pageBtn.textContent = i;
-                pageBtn.classList.add("page-btn");
-                if (i === currentPage) pageBtn.classList.add("active");
+    sortOptions.forEach(option => {
+        option.addEventListener("click", function () {
+            let sortType = option.textContent.trim();
 
-                pageBtn.addEventListener("click", function () {
-                    currentPage = i;
-                    renderArticles(currentPage);
-                });
-
-                paginationContainer.appendChild(pageBtn);
+            if (sortType === "Trending") {
+                data.sort((a, b) => new Date(b.date) - new Date(a.date)); // Newest first
+            } else if (sortType === "Recommended") {
+                data.sort((a, b) => a.title.localeCompare(b.title)); // A-Z sorting
+            } else if (sortType === "Random") {
+                data.sort(() => Math.random() - 0.5); // Random shuffle
             }
-        }
 
-        renderArticles(currentPage);
-    })
-    .catch(error => console.error("❌ Error loading JSON:", error));
-});
-
-
-// ✅ Load More button functionality
-const loadMoreBtn = document.getElementById("loadMore");
-
-if (loadMoreBtn) {
-    loadMoreBtn.addEventListener("click", function () {
-        if (currentPage < totalPages) {
-            currentPage++;
+            console.log("✅ Sorted by:", sortType);
             renderArticles(currentPage);
-        } else {
-            loadMoreBtn.style.display = "none"; // ✅ Jab sab load ho jaye to hide kar do
-        }
+            sortList.classList.remove("open");
+        });
     });
-}
+
+    // ✅ Load More button functionality
+    const loadMoreBtn = document.getElementById("loadMore");
+
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener("click", function () {
+            if (currentPage < totalPages) {
+                currentPage++;
+                renderArticles(currentPage);
+            }
+            if (currentPage >= totalPages) {
+                loadMoreBtn.style.display = "none";
+            }
+        });
+    }
+});
