@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Fetching Articles (One Place)
+    // Fetching Articles and Posts (Single Fetch)
     fetch("articles.json")
         .then(response => response.json())
         .then(data => {
