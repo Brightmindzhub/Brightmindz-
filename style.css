@@ -397,16 +397,15 @@ footer {
 /* 🔹 Article Preview Cards Styling */
 .post-preview {
     display: flex;
-    position: relative;
     flex-direction: column;
     justify-content: space-between;
     background: #012A4A;
-    padding: 12px; /* ✅ Thoda chhota padding */
+    padding: 12px;
     border-radius: 10px;
-    width: 45%; /* ✅ Compact but readable */
-    max-width: 350px;
-    height: 200px; /* ✅ Fixed height */
-    overflow: hidden; /* ✅ Extra content cut ho jayega */
+    width: 30%; /* ✅ Desktop ke liye chhota */
+    max-width: 280px; /* ✅ Compact but readable */
+    height: 180px; /* ✅ Optimized height */
+    overflow: hidden;
     margin: 10px;
     transition: transform 0.3s, box-shadow 0.3s;
     color: #fff;
@@ -416,15 +415,15 @@ footer {
 
 /* 🔹 Hover Effect */
 .post-preview:hover {
-    transform: scale(1.03);
+    transform: scale(1.04);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* 🔹 Title Styling */
 .post-preview h2 {
-    font-size: 18px; /* ✅ Font thoda chhota */
+    font-size: 16px; /* ✅ Desktop ke liye aur compact */
     margin-bottom: 5px;
-    white-space: nowrap; /* ✅ Ek hi line me aaye */
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -433,7 +432,7 @@ footer {
 .post-preview p {
     font-size: 13px;
     opacity: 0.9;
-    max-height: 40px; /* ✅ Chhota content */
+    max-height: 35px; /* ✅ Extra content hidden */
     overflow: hidden;
 }
 
@@ -445,20 +444,31 @@ footer {
     text-align: center;
 }
 
-/* 🔹 Responsive Layout */
-@media (max-width: 1024px) {
+/* 🔹 💻 Desktop Optimization */
+@media (min-width: 1280px) {
     .post-preview {
-        width: 48%;
-        max-width: 320px;
-        height: 180px; /* ✅ Tablets ke liye adjust */
+        width: 25%; /* ✅ Large screens ke liye aur chhota */
+        max-width: 260px;
+        height: 170px;
+        margin: 15px;
     }
 }
 
+/* 🔹 📱 Tablet Optimization */
+@media (max-width: 1024px) {
+    .post-preview {
+        width: 45%; /* ✅ Grid thoda wide ho jaye */
+        max-width: 280px;
+        height: 175px;
+    }
+}
+
+/* 🔹 📱 Mobile Optimization */
 @media (max-width: 768px) {
     .post-preview {
         width: 90%;
-        max-width: 280px;
-        height: 170px; /* ✅ Mobile view ke liye aur chhota */
+        max-width: 270px;
+        height: 165px;
         margin: 8px auto;
     }
 }
