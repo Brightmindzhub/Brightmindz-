@@ -401,29 +401,29 @@ footer {
     flex-direction: column;
     justify-content: space-between;
     background: #012A4A;
-    padding: 12px;
+    padding: 10px; /* ✅ Padding thodi kam ki */
     border-radius: 10px;
-    width: 90%; /* ✅ 90% width */
-    max-width: 350px; /* ✅ Box ka max size fix kiya */
-    margin: 10px auto; /* ✅ Har taraf equal spacing */
+    width: 85%; /* ✅ Box thoda chhota kiya */
+    max-width: 280px; /* ✅ Box ki max-width aur kam ki */
+    margin: 8px; /* ✅ Gap maintain */
     transition: none, box-shadow 0.3s;
     color: #fff;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* 🔹 Hover Effect */
 .post-preview:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.04); /* ✅ Scale effect thoda kam kiya */
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* 🔹 Container Fix */
 .posts-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* ✅ Center me lane ke liye */
-    gap: 15px; /* ✅ Boxes ke beech gap */
+    justify-content: center;
+    gap: 10px; /* ✅ Box ke beech spacing */
     padding: 0 10px; /* ✅ 1cm ki jagah dono sides me */
 }
 
@@ -431,7 +431,7 @@ footer {
 @media (max-width: 768px) {
     .post-preview {
         width: 95%;
-        max-width: none;
-        margin: 8px auto;
+        max-width: 250px; /* ✅ Mobile view me aur compact */
+        margin: 6px auto;
     }
 }
