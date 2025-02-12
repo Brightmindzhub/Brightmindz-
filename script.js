@@ -141,3 +141,18 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .catch(error => console.error("❌ Error loading JSON:", error));
 });
+
+
+// ✅ Load More button functionality
+const loadMoreBtn = document.getElementById("loadMore");
+
+if (loadMoreBtn) {
+    loadMoreBtn.addEventListener("click", function () {
+        if (currentPage < totalPages) {
+            currentPage++;
+            renderArticles(currentPage);
+        } else {
+            loadMoreBtn.style.display = "none"; // ✅ Jab sab load ho jaye to hide kar do
+        }
+    });
+}
