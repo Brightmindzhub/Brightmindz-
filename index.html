@@ -111,19 +111,6 @@
     <div id="posts"></div>
 
 
- <script>
-   fetch('articles.json')
-   .then(response => response.json())
-   .then(data => {
-      let postsContainer = document.getElementById("posts");
-      data.forEach(post => {
-         let postElement = document.createElement("div");
-         postElement.innerHTML = `<h2>${post.title}</h2><p>${post.content}</p>`;
-         postsContainer.appendChild(postElement);
-      });
-   })
-   .catch(error => console.error("Error loading JSON:", error));
-</script>
 
     
 
