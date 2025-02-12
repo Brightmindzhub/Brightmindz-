@@ -43,6 +43,7 @@ header {
     background: #A9D6E5; /* Header ka background color */
     color: white; /* Text color */
     display: flex;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
     margin: 0; /* Koi extra gap na ho */
@@ -80,9 +81,9 @@ header {
 .search-bar {
     border: none;
     outline: none;
-    font-size: 16px;
-    padding: 5px;
-    width: 100px; /* Hidden initially */
+    font-size: 14px;
+    padding: 4px;
+    width: 80px; /* Hidden initially */
     transition: width 0.3s ease-in-out;
     border-radius: 250px;
 }
