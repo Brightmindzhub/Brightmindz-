@@ -32,7 +32,30 @@ body{
 }
 
 
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f8f8;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
 
+/* Menu Icon */
+.menu-icon {
+    font-size: 24px;  /* Icon ka size */
+    cursor: pointer;
+}
+
+/* User Icon */
+.user-icon {
+    font-size: 24px;  /* Icon ka size */
+    cursor: pointer;
+}
 
 
 
