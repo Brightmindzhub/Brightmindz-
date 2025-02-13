@@ -597,7 +597,7 @@ body.reading-mode {
     border: 1px solid #E5C29F;
 }
 
-.reading-mode .search-bar {
+.reading-mode .search-container {
     background-color: #FAF1E4;
     color: black;
     border: 1px solid #E5C29F;
