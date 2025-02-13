@@ -1,56 +1,74 @@
-body {
-    font-family: "Georgia", serif;
-    background-color: #EAFDF8; /* Day Mode Defaul>
-    color: #333;
+/* ✅ Global Styles */
+* {
     margin: 0;
     padding: 0;
-    line-height: 1.6;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
-/* ✅ Header Design */
+/* ✅ Body */
+body {
+    background-color: #F5F5F5; /* Light gray */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ✅ Header */
 header {
-    background: #012A4A;
+    background-color: #012A4A; /* Navy Blue */
     color: white;
     text-align: center;
-    padding: 8px;
-    font-size: 20px;
+    padding: 15px 0;
+    font-size: 22px;
     font-weight: bold;
 }
 
 /* ✅ Article Content Box */
 #article-content {
     max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
     background: white;
+    padding: 20px;
+    margin: 20px auto;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: background 0.4s ease-in-out, colo>
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* ✅ Footer */
+/* ✅ Article Heading */
+#article-content h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* ✅ Go Back Button */
+.go-back {
+    display: inline-block;
+    text-decoration: none;
+    background: #012A4A;
+    color: white;
+    padding: 10px 18px;
+    font-size: 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 20px auto;
+    display: block;
+    text-align: center;
+    width: fit-content;
+    transition: 0.3s ease;
+}
+
+.go-back:hover {
+    background: #01497C;
+    transform: scale(1.05);
+}
+
+/* ✅ Footer (Sticky) */
 footer {
-    background: #DCDCDC;
+    background-color: #012A4A;
     color: white;
     text-align: center;
-    padding: 0px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-/* ✅ Dark Mode */
-.dark-mode {
-    background-color: #121212;
-    color: #EAEAEA;
-}
-
-.dark-mode header,
-.dark-mode footer {
-    background: #0A192F;
-}
-
-.dark-mode #article-content {
-    background: #1E1E1E;
-    color: #EAEAEA;
+    padding: 15px 0;
+    margin-top: auto;
 }
