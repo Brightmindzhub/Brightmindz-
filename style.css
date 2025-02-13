@@ -5,36 +5,32 @@ body{
           padding-top: 60px;
           display: flex;
           flex-direction: column;
-          min-height: 100vh; /* Puri screen height tak stretch hoga */
+          min-height: 100vh;
 }
 }
 
 
 .content {
-    flex-grow: 1; /* Jo bhi bacha hua space hoga vo le lega */
+    flex-grow: 1;
 }
 
 .welcome-text {
-    font-size: 40px;  /* Font size bada */
-    font-weight: bold; /* Mota text */
-    color: #012A4A; /* Dark blue shade */
-    text-align: center; /* Center me karega */
-    margin-top: 50px; /* Thoda neeche shift */
-    text-transform: uppercase; /* Sare letters capital */
-    letter-spacing: 2px; /* Letters ke beech gap */
-    animation: fadeIn 1s ease-in-out; /* Smooth fade-in animation */
+    font-size: 40px;
+    font-weight: bold;
+    color: #012A4A;
+    text-align: center;
+    margin-top: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeIn 1s ease-in-out;
 }
 
-/* Animation effect */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 
-
-
-/* Header Styling */
 header {
     position: absolute;
     top: 0;
@@ -50,7 +46,6 @@ header {
     z-index: 1000;
 }
 
-/* Menu Button */
 .menu-icon {
     font-size: 24px;
     cursor: pointer;
@@ -63,7 +58,6 @@ header {
     background: rgba(255, 255, 255, 0.2);
 }
 
-/* Search Bar Container */
 .search-container {
     position: relative;
     display: flex;
@@ -72,11 +66,10 @@ header {
     border-radius: 100px;
     padding: 5px;
     transition: all 0.3s ease-in-out;
-    width: 150px; /* Default small size */
+    width: 150px;
     overflow: hidden;
 }
 
-/* Search Input */
 .search-bar {
     border: none;
     outline: none;
@@ -87,7 +80,6 @@ header {
     border-radius: 250px;
 }
 
-/* Search Icon */
 .search-icon {
     width: 29px;
     height: 29px;
@@ -97,7 +89,6 @@ header {
     transition: transform 0.3s ease-in-out;
 }
 
-/* Expand Effect */
 .search-container.active {
     width: 200px;
 }
@@ -107,20 +98,17 @@ header {
 }
 
 .search-container.active {
-    width: 200px; /* Isko 180px ya 190px karo */
+    width: 200px;
 }
 
 .search-container.active .search-bar {
-    width: 160px; /* Isko 140px ya 150px karo */
+    width: 160px;
 }
 
-
-/* Search Icon Moves */
 .search-container.active .search-icon {
     transform: translateX(5px);
 }
 
-/* User Icon */
 .user-icon img {
     width: 40px;
     height: 40px;
@@ -134,13 +122,10 @@ header {
     transform: scale(1.1);
 }
 
-
-
-/* Sidebar ka design */
 .sidebar {
     position: fixed;
     top: 0;
-    left: -250px; /* Default hidden */
+    left: -250px;
     width: 180px;
     height: 100%;
     background: #A9D6E5;
@@ -153,7 +138,7 @@ header {
 }
 
 .sidebar.active {
-    left: 0; /* Open hone par left se show hoga */
+    left: 0;
 }
 
 .sidebar ul {
@@ -179,7 +164,6 @@ header {
     background: rgba(0, 0, 0, 0.1);
 }
 
-/* Menu icon styling */
 .menu-icon {
     font-size: 24px;
     cursor: pointer;
@@ -192,9 +176,6 @@ header {
     background: rgba(255, 255, 255, 0.2);
 }
 
-
-
-/* Menu icon styling */
 .menu-icon {
     font-size: 24px;
     cursor: pointer;
@@ -207,19 +188,16 @@ header {
     background: rgba(255, 255, 255, 0.2);
 }
 
-
-
-/* Footer ko neeche fix karne ke liye */
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
-    padding-top: 60px; /* Header ke liye space */
+    padding-top: 60px;
 }
 
 .content {
-    flex: 1; /* Content ko beech me rakhne ke liye */
+    flex: 1;
 }
 
 footer {
@@ -232,13 +210,11 @@ footer {
     bottom: 0;
 }
 
-
-
 #categoryContainer {
     position: relative;
     text-align: center;
     margin: 5px auto;
-    width: calc(100% - 20px); /* Left-right se gap */
+    width: calc(100% - 20px);
     max-width: 400px;
     z-index: 1;
 }
@@ -249,7 +225,7 @@ footer {
     font-size: 20px;
     padding: 15px 20px;
     border: none;
-    border-radius: 5px; /* Teekha corner */
+    border-radius: 5px;
     cursor: pointer;
     width: 100%;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -257,7 +233,6 @@ footer {
     transition: background 0.3s ease, transform 0.2s ease;
 }
 
-/* List ko button ke neeche position dena */
 #categoryList {
     list-style: none;
     padding: 0;
@@ -267,22 +242,19 @@ footer {
     border-radius: 5px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
     position: absolute;
-    top: 100%; /* Button ke bilkul neeche */
+    top: 100%;
     left: 0;
     z-index: 1000;
-    
-    /* Max height ko adjust karke fix kiya */
     max-height: 0;
     opacity: 0;
-    overflow-y: hidden; /* overflow-y: auto karenge to scrollbar aayega */
+    overflow-y: hidden;
     transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-/* Open Class */
 #categoryList.open {
-    max-height: 500px; /* Increase kiya taki sab categories dikhein */
+    max-height: 500px;
     opacity: 1;
-    overflow-y: auto; /* Scrollbar show karega agar categories zyada hain */
+    overflow-y: auto;
 }
 
 #categoryList li {
@@ -297,34 +269,28 @@ footer {
     color: white;
 }
 
-/* Open state ke liye class */
 .open {
-    max-height: 300px; /* Yaha list ka max height adjust karein */
+    max-height: 300px;
     opacity: 1;
     overflow: visible;
 }
 #categoryList li a {
-    text-decoration: none; /* Underline hatane ke liye */
-    color: black; /* Default color */
-    display: block; /* Pura list item clickable */
+    text-decoration: none;
+    color: black;
+    display: block;
     padding: 10px;
-    font-weight: bold; /* Bold text */
+    font-weight: bold;
 }
 #categoryList li a:hover {
-    color: red; /* Hover effect */
+    color: red;
 }
 
-
-
-
-/* ✅ Grid View Layout */
 #postsContainer.grid-view {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
-    gap: 15px; /* Grid items ke beech gap */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
 }
 
-/* ✅ List View Layout */
 #postsContainer.list-view {
     display: flex;
     flex-direction: column;
@@ -339,21 +305,21 @@ footer {
 #filterContainer {
     display: flex;
     justify-content: center;
-    gap: 15px; /* Buttons ke beech gap badhane ke liye */
+    gap: 15px;
     margin: 10px auto;
     position: relative;
-    top: -5px; /* Upar move karne ke liye */
+    top: -5px;
 }
 
 #sortBtn, #viewBtn {
     background-color: #A9D6E5;
     color: white;
     font-size: 18px;
-    padding: 12px 20px; /* Buttons thode bade ho jayenge */
+    padding: 12px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 160px; /* Fixed Width */
+    width: 160px;
     text-align: center;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     font-weight: bold;
@@ -364,17 +330,15 @@ footer {
     background: #89C2D9;
 }
 
-/* Grid/List Button Size Fix */
 #viewBtn {
-    flex-shrink: 0; /* Resize hone se rokne ke liye */
+    flex-shrink: 0;
 }
 
-/* Sort List Style */
 #sortList {
     list-style: none;
     padding: 0;
     margin: 0;
-    width: 160px; /* List ka size button ke barabar ho */
+    width: 160px;
     background: #A9D6E5;
     position: absolute;
     top: 45px;
@@ -402,24 +366,19 @@ footer {
     color: white;
 }
 
-/* Open Class */
 #sortList.open {
     max-height: 150px;
     opacity: 1;
 }
 
-
-
-/* 🔹 Main Wrapper (Jisme Sare Boxes Rahenge) */
 .posts-wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* ✅ Boxes center me rahenge */
-    gap: 15px; /* ✅ Boxes ke beech equal space */
+    justify-content: center;
+    gap: 15px;
     padding: 10px;
 }
 
-/* 🔹 Article Preview Cards Styling */
 .post-preview {
     display: flex;
     flex-direction: column;
@@ -427,23 +386,21 @@ footer {
     background: #012A4A;
     padding: 12px;
     border-radius: 10px;
-    width: 320px; /* ✅ Adjust width */
-    height: 145px; /* ✅ Adjust height */
+    width: 320px;
+    height: 145px;
     overflow: hidden;
-    margin: 10px auto; /* ✅ Center align */
+    margin: 10px auto;
     transition: transform 0.3s, box-shadow 0.3s;
     color: #fff;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* 🔹 Hover Effect */
 .post-preview:hover {
     transform: scale(1.04);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* 🔹 Title Styling */
 .post-preview h2 {
     font-size: 16px;
     margin-bottom: 5px;
@@ -452,17 +409,15 @@ footer {
     text-overflow: ellipsis;
 }
 
-/* 🔹 Category & Date Styling */
 .post-preview p {
     font-size: 13px;
     opacity: 0.9;
     display: -webkit-box;
-    -webkit-line-clamp: 3; /* ✅ Show 3 lines */
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
-/* 🔹 Read More Button */
 .post-preview .read-more {
     font-size: 13px;
     font-weight: bold;
@@ -470,8 +425,6 @@ footer {
     text-align: center;
 }
 
-
-/* 🔹 Load More Button */
 #loadMore {
     display: block;
     margin: 20px auto;
@@ -479,31 +432,25 @@ footer {
     font-size: 16px;
     font-weight: bold;
     color: #fff;
-    background: linear-gradient(45deg, #007bff, #0056b3); /* ✅ Stylish Gradient */
+    background: linear-gradient(45deg, #007bff, #0056b3);
     border: none;
-    border-radius: 25px; /* ✅ Smooth Rounded Look */
+    border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
 }
 
-/* 🔹 Hover Effect */
 #loadMore:hover {
     background: linear-gradient(45deg, #0056b3, #003f80);
     transform: scale(1.05);
     box-shadow: 0 6px 15px rgba(0, 91, 191, 0.5);
 }
 
-/* 🔹 Click Effect */
 #loadMore:active {
     transform: scale(0.98);
     box-shadow: 0 2px 8px rgba(0, 91, 191, 0.5);
 }
 
-
-
-/* ✅ Mode Button */
-/* ✅ Mode Button */
 .mode-container {
     position: relative; /* Ensure position relative so dropdown aligns correctly */
 }
@@ -527,7 +474,6 @@ footer {
     background: #89C2D9;
 }
 
-/* ✅ Mode List Dropdown */
 #modeList {
     list-style: none;
     padding: 0;
@@ -535,7 +481,7 @@ footer {
     width: 160px;
     background: #A9D6E5;
     position: absolute;
-    top: 45px;  /* 🔥 Ye ensure karega ki mode button ke neechey aaye */
+    top: 45px;
     left: 0;
     z-index: 1000;
     border-radius: 5px;
@@ -560,41 +506,34 @@ footer {
     color: white;
 }
 
-/* ✅ Open Mode List */
 #modeList.open {
     max-height: 150px;
     opacity: 1;
 }
 
-/* ✅ Smooth Theme Transitions */
 body {
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-/* ✅ Day Mode */
 body.day-mode {
     background-color: #EAFDF8;
     color: #333;
 }
 
-/* ✅ Night Mode */
 body.night-mode {
     background-color: #1E1E1E;
     color: #FFFFFF;
 }
 
-/* ✅ Reading Mode */
 body.reading-mode {
     background-color: #F5E6CC;
     color: #333;
 }
 
-/* ✅ Header, Footer, and Articles Transition */
 header, footer, .article {
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-/* ✅ Theme Adjustments */
 .day-mode header, .day-mode footer {
     background-color: #A9D6E5;
     color: #012A4A;
@@ -610,13 +549,10 @@ header, footer, .article {
     color: #5C3D2E;
 }
 
-
-/* ✅ Smooth Transitions for All Elements */
 body, header, footer, .article, #searchBar, #categoryBar, #sortBtn, #modeToggleBtn {
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-/* ✅ Default (Day Mode) */
 body.day-mode {
     background-color: #EAFDF8;
     color: #333;
@@ -644,7 +580,6 @@ body.day-mode {
     color: black;
 }
 
-/* ✅ Night Mode */
 body.night-mode {
     background-color: #1E1E1E;
     color: #FFFFFF;
@@ -672,7 +607,6 @@ body.night-mode {
     color: white;
 }
 
-/* ✅ Reading Mode */
 body.reading-mode {
     background-color: #F5E6CC;
     color: #333;
