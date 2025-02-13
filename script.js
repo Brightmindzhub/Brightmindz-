@@ -215,12 +215,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (mode === "night") {
                 elementsToChange.forEach(element => element.classList.add("night-mode"));
-                modeToggleBtn.textContent = "🌙 Night Mode";
+                modeToggleBtn.textContent = "Night Mode";
             } else if (mode === "reading") {
                 elementsToChange.forEach(element => element.classList.add("reading-mode"));
-                modeToggleBtn.textContent = "📖 Reading Mode";
+                modeToggleBtn.textContent = "Reading Mode";
             } else {
-                modeToggleBtn.textContent = "🌞 Day Mode";
+                modeToggleBtn.textContent = "Day Mode";
             }
 
             modeList.classList.remove("open");
