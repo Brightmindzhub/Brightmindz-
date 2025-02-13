@@ -411,7 +411,7 @@ footer {
     background: #012A4A;
     padding: 12px;
     border-radius: 10px;
-    width: 350px; /* ✅ Adjust width */
+    width: 325px; /* ✅ Adjust width */
     height: 145px; /* ✅ Adjust height */
     overflow: hidden;
     margin: 10px auto; /* ✅ Center align */
