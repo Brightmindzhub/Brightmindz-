@@ -30,10 +30,10 @@ header {
 
 /* ✅ Footer */
 footer {
-    background: #012A4A;
+    background: #DCDCDC;
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 0px;
     position: absolute;
     bottom: 0;
     width: 100%;
