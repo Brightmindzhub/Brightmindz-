@@ -7,8 +7,6 @@ body{
           flex-direction: column;
           min-height: 100vh;
 }
-}
-
 
 .content {
     flex-grow: 1;
@@ -164,36 +162,12 @@ header {
     background: rgba(0, 0, 0, 0.1);
 }
 
-.menu-icon {
-    font-size: 24px;
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-}
-
 .menu-icon:hover {
     background: rgba(255, 255, 255, 0.2);
 }
 
-.menu-icon {
-    font-size: 24px;
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-}
-
 .menu-icon:hover {
     background: rgba(255, 255, 255, 0.2);
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
-    padding-top: 60px;
 }
 
 .content {
@@ -584,6 +558,10 @@ body.night-mode {
     background-color: #1E1E1E;
     color: #FFFFFF;
 }
+body.night-mode #categoryBtn {
+    background-color: #333; /* Dark background */
+    color: #fff; /* White text */
+}
 
 .night-mode .article {
     background-color: #2B2B2B;
@@ -601,6 +579,7 @@ body.night-mode {
     background-color: #444;
     color: white;
 }
+
 
 .night-mode #sortBtn, .night-mode #modeToggleBtn {
     background-color: #444;
