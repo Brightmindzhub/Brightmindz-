@@ -1,18 +1,28 @@
 document.addEventListener("DOMContentLoaded", async function () {
-    const categoryName = decodeURIComponent(window.location.pathname.split("/").pop()); // ✅ URL se category name lo
+    // ✅ Category name URL se le raha hai
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryName = urlParams.get("category");
+
+    if (!categoryName) {
+        console.error("Category not found in URL!");
+        return;
+    }
 
     document.getElementById("category-title").innerText = categoryName;
     document.getElementById("category-content").innerText = `Explore the latest articles in "${categoryName}" category.`;
 
     try {
-        const response = await fetch("../articles.json"); // ✅ JSON file load karo
+        // ✅ JSON data load karo
+        const response = await fetch("../articles.json");
+        if (!response.ok) throw new Error("Failed to load JSON file!");
         const articles = await response.json();
 
-        // ✅ Filter karo sirf wahi articles jo iss category ke hai
+        // ✅ Category match karo
         const filteredArticles = articles.filter(article => article.category === categoryName);
-
-        // ✅ HTML me articles add karo
+        
         const articlesContainer = document.getElementById("articles-list");
+        articlesContainer.innerHTML = ""; // Purane articles hatao
+
         if (filteredArticles.length === 0) {
             articlesContainer.innerHTML = "<p>No articles found in this category.</p>";
         } else {
