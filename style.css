@@ -502,113 +502,105 @@ footer {
 
 
 
-/* Base Transition for Smooth Effect */
-body, header, footer, .article, .tab, .menu {
-    transition: background 0.5s ease, color 0.5s ease;
-}
-
-/* 🌞 Day Mode (Default) */
-body {
-    background: #ffffff;
-    color: #222;
-}
-
-header, footer {
-    background: #f8f9fa;
-    color: #222;
-}
-
-.article, .tab {
-    background: #ffffff;
-    color: #222;
-    border: 1px solid #ddd;
-}
-
-/* 🌙 Night Mode */
-body.night-mode {
-    background: #121212;
-    color: #e0e0e0;
-}
-
-header.night-mode, footer.night-mode {
-    background: #1e1e1e;
-    color: #e0e0e0;
-}
-
-.article.night-mode, .tab.night-mode {
-    background: #222;
-    color: #f5f5f5;
-    border-color: #444;
-}
-
-/* 📖 Reading Mode */
-body.reading-mode {
-    background: #f5e6cc;
-    color: #3a3a3a;
-}
-
-header.reading-mode, footer.reading-mode {
-    background: #e0caa8;
-    color: #3a3a3a;
-}
-
-.article.reading-mode, .tab.reading-mode {
-    background: #faebd7;
-    color: #3a3a3a;
-    border-color: #d3b593;
-}
-
-/* Mode Toggle Button */
-.mode-container {
-    position: relative;
-    display: inline-block;
-}
-
+/* ✅ Mode Button */
 #modeToggleBtn {
-    background: #f0f0f0;
+    background-color: #A9D6E5;
+    color: white;
+    font-size: 18px;
+    padding: 12px 20px;
     border: none;
-    padding: 8px 15px;
-    cursor: pointer;
-    font-size: 16px;
     border-radius: 5px;
-    transition: background 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    width: 160px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 #modeToggleBtn:hover {
-    background: #ddd;
+    background: #89C2D9;
 }
 
-/* Dropdown List */
+/* ✅ Mode List Dropdown */
 #modeList {
     list-style: none;
+    padding: 0;
     margin: 0;
-    padding: 5px 0;
+    width: 160px;
+    background: #A9D6E5;
     position: absolute;
-    top: 100%;
+    top: 45px;
     left: 0;
-    background: white;
-    border: 1px solid #ccc;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
     border-radius: 5px;
-    width: 150px;
-    display: none;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    
+    max-height: 0;
     opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    transform: translateY(-10px);
-}
-
-#modeList.open {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 #modeList li {
-    padding: 10px;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s;
+    text-align: center;
 }
 
 #modeList li:hover {
-    background: #f0f0f0;
+    background: #012A4A;
+    color: white;
+}
+
+/* ✅ Open Mode List */
+#modeList.open {
+    max-height: 150px;
+    opacity: 1;
+}
+
+/* ✅ Smooth Theme Transitions */
+body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* ✅ Day Mode */
+body.day-mode {
+    background-color: #EAFDF8;
+    color: #333;
+}
+
+/* ✅ Night Mode */
+body.night-mode {
+    background-color: #1E1E1E;
+    color: #FFFFFF;
+}
+
+/* ✅ Reading Mode */
+body.reading-mode {
+    background-color: #F5E6CC;
+    color: #333;
+}
+
+/* ✅ Header, Footer, and Articles Transition */
+header, footer, .article {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* ✅ Theme Adjustments */
+.day-mode header, .day-mode footer {
+    background-color: #A9D6E5;
+    color: #012A4A;
+}
+
+.night-mode header, .night-mode footer {
+    background-color: #333;
+    color: #FFF;
+}
+
+.reading-mode header, .reading-mode footer {
+    background-color: #EADBC8;
+    color: #5C3D2E;
 }
