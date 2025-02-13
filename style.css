@@ -607,6 +607,10 @@ body.reading-mode {
     background-color: #E5C29F;
     color: black;
 }
+body.reading-mode #categoryBtn {
+    background-color: #f5f5dc;
+    color: #333;
+}
 
 .reading-mode #sortBtn, .reading-mode #modeToggleBtn {
     background-color: #E5C29F;
