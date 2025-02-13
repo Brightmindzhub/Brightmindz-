@@ -1,0 +1,57 @@
+/* ✅ General Styles */
+body {
+    font-family: "Georgia", serif;
+    background-color: #EAFDF8; /* Day Mode Defaul>
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* ✅ Header Design */
+header {
+    background: #012A4A;
+    color: white;
+    text-align: center;
+    padding: 8px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* ✅ Article Content Box */
+#article-content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: background 0.4s ease-in-out, colo>
+}
+
+/* ✅ Footer */
+footer {
+    background: #012A4A;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* ✅ Dark Mode */
+.dark-mode {
+    background-color: #121212;
+    color: #EAEAEA;
+}
+
+.dark-mode header,
+.dark-mode footer {
+    background: #0A192F;
+}
+
+.dark-mode #article-content {
+    background: #1E1E1E;
+    color: #EAEAEA;
+}
