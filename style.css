@@ -613,6 +613,11 @@ body.reading-mode {
      color: black;
 }
 
+.reading-mode #catagoryList li {
+     background-color: #E5C29F;
+     color: black;
+}
+
 .reading-mode #sortBtn, .reading-mode #modeToggleBtn {
     background-color: #E5C29F;
     color: black;
