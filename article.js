@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // ✅ Articles load karo
-    fetch("articles.json")
+    fetch("../articles.json")
         .then(response => response.json())
         .then(articles => {
             const article = articles.find(a => a.id === articleId);
