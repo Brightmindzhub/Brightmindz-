@@ -503,6 +503,11 @@ footer {
 
 
 /* ✅ Mode Button */
+/* ✅ Mode Button */
+.mode-container {
+    position: relative; /* Ensure position relative so dropdown aligns correctly */
+}
+
 #modeToggleBtn {
     background-color: #A9D6E5;
     color: white;
@@ -530,7 +535,7 @@ footer {
     width: 160px;
     background: #A9D6E5;
     position: absolute;
-    top: 45px;
+    top: 45px;  /* 🔥 Ye ensure karega ki mode button ke neechey aaye */
     left: 0;
     z-index: 1000;
     border-radius: 5px;
