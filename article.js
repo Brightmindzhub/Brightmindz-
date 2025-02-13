@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <h1>${article.title}</h1>
                 <p><strong>Category:</strong> ${article.category} | <strong>Date:</strong> ${article.date}</p>
                 <p>${article.preview}</p>
-                <a href="index.html">← Back to Home</a>
+                
             `;
         })
         .catch(error => {
