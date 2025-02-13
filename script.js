@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentPage = 1;
     let totalPages = 1;
 
-    fetch("articles.json")
+    fetch("https://brightmindzhub.github.io/Brightmindz-/articles.json")
     .then(response => response.json())
     .then(jsonData => {
         if (!Array.isArray(jsonData) || jsonData.length === 0) {
