@@ -600,7 +600,7 @@ body.reading-mode {
 .reading-mode .search-container {
     background-color: #FAF1E4;
     color: black;
-    border: 1px solid #E5C29F;
+    border: none;
     outline: none;
 }
 
