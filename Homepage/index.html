@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<meta name="theme-color" content="#A9D6E5">
+<meta name="theme-color" content="#012A4A" media="(prefers-color-scheme: dark)">
+
+
+<!-- Basic SEO -->
+<meta name="description" content="Yahan apni website ka chhota intro likho. (Max 160 characters)">
+<meta name="keywords" content="blog, articles, education, tech, etc">
+<meta name="author" content="Lovepreet Singh">
+
+<!-- Mobile Responsive -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<!-- Open Graph for Facebook -->
+<meta property="og:title" content="Apni Website Ka Naam">
+<meta property="og:description" content="Apni website ka chhota intro yahan likho">
+<meta property="og:image" content="https://yourwebsite.com/images/thumbnail.jpg">
+<meta property="og:url" content="https://yourwebsite.com">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Apni Website Ka Naam">
+<meta name="twitter:description" content="Apni website ka chhota intro yahan likho">
+<meta name="twitter:image" content="https://yourwebsite.com/images/thumbnail.jpg">
+
+
+<link rel="icon" type="image/png" href="https://lkdlovepreet.github.io/My-website01/images/favicon.png">
+
+
+
+
+    <title>My Answer - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
+</head>
+<body>
+
+
+     <header>
+    <div class="menu-icon">☰</div>
+
+    <div class="search-container">
+        <input type="text" class="search-bar" id="searchInput" placeholder="Search...">
+        <img class="search-icon" src="https://raw.githubusercontent.com/LKDlovepreet/My-website01/main/images/search-icon.png" alt="Search Icon">
+    </div>
+
+    <div class="user-icon">
+        <img src="https://raw.githubusercontent.com/LKDlovepreet/My-website01/main/images/user-icon.png" alt="User">
+    </div>
+</header>
+
+    
+     <!-- Sidebar Menu (Yahan Add Karna Hai) -->
+<div class="sidebar">
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</div>
+
+
+
+
+<div id="categoryContainer">
+    <button id="categoryBtn">Browse Categories ⬇️</button>
+    <ul id="categoryList" class="hidden">
+        <li onclick="location.href='/category/Technology'">Technology</li>
+        <li onclick="location.href='/category/Artificial Intelligence'">Artificial Intelligence</li>
+        <li onclick="location.href='/category/Programming & Web Development'">Programming & Web Development</li>
+        <li onclick="location.href='/category/Cybersecurity'">Cybersecurity</li>
+        <li onclick="location.href='/category/Finance & Cryptocurrency'">Finance & Cryptocurrency</li>
+        <li onclick="location.href='/category/Health & Wellness'">Health & Wellness</li>
+        <li onclick="location.href='/category/Education & E-learning'">Education & E-learning</li>
+        <li onclick="location.href='/category/Science & Space'">Science & Space</li>
+        <li onclick="location.href='/category/Entertainment & Movies'">Entertainment & Movies</li>
+        <li onclick="location.href='/category/Gaming & Esports'">Gaming & Esports</li>
+    </ul>
+</div>
+
+
+
+<div id="filterContainer">
+    <button id="sortBtn">Sort By</button>
+    <ul id="sortList">
+        <li>Trending</li>
+        <li>Recommended</li>
+        <li>Random</li>
+    </ul>
+
+    <div class="mode-container">
+        <button id="modeToggleBtn">🌞 Mode</button>
+        <ul id="modeList" class="hidden">
+            <li data-mode="day">Day Mode</li>
+            <li data-mode="night">Night Mode</li>
+            <li data-mode="reading">Reading Mode</li>
+        </ul>
+    </div>
+</div>
+
+
+   <div class="content">
+    <h1 class="welcome-text">Welcome!</h1>
+</div>
+
+<div id="latest-articles"> </div>
+    <h2>Latest Articles</h2>
+   
+    <div id="posts"></div>
+
+   <div id="posts"></div>
+<button id="loadMore">Load More</button>
+
+    
+
+    
+    <footer>
+        <p>&copy; 2025 My Answer. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            alert('Menu clicked!');  <!-- Temporary menu toggle -->
+        }
+    </script>
+</body>
+</html>
