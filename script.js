@@ -197,6 +197,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     const modeToggleBtn = document.getElementById("modeToggleBtn");
     const modeList = document.getElementById("modeList");
+    const elementsToChange = document.querySelectorAll("body, header, footer, .article, .tab");
 
     // Toggle Dropdown
     modeToggleBtn.addEventListener("click", function () {
@@ -208,13 +209,15 @@ document.addEventListener("DOMContentLoaded", function () {
         item.addEventListener("click", function () {
             const mode = this.getAttribute("data-mode");
 
-            document.body.classList.remove("night-mode", "reading-mode");
+            elementsToChange.forEach(element => {
+                element.classList.remove("night-mode", "reading-mode");
+            });
 
             if (mode === "night") {
-                document.body.classList.add("night-mode");
+                elementsToChange.forEach(element => element.classList.add("night-mode"));
                 modeToggleBtn.textContent = "🌙 Night Mode";
             } else if (mode === "reading") {
-                document.body.classList.add("reading-mode");
+                elementsToChange.forEach(element => element.classList.add("reading-mode"));
                 modeToggleBtn.textContent = "📖 Reading Mode";
             } else {
                 modeToggleBtn.textContent = "🌞 Day Mode";
@@ -231,4 +234,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
