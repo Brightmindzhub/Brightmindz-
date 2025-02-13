@@ -13,7 +13,7 @@
         "category": "Artificial Intelligence",
         "date": "2025-02-11",
         "preview": "Explore how AI is transforming industries and what we can expect in the near future.",
-        "url": "article.html?id=2"
+        "url": "../article.html?id=2"
     },
     {
         "id": 3,
@@ -21,7 +21,7 @@
         "category": "Programming & Web Development",
         "date": "2025-02-10",
         "preview": "Stay ahead with the latest web development frameworks, tools, and best practices.",
-        "url": "article.html?id=3"
+        "url": "../article.html?id=3"
     },
     {
         "id": 4,
@@ -29,7 +29,7 @@
         "category": "Cybersecurity",
         "date": "2025-02-09",
         "preview": "Learn essential cybersecurity tips to protect your data and privacy from hackers.",
-        "url": "article.html?id=4"
+        "url": "../article.html?id=4"
     },
     {
         "id": 5,
@@ -37,7 +37,7 @@
         "category": "Finance & Cryptocurrency",
         "date": "2025-02-08",
         "preview": "A deep dive into the key differences between Bitcoin and Ethereum for investors.",
-        "url": "article.html?id=5"
+        "url": "../article.html?id=5"
     },
     {
         "id": 6,
@@ -45,7 +45,7 @@
         "category": "Health & Wellness",
         "date": "2025-02-07",
         "preview": "Boost your health with these powerful superfoods packed with essential nutrients.",
-        "url": "article.html?id=6"
+        "url": "../article.html?id=6"
     },
     {
         "id": 7,
@@ -53,7 +53,7 @@
         "category": "Education & E-learning",
         "date": "2025-02-06",
         "preview": "A guide to the best e-learning platforms for students and professionals in 2025.",
-        "url": "article.html?id=7"
+        "url": "../article.html?id=7"
     },
     {
         "id": 8,
@@ -61,7 +61,7 @@
         "category": "Science & Space",
         "date": "2025-02-05",
         "preview": "NASA is set to launch a new mission to explore the mysteries of the Red Planet.",
-        "url": "article.html?id=8"
+        "url": "../article.html?id=8"
     },
     {
         "id": 9,
@@ -69,7 +69,7 @@
         "category": "Entertainment & Movies",
         "date": "2025-02-04",
         "preview": "A sneak peek into the most anticipated movies releasing in 2025.",
-        "url": "article.html?id=9"
+        "url": "../article.html?id=9"
     },
     {
         "id": 10,
@@ -77,7 +77,7 @@
         "category": "Gaming & Esports",
         "date": "2025-02-03",
         "preview": "How esports is becoming a billion-dollar industry with global tournaments.",
-        "url": "article.html?id=10"
+        "url": "../article.html?id=10"
     },
     {
         "id": 11,
@@ -85,7 +85,7 @@
         "category": "Technology",
         "date": "2025-02-02",
         "preview": "How 5G is revolutionizing internet speeds and connectivity worldwide.",
-        "url": "article.html?id=11"
+        "url": "../article.html?id=11"
     },
     {
         "id": 12,
@@ -93,7 +93,7 @@
         "category": "Artificial Intelligence",
         "date": "2025-02-01",
         "preview": "Chatbots powered by AI are changing how businesses interact with customers.",
-        "url": "article.html?id=12"
+        "url": "../article.html?id=12"
     },
     {
         "id": 13,
@@ -101,7 +101,7 @@
         "category": "Programming & Web Development",
         "date": "2025-01-31",
         "preview": "A detailed comparison of Python and JavaScript for beginners and developers.",
-        "url": "article.html?id=13"
+        "url": "../article.html?id=13"
     },
     {
         "id": 14,
@@ -109,7 +109,7 @@
         "category": "Cybersecurity",
         "date": "2025-01-30",
         "preview": "Don't fall for these common cybersecurity misconceptions and stay safe online.",
-        "url": "article.html?id=14"
+        "url": "../article.html?id=14"
     },
     {
         "id": 15,
@@ -117,7 +117,7 @@
         "category": "Finance & Cryptocurrency",
         "date": "2025-01-29",
         "preview": "A beginner-friendly guide to understanding and investing in cryptocurrencies.",
-        "url": "article.html?id=15"
+        "url": "../article.html?id=15"
     },
     {
         "id": 16,
@@ -125,7 +125,7 @@
         "category": "Health & Wellness",
         "date": "2025-01-28",
         "preview": "Stay fit with these effective home workouts without needing a gym membership.",
-        "url": "article.html?id=16"
+        "url": "../article.html?id=16"
     },
     {
         "id": 17,
@@ -133,7 +133,7 @@
         "category": "Education & E-learning",
         "date": "2025-01-27",
         "preview": "AI tools and platforms are making education more interactive and accessible.",
-        "url": "article.html?id=17"
+        "url": "../article.html?id=17"
     },
     {
         "id": 18,
@@ -141,7 +141,7 @@
         "category": "Science & Space",
         "date": "2025-01-26",
         "preview": "Elon Musk’s SpaceX is set to launch its most powerful rocket yet.",
-        "url": "article.html?id=18"
+        "url": "../article.html?id=18"
     },
     {
         "id": 19,
@@ -149,7 +149,7 @@
         "category": "Entertainment & Movies",
         "date": "2025-01-25",
         "preview": "Get ready for the biggest TV show releases coming in 2025.",
-        "url": "article.html?id=19"
+        "url": "../article.html?id=19"
     },
     {
         "id": 20,
@@ -157,6 +157,6 @@
         "category": "Gaming & Esports",
         "date": "2025-01-24",
         "preview": "How mobile gaming is taking over the gaming industry with massive revenue growth.",
-        "url": "article.html?id=20"
+        "url": "../article.html?id=20"
     }
 ]
