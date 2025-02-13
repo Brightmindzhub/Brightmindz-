@@ -394,6 +394,15 @@ footer {
 
 
 
+/* 🔹 Main Wrapper (Jisme Sare Boxes Rahenge) */
+.posts-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* ✅ Boxes center me rahenge */
+    gap: 15px; /* ✅ Boxes ke beech equal space */
+    padding: 10px;
+}
+
 /* 🔹 Article Preview Cards Styling */
 .post-preview {
     display: flex;
@@ -402,10 +411,10 @@ footer {
     background: #012A4A;
     padding: 12px;
     border-radius: 10px;
-    width: 300px; /* ✅ Change width here */
-    height: 190px; /* ✅ Change height here */
+    width: 300px; /* ✅ Adjust width */
+    height: 190px; /* ✅ Adjust height */
     overflow: hidden;
-    margin: 10px;
+    margin: 10px auto; /* ✅ Center align */
     transition: transform 0.3s, box-shadow 0.3s;
     color: #fff;
     cursor: pointer;
@@ -432,7 +441,7 @@ footer {
     font-size: 13px;
     opacity: 0.9;
     display: -webkit-box;
-    -webkit-line-clamp: 3; /* ✅ 3 lines only */
+    -webkit-line-clamp: 3; /* ✅ Show 3 lines */
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
