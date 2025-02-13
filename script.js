@@ -191,3 +191,44 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const modeToggleBtn = document.getElementById("modeToggleBtn");
+    const modeList = document.getElementById("modeList");
+
+    // Toggle Dropdown
+    modeToggleBtn.addEventListener("click", function () {
+        modeList.classList.toggle("open");
+    });
+
+    // Change Modes
+    document.querySelectorAll("#modeList li").forEach(item => {
+        item.addEventListener("click", function () {
+            const mode = this.getAttribute("data-mode");
+
+            document.body.classList.remove("night-mode", "reading-mode");
+
+            if (mode === "night") {
+                document.body.classList.add("night-mode");
+                modeToggleBtn.textContent = "🌙 Night Mode";
+            } else if (mode === "reading") {
+                document.body.classList.add("reading-mode");
+                modeToggleBtn.textContent = "📖 Reading Mode";
+            } else {
+                modeToggleBtn.textContent = "🌞 Day Mode";
+            }
+
+            modeList.classList.remove("open");
+        });
+    });
+
+    // Close dropdown on outside click
+    document.addEventListener("click", function (event) {
+        if (!modeToggleBtn.contains(event.target) && !modeList.contains(event.target)) {
+            modeList.classList.remove("open");
+        }
+    });
+});
+
