@@ -601,6 +601,7 @@ body.reading-mode {
     background-color: #FAF1E4;
     color: black;
     border: 1px solid #E5C29F;
+    outline: none;
 }
 
 .reading-mode #categoryBtn {
