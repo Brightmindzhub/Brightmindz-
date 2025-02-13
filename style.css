@@ -402,8 +402,8 @@ footer {
     background: #012A4A;
     padding: 12px;
     border-radius: 10px;
-    width: 280px; /* ✅ Fixed width */
-    height: 180px; /* ✅ Fixed height */
+    width: 300px; /* ✅ Change width here */
+    height: 190px; /* ✅ Change height here */
     overflow: hidden;
     margin: 10px;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -431,7 +431,9 @@ footer {
 .post-preview p {
     font-size: 13px;
     opacity: 0.9;
-    max-height: 35px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* ✅ 3 lines only */
+    -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
