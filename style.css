@@ -603,13 +603,9 @@ body.reading-mode {
     border: 1px solid #E5C29F;
 }
 
-.reading-mode #categoryBar {
+.reading-mode #categoryBtn {
     background-color: #E5C29F;
     color: black;
-}
-body.reading-mode #categoryBtn {
-    background-color: #f5f5dc;
-    color: #333;
 }
 
 .reading-mode #sortBtn, .reading-mode #modeToggleBtn {
