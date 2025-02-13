@@ -4,16 +4,33 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!categoryName) {
         document.getElementById("category-title").innerText = "No Category Selected";
         document.getElementById("category-content").innerText = "Please select a category from the homepage.";
-    } else {
-        document.getElementById("category-title").innerText = categoryName;
-        document.getElementById("category-content").innerHTML = `You selected <strong>${categoryName}</strong> category.`;
+        return;
     }
-});
 
-// ✅ Open category.html from Homepage folder
-document.querySelectorAll(".category-item").forEach(item => {
-    item.addEventListener("click", function () {
-        const categoryName = this.dataset.category; // Assuming data-category is set
-        window.location.href = `Homepage/category.html?category=${encodeURIComponent(categoryName)}`;
-    });
+    document.getElementById("category-title").innerText = categoryName;
+    document.getElementById("category-content").innerHTML = `Loading articles for <strong>${categoryName}</strong>...`;
+
+    // ✅ Fetch articles.json to get articles of this category
+    fetch("https://brightmindzhub.github.io/Brightmindz-/articles.json")
+        .then(response => response.json())
+        .then(articles => {
+            const filteredArticles = articles.filter(a => a.category === categoryName);
+
+            if (filteredArticles.length === 0) {
+                document.getElementById("category-content").innerHTML = `<p>No articles found in <strong>${categoryName}</strong>.</p>`;
+                return;
+            }
+
+            let articleList = "<ul>";
+            filteredArticles.forEach(article => {
+                articleList += `<li><a href="Homepage/article.html?id=${article.id}">${article.title}</a></li>`;
+            });
+            articleList += "</ul>";
+
+            document.getElementById("category-content").innerHTML = articleList;
+        })
+        .catch(error => {
+            console.error("Error loading articles:", error);
+            document.getElementById("category-content").innerHTML = "<p>Error loading articles.</p>";
+        });
 });
