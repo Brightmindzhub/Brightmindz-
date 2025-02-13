@@ -1,36 +1,33 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const categoryName = new URLSearchParams(window.location.search).get("category");
-
-    if (!categoryName) {
-        document.getElementById("category-title").innerText = "No Category Selected";
-        document.getElementById("category-content").innerText = "Please select a category from the homepage.";
-        return;
-    }
+document.addEventListener("DOMContentLoaded", async function () {
+    const categoryName = decodeURIComponent(window.location.pathname.split("/").pop()); // ✅ URL se category name lo
 
     document.getElementById("category-title").innerText = categoryName;
-    document.getElementById("category-content").innerHTML = `Loading articles for <strong>${categoryName}</strong>...`;
+    document.getElementById("category-content").innerText = `Explore the latest articles in "${categoryName}" category.`;
 
-    // ✅ Fetch articles.json to get articles of this category
-    fetch("https://brightmindzhub.github.io/Brightmindz-/articles.json")
-        .then(response => response.json())
-        .then(articles => {
-            const filteredArticles = articles.filter(a => a.category === categoryName);
+    try {
+        const response = await fetch("../articles.json"); // ✅ JSON file load karo
+        const articles = await response.json();
 
-            if (filteredArticles.length === 0) {
-                document.getElementById("category-content").innerHTML = `<p>No articles found in <strong>${categoryName}</strong>.</p>`;
-                return;
-            }
+        // ✅ Filter karo sirf wahi articles jo iss category ke hai
+        const filteredArticles = articles.filter(article => article.category === categoryName);
 
-            let articleList = "<ul>";
+        // ✅ HTML me articles add karo
+        const articlesContainer = document.getElementById("articles-list");
+        if (filteredArticles.length === 0) {
+            articlesContainer.innerHTML = "<p>No articles found in this category.</p>";
+        } else {
             filteredArticles.forEach(article => {
-                articleList += `<li><a href="Homepage/article.html?id=${article.id}">${article.title}</a></li>`;
+                const articleHTML = `
+                    <div class="article">
+                        <h3><a href="${article.url}">${article.title}</a></h3>
+                        <p>${article.preview}</p>
+                        <small>${article.date}</small>
+                    </div>
+                `;
+                articlesContainer.innerHTML += articleHTML;
             });
-            articleList += "</ul>";
-
-            document.getElementById("category-content").innerHTML = articleList;
-        })
-        .catch(error => {
-            console.error("Error loading articles:", error);
-            document.getElementById("category-content").innerHTML = "<p>Error loading articles.</p>";
-        });
+        }
+    } catch (error) {
+        console.error("Error loading articles:", error);
+    }
 });
