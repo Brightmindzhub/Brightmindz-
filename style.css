@@ -453,3 +453,34 @@ footer {
     color: #fff;
     text-align: center;
 }
+
+
+/* 🔹 Load More Button */
+#loadMore {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(45deg, #007bff, #0056b3); /* ✅ Stylish Gradient */
+    border: none;
+    border-radius: 25px; /* ✅ Smooth Rounded Look */
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+/* 🔹 Hover Effect */
+#loadMore:hover {
+    background: linear-gradient(45deg, #0056b3, #003f80);
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 91, 191, 0.5);
+}
+
+/* 🔹 Click Effect */
+#loadMore:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 8px rgba(0, 91, 191, 0.5);
+}
+
