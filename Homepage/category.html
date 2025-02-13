@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ category_name }} - BrightMindz</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='category.css') }}">
+    <script src="{{ url_for('static', filename='category.js') }}" defer></script>
+
+
+    <title>{{ category_name }} - BrightMindz</title>
+</head>
+<body>
+    <h1>Welcome to {{ category_name }} Category</h1>
+    <p>Explore the latest posts and discussions in {{ category_name }}.</p>
+    <a href="/">Go Back</a>
+</body>
+</html>
