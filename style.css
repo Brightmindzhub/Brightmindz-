@@ -503,6 +503,114 @@ footer {
 
 
 /* ✅ Mode Button */
+/* ✅ Mode Button */
+.mode-container {
+    position: relative; /* Ensure position relative so dropdown aligns correctly */
+}
+
+#modeToggleBtn {
+    background-color: #A9D6E5;
+    color: white;
+    font-size: 18px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 160px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#modeToggleBtn:hover {
+    background: #89C2D9;
+}
+
+/* ✅ Mode List Dropdown */
+#modeList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 160px;
+    background: #A9D6E5;
+    position: absolute;
+    top: 45px;  /* 🔥 Ye ensure karega ki mode button ke neechey aaye */
+    left: 0;
+    z-index: 1000;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+#modeList li {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-align: center;
+}
+
+#modeList li:hover {
+    background: #012A4A;
+    color: white;
+}
+
+/* ✅ Open Mode List */
+#modeList.open {
+    max-height: 150px;
+    opacity: 1;
+}
+
+/* ✅ Smooth Theme Transitions */
+body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* ✅ Day Mode */
+body.day-mode {
+    background-color: #EAFDF8;
+    color: #333;
+}
+
+/* ✅ Night Mode */
+body.night-mode {
+    background-color: #1E1E1E;
+    color: #FFFFFF;
+}
+
+/* ✅ Reading Mode */
+body.reading-mode {
+    background-color: #F5E6CC;
+    color: #333;
+}
+
+/* ✅ Header, Footer, and Articles Transition */
+header, footer, .article {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* ✅ Theme Adjustments */
+.day-mode header, .day-mode footer {
+    background-color: #A9D6E5;
+    color: #012A4A;
+}
+
+.night-mode header, .night-mode footer {
+    background-color: #333;
+    color: #FFF;
+}
+
+.reading-mode header, .reading-mode footer {
+    background-color: #EADBC8;
+    color: #5C3D2E;
+}
+
+
 /* ✅ Smooth Transitions for All Elements */
 body, header, footer, .article, #searchBar, #categoryBar, #sortBtn, #modeToggleBtn {
     transition: background-color 0.5s ease, color 0.5s ease;
