@@ -34,7 +34,7 @@ header {
     top: 0px;
     left: 0;
     width: 100%;
-    height: 50px;
+    height: 45px;
     background: #A9D6E5;
     color: white;
     display: flex;
@@ -80,9 +80,9 @@ header {
 }
 
 .search-icon {
-    width: 31px;
-    height: 31px;
-    top: 7px;
+    width: 32px;
+    height: 32px;
+    top: 6px;
     cursor: pointer;
     position: absolute;
     right: 10px;
