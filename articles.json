@@ -1,4 +1,5 @@
-{
+[
+ {
     "id": 1,
     "title": "Latest Tech Innovations in 2025",
     "category": "Technology",
@@ -7,3 +8,4 @@
     "url": "../article.html?id=1",
     "image": "https://raw.githubusercontent.com/Brightmindzhub/Brightmindz-/main/default.jpg"
 }
+]
