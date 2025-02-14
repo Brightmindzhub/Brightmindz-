@@ -30,3 +30,24 @@ a {
 a:hover {
     background: #023E8A;
 }
+
+.go-back {
+    display: inline-block;
+    text-decoration: none;
+    background: #012A4A;
+    color: white;
+    padding: 10px 18px;
+    font-size: 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 20px auto;
+    display: block;
+    text-align: center;
+    width: fit-content;
+    transition: 0.3s ease;
+}
+
+.go-back:hover {
+    background: #01497C;
+    transform: scale(1.05);
+}
