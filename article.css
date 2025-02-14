@@ -1,5 +1,6 @@
 /* ✅ Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@1,300&display=swap');
 
 /* ✅ Global Styles */
 * {
@@ -19,17 +20,18 @@ body {
     color: #333;
 }
 
-/* ✅ Header - Compact & Stylish */
 header {
-    background-color: #012A4A; /* Navy Blue */
+    background-color: #012A4A;
     color: white;
     text-align: center;
-    padding: 10px;
-    font-size: 20px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    font-size: 24px;
+    font-weight: 300;
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.3);
 }
+
 
 /* ✅ Article Content Box - Full Width */
 #article-content {
