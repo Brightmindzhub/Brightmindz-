@@ -39,3 +39,22 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 const urlParams = new URLSearchParams(window.location.search);
 const categoryName = decodeURIComponent(urlParams.get("category"));
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const params = new URLSearchParams(window.location.search);
+    const category = params.get("category");
+
+    if (category) {
+        document.getElementById("category-title").textContent = category;
+    } else {
+        document.getElementById("category-title").textContent = "Category Not Found";
+    }
+
+    // Simulate loading articles
+    setTimeout(() => {
+        document.getElementById("loading").classList.add("hidden");
+        document.getElementById("articles-list").classList.remove("hidden");
+    }, 1000); // 1 second delay for effect
+});
