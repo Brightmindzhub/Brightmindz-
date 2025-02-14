@@ -30,7 +30,7 @@ body{
 
 
 header {
-    position: fixed;
+    position: absolute;
     top: 5px;
     left: 0;
     width: 100%;
