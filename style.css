@@ -34,6 +34,7 @@ header {
     top: 0px;
     left: 0;
     width: 100%;
+    height: 250px;
     background: #A9D6E5;
     color: white;
     display: flex;
@@ -66,8 +67,6 @@ header {
     transition: all 0.3s ease-in-out;
     width: 150px;
     overflow: hidden;
-    background: transparent;
-
 }
 
 .search-bar {
@@ -78,13 +77,11 @@ header {
     width: 100px;
     transition: width 0.3s ease-in-out;
     border-radius: 250px;
-    background: none;
-    box-shadow: none;
 }
 
 .search-icon {
-    width: 30px;
-    height: 30px;
+    width: 31px;
+    height: 31px;
     top: 7px;
     cursor: pointer;
     position: absolute;
@@ -92,8 +89,6 @@ header {
     transition: transform 0.3s ease-in-out;
     outline: none;
     border: none;
-    background: none;
-    box-shadow: none;
 }
 
 .search-container.active {
