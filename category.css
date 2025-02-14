@@ -6,7 +6,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif; /* Updated Font */
+    
 }
 
 /* ✅ Body */
@@ -25,6 +25,7 @@ header {
     padding: 15px 0;
     font-size: 22px;
     font-weight: bold;
+    font-family: 'Poppins', sans-serif; /* Updated Font */
 }
 
 /* ✅ Loading Text */
