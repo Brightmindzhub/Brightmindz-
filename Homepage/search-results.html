@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.6.2/fuse.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .result { margin-bottom: 15px; }
+        .result h2 { margin: 0; font-size: 22px; }
+        .result p { color: #555; }
+    </style>
+</head>
+<body>
+
+<h1>Search Results</h1>
+<div id="resultsContainer"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    let urlParams = new URLSearchParams(window.location.search);
+    let query = urlParams.get("q");
+
+    if (!query) {
+        document.getElementById("resultsContainer").innerHTML = "<p>No search query provided.</p>";
+        return;
+    }
+
+    fetch("https://brightmindzhub.github.io/Brightmindz-/articles.json")
+    .then(response => response.json())
+    .then(articles => {
+        let fuse = new Fuse(articles, {
+            keys: ["title", "preview", "category"], // Fields to search in
+            threshold: 0.4, // Controls fuzzy matching level
+            ignoreLocation: true
+        });
+
+        let results = fuse.search(query);
+        let resultsContainer = document.getElementById("resultsContainer");
+
+        if (results.length > 0) {
+            results.forEach(({ item }) => {
+                let articleElement = document.createElement("div");
+                articleElement.classList.add("result");
+                articleElement.innerHTML = `
+                    <h2><a href="${item.url}">${item.title}</a></h2>
+                    <p>${item.preview}</p>
+                `;
+                resultsContainer.appendChild(articleElement);
+            });
+        } else {
+            resultsContainer.innerHTML = "<p>No articles found. Try a different search.</p>";
+        }
+    })
+    .catch(error => console.error("Error loading articles:", error));
+});
+</script>
+
+</body>
+</html>
