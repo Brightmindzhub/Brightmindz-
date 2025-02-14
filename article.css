@@ -18,9 +18,18 @@ body {
 }
 
 header {
+    background-color: #012A4A;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 24px;
+    font-weight: 300;
     font-family: 'Newsreader', serif !important;
-    font-weight: 300 !important;
-    font-style: italic !important;
+    font-style: italic;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.5px;
+    border-bottom: 4px solid #01497C; /* Stylish Bottom Border */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Soft Shadow */
 }
 
 /* ✅ Article Content Box */
@@ -32,11 +41,11 @@ header {
     margin: 20px auto;
     border-radius: 10px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-    font-family: 'Newsreader', serif;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 1.7;
     color: #333;
+    font-family: 'Newsreader', serif !important;
+    font-weight: 400 !important;
+    font-size: 18px;
+    line-height: 1.8;
 }
 
 /* ✅ Article Heading */
