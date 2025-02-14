@@ -1,66 +1,85 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+/* ✅ Google Font Load */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+/* ✅ Global Styles */
+* {
     margin: 0;
     padding: 0;
-    text-align: center;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Updated Font */
 }
 
-/* 📰 Category Title */
-h1 {
-    color: #012A4A;
-    margin-top: 20px;
-}
-
-/* 📌 Article Wrapper */
-.posts-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-}
-
-/* 🏷 Article Preview */
-.post-preview {
-    background: #012A4A;
-    color: white;
-    padding: 15px;
-    border-radius: 8px;
-    width: 300px;
-    height: 160px;
+/* ✅ Body */
+body {
+    background-color: #F5F5F5; /* Light gray */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    min-height: 100vh;
+}
+
+/* ✅ Header */
+header {
+    background-color: #012A4A; /* Navy Blue */
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* ✅ Loading Text */
+#loading {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 20px;
+    color: #555;
+}
+
+/* ✅ Article Content Box */
+#articles-list {
+    max-width: 900px;
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ✅ Article Preview */
+.post-preview {
+    background: #E3F2FD;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
     transition: 0.3s ease;
     cursor: pointer;
 }
 
-.post-preview:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* 🔗 Article Title */
 .post-preview h2 {
-    font-size: 16px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 20px;
+    font-weight: 600;
+    color: #012A4A;
 }
 
-/* 📄 Article Description */
 .post-preview p {
-    font-size: 14px;
-    opacity: 0.9;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    font-size: 16px;
+    color: #333;
+    margin: 5px 0;
 }
 
-/* 🔙 Go Back Button */
+.post-preview small {
+    font-size: 14px;
+    color: #777;
+}
+
+/* ✅ Hover Effect */
+.post-preview:hover {
+    background: #CFE8FF;
+    transform: scale(1.02);
+}
+
+/* ✅ Go Back Button */
 .go-back {
     display: inline-block;
     text-decoration: none;
@@ -80,4 +99,13 @@ h1 {
 .go-back:hover {
     background: #01497C;
     transform: scale(1.05);
+}
+
+/* ✅ Footer (Sticky) */
+footer {
+    background-color: #012A4A;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto;
 }
