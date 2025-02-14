@@ -31,7 +31,7 @@ body{
 
 header {
     position: fixed;
-    top: 0;
+    top: -5px;
     left: 0;
     width: 100%;
     background: #A9D6E5;
