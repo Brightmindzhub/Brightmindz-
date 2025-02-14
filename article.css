@@ -1,18 +1,22 @@
+/* ✅ Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 /* ✅ Global Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* ✅ Body */
 body {
-    background-color: #F5F5F5; /* Light gray */
+    background-color: #F9F9F9; /* Light Gray */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
 }
 
 /* ✅ Header */
@@ -20,27 +24,75 @@ header {
     background-color: #012A4A; /* Navy Blue */
     color: white;
     text-align: center;
-    padding: 15px 0;
+    padding: 15px;
     font-size: 22px;
     font-weight: bold;
 }
 
 /* ✅ Article Content Box */
 #article-content {
-    max-width: 800px;
+    max-width: 850px;
     background: white;
-    padding: 20px;
-    margin: 20px auto;
+    padding: 25px;
+    margin: 25px auto;
     border-radius: 10px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* ✅ Article Heading */
 #article-content h2 {
     text-align: center;
-    font-size: 28px;
+    font-size: 30px;
+    font-weight: 600;
+    color: #012A4A;
+    margin-bottom: 15px;
+}
+
+/* ✅ Article Metadata */
+.article-meta {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* ✅ Article Image */
+.article-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* ✅ Paragraphs */
+#article-content p {
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+/* ✅ Quotes */
+blockquote {
+    background: #E3F2FD;
+    border-left: 5px solid #012A4A;
+    padding: 15px;
+    margin: 20px 0;
+    font-style: italic;
     color: #333;
-    margin-bottom: 10px;
+}
+
+/* ✅ Links */
+#article-content a {
+    color: #01497C;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#article-content a:hover {
+    text-decoration: underline;
 }
 
 /* ✅ Go Back Button */
@@ -49,11 +101,11 @@ header {
     text-decoration: none;
     background: #012A4A;
     color: white;
-    padding: 10px 18px;
+    padding: 12px 20px;
     font-size: 16px;
     border-radius: 5px;
     font-weight: bold;
-    margin: 20px auto;
+    margin: 25px auto;
     display: block;
     text-align: center;
     width: fit-content;
@@ -65,11 +117,27 @@ header {
     transform: scale(1.05);
 }
 
-/* ✅ Footer (Sticky) */
+/* ✅ Footer */
 footer {
     background-color: #012A4A;
     color: white;
     text-align: center;
-    padding: 15px 0;
+    padding: 15px;
     margin-top: auto;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+    #article-content {
+        width: 90%;
+        padding: 20px;
+    }
+
+    #article-content h2 {
+        font-size: 24px;
+    }
+
+    #article-content p {
+        font-size: 16px;
+    }
 }
