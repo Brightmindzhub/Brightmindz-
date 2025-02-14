@@ -1,6 +1,8 @@
 /* ✅ Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@400&display=swap');
+
 
 /* ✅ Global Styles */
 * {
@@ -42,6 +44,11 @@ header {
     margin: 20px auto;
     border-radius: 10px;
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Newsreader', serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
 }
 
 /* ✅ Article Heading */
