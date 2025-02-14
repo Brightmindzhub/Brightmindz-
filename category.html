@@ -3,16 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse articles by category on BrightMindz.">
+    <meta name="keywords" content="BrightMindz, articles, categories, knowledge">
+    <meta name="author" content="BrightMindz Team">
+    
     <title>Category - BrightMindz</title>
+    
     <link rel="stylesheet" href="category.css">
     <script src="category.js" defer></script>
 </head>
 <body>
 
-    <h1 id="category-title"></h1>
-    <div id="articles-list" class="posts-wrapper"></div>
+    <header>
+        <h1 id="category-title">Loading...</h1>
+    </header>
 
-   <a href="javascript:history.back()" class="go-back">⬅Go Back</a>
+    <div id="loading">Loading articles...</div> <!-- Loader effect -->
+    
+    <div id="articles-list" class="posts-wrapper hidden"></div>
+
+    <a href="javascript:history.back()" class="go-back">⬅ Go Back</a>
 
 </body>
 </html>
