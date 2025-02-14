@@ -1,12 +1,12 @@
 /* ✅ Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Arima+Madurai:wght@300;400;700&display=swap');
 
 /* ✅ Global Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Arimo', sans-serif;
 }
 
 /* ✅ Body */
@@ -19,48 +19,58 @@ body {
     color: #333;
 }
 
-/* ✅ Header */
+/* ✅ Header - Compact & Stylish */
 header {
     background-color: #012A4A; /* Navy Blue */
     color: white;
     text-align: center;
-    padding: 15px;
-    font-size: 22px;
+    padding: 10px;
+    font-size: 20px;
     font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* ✅ Article Content Box */
+/* ✅ Article Content Box - Full Width */
 #article-content {
-    max-width: 850px;
+    width: 100%;
+    max-width: 900px;
     background: white;
-    padding: 25px;
-    margin: 25px auto;
+    padding: 30px;
+    margin: 20px auto;
     border-radius: 10px;
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* ✅ Article Heading */
 #article-content h2 {
+    font-family: 'Arima Madurai', sans-serif;
     text-align: center;
-    font-size: 30px;
-    font-weight: 600;
+    font-size: 34px;
+    font-weight: 700;
     color: #012A4A;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
-/* ✅ Article Metadata */
+/* ✅ Category & Date */
 .article-meta {
     text-align: center;
     font-size: 14px;
-    color: #555;
-    margin-bottom: 20px;
+    color: #777;
+    margin-bottom: 25px;
+}
+
+.article-meta .category {
+    font-weight: bold;
+    color: #01497C;
+    font-size: 16px;
 }
 
 /* ✅ Article Image */
 .article-image {
     width: 100%;
     height: auto;
-    max-height: 400px;
+    max-height: 450px;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 20px;
@@ -70,7 +80,7 @@ header {
 #article-content p {
     font-size: 18px;
     color: #444;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     text-align: justify;
 }
 
@@ -79,7 +89,7 @@ blockquote {
     background: #E3F2FD;
     border-left: 5px solid #012A4A;
     padding: 15px;
-    margin: 20px 0;
+    margin: 25px 0;
     font-style: italic;
     color: #333;
 }
@@ -129,12 +139,12 @@ footer {
 /* ✅ Responsive Design */
 @media (max-width: 768px) {
     #article-content {
-        width: 90%;
+        width: 95%;
         padding: 20px;
     }
 
     #article-content h2 {
-        font-size: 24px;
+        font-size: 26px;
     }
 
     #article-content p {
