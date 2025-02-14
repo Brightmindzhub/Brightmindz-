@@ -4,7 +4,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arimo', sans-serif;
+    font-family: 'Newsreader', serif;
+    font-width: 400;
 }
 
 /* ✅ Body */
@@ -52,7 +53,7 @@ header {
 
 /* ✅ Article Heading */
 #article-content h2 {
-    font-family: 'Newsreader', serif;
+    font-family: 'Newsreader', serif !important;
     text-align: center;
     font-size: 32px;
     font-weight: 700;
