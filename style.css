@@ -127,6 +127,25 @@ header {
     transform: scale(1.1);
 }
 
+
+
+
+
+.search-bar, .search-icon {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: none;
+}
+.search-bar:focus, .search-icon:focus {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+
+
+
 .sidebar {
     position: fixed;
     top: 0;
