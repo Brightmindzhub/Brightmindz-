@@ -32,7 +32,8 @@ header {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Soft Shadow */
 }
 
-/* ✅ Article Content Box */
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@400&display=swap');
+
 #article-content {
     width: 95%;
     max-width: 1000px;
@@ -50,7 +51,7 @@ header {
 
 /* ✅ Article Heading */
 #article-content h2 {
-    font-family: 'Arima Madurai', sans-serif;
+    font-family: 'Newsreader', serif;
     text-align: center;
     font-size: 32px;
     font-weight: 700;
@@ -84,11 +85,13 @@ header {
 
 /* ✅ Paragraphs */
 #article-content p {
+    font-family: 'Newsreader', serif;
+    font-weight: 400;
     font-size: 18px;
     color: #444;
     margin-bottom: 15px;
     text-align: justify;
-    word-spacing: -0.5px; /* Word spacing optimized */
+    word-spacing: -0.5px;
 }
 
 /* ✅ Quotes */
@@ -100,7 +103,6 @@ blockquote {
     font-style: italic;
     color: #333;
 }
-
 /* ✅ Links */
 #article-content a {
     color: #01497C;
