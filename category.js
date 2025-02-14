@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     try {
         // ✅ JSON data load karo
-        const response = await fetch("../articles.json");
+        const response = await fetch("articles.json");
         if (!response.ok) throw new Error("Failed to load JSON file!");
         const articles = await response.json();
 
