@@ -58,3 +58,20 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("articles-list").classList.remove("hidden");
     }, 1000); // 1 second delay for effect
 });
+
+// ✅ 1 sec delay ke baad loading message hatado aur articles dikhado
+                setTimeout(() => {
+                    loadingMessage.classList.add("hidden");
+                    articlesList.classList.remove("hidden");
+                }, 1000);
+            })
+            .catch(error => {
+                console.error("Error loading articles:", error);
+                articlesList.innerHTML = "<p>Error loading articles. Please try again.</p>";
+                loadingMessage.classList.add("hidden"); // Error ke case me bhi hatao
+            });
+    } else {
+        categoryTitle.textContent = "Category Not Found";
+        loadingMessage.classList.add("hidden"); // Agar category nahi mili to bhi hatao
+    }
+});
