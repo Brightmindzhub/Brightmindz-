@@ -35,3 +35,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         console.error("Error loading articles:", error);
     }
 });
+
+
+const urlParams = new URLSearchParams(window.location.search);
+const categoryName = decodeURIComponent(urlParams.get("category"));
