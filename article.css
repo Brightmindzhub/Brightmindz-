@@ -1,7 +1,7 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@1,300&display=swap');
+/* ✅ Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@400&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@700&display=swap');
 
 /* ✅ Global Styles */
 * {
@@ -21,32 +21,31 @@ body {
     color: #333;
 }
 
+/* ✅ Header */
 header {
     background-color: #012A4A;
     color: white;
     text-align: center;
     padding: 15px;
-    font-size: 24px;
-    font-weight: 300;
-    font-family: 'Newsreader', serif;
-    font-style: italic;
+    font-size: 22px;
+    font-weight: 400;
+    font-family: 'Arimo', sans-serif;
     text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.3);
 }
 
-
-/* ✅ Article Content Box - Full Width */
+/* ✅ Article Content Box */
 #article-content {
-    width: 100%;
-    max-width: 900px;
+    width: 95%;
+    max-width: 1000px;
     background: white;
-    padding: 30px;
+    padding: 25px;
     margin: 20px auto;
     border-radius: 10px;
-    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
     font-family: 'Newsreader', serif;
     font-weight: 400;
     font-size: 18px;
-    line-height: 1.8;
+    line-height: 1.7;
     color: #333;
 }
 
@@ -54,10 +53,10 @@ header {
 #article-content h2 {
     font-family: 'Arima Madurai', sans-serif;
     text-align: center;
-    font-size: 34px;
+    font-size: 32px;
     font-weight: 700;
     color: #012A4A;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 /* ✅ Category & Date */
@@ -65,7 +64,7 @@ header {
     text-align: center;
     font-size: 14px;
     color: #777;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .article-meta .category {
@@ -88,8 +87,9 @@ header {
 #article-content p {
     font-size: 18px;
     color: #444;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     text-align: justify;
+    word-spacing: -0.5px; /* Word spacing optimized */
 }
 
 /* ✅ Quotes */
@@ -123,7 +123,7 @@ blockquote {
     font-size: 16px;
     border-radius: 5px;
     font-weight: bold;
-    margin: 25px auto;
+    margin: 20px auto;
     display: block;
     text-align: center;
     width: fit-content;
@@ -147,12 +147,12 @@ footer {
 /* ✅ Responsive Design */
 @media (max-width: 768px) {
     #article-content {
-        width: 95%;
+        width: 100%;
         padding: 20px;
     }
 
     #article-content h2 {
-        font-size: 26px;
+        font-size: 28px;
     }
 
     #article-content p {
