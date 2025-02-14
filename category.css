@@ -36,18 +36,21 @@ a:hover {
     text-decoration: none;
     background: #012A4A;
     color: white;
-    padding: 10px 18px;
+    padding: 12px 20px;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 8px;
     font-weight: bold;
     margin: 20px auto;
-    display: block;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: fit-content;
     transition: 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .go-back:hover {
     background: #01497C;
-    transform: scale(1.05);
+    transform: scale(1.08);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
