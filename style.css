@@ -80,7 +80,7 @@ header {
 
 .search-icon {
     width: 30px;
-    height: 28px;
+    height: 30px;
     top: 0px;
     cursor: pointer;
     position: absolute;
@@ -88,6 +88,7 @@ header {
     transition: transform 0.3s ease-in-out;
     outline: none;
     border: none;
+    background: none;
 }
 
 .search-container.active {
