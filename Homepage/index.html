@@ -49,8 +49,12 @@
     <div class="menu-icon">☰</div>
 
     <div class="search-container">
-        <input type="text" class="search-bar" id="searchInput" placeholder="Search...">
-        <img class="search-icon" src="https://raw.githubusercontent.com/LKDlovepreet/My-website01/main/images/search-icon.png" alt="Search Icon">
+        <form action="search-results.html" method="GET">
+            <input type="text" class="search-bar" id="searchInput" name="q" placeholder="Search..." required>
+            <button type="submit" class="search-btn">
+                <img class="search-icon" src="https://raw.githubusercontent.com/LKDlovepreet/My-website01/main/images/search-icon.png" alt="Search Icon">
+            </button>
+        </form>
     </div>
 
     <div class="user-icon">
