@@ -66,7 +66,8 @@ header {
     padding: 0px;
     transition: all 0.3s ease-in-out;
     width: 150px;
-    overflow: hidden;
+    overflow: hidden
+    z-index: 1;
 }
 
 .search-bar {
