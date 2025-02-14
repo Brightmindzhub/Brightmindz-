@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     text-align: center;
     margin: 50px;
 }
@@ -41,6 +41,7 @@ a:hover {
 }
 
 .post-preview {
+    font-family: 'Arial', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
