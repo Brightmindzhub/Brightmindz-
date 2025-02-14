@@ -84,7 +84,7 @@ header {
 .search-icon {
     width: 32px;
     height: 32px;
-    top: 5px;
+    top: 0px;
     cursor: pointer;
     position: absolute;
     right: 10px;
