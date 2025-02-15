@@ -552,17 +552,17 @@ body.day-mode {
 
 /* ===== 🌙 NIGHT MODE ===== */
 body.night-mode {
-    background-color: #1E1E1E;
+    background-color: #1a2a47;
     color: #FFFFFF;
 }
 
 .night-mode header, .night-mode footer {
-    background-color: #333;
+    background-color: #001233;
     color: #FFF;
 }
 
 .night-mode .article {
-    background-color: #2B2B2B;
+    background-color: #001233;
     color: white;
     border: 1px solid #444;
 }
@@ -576,12 +576,12 @@ body.night-mode {
 .night-mode #categoryBar, 
 .night-mode #sortBtn, 
 .night-mode #modeToggleBtn {
-    background-color: #444;
+    background-color: #001233;
     color: white;
 }
 
 .night-mode #categoryBtn {
-    background-color: #333;
+    background-color: #001233;
     color: #fff;
 }
 
