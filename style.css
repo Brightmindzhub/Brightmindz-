@@ -12,7 +12,7 @@ body{
     flex-grow: 1;
 }
 
-.welcome-message {
+.welcome-text {
     position: absolute;
     top: 50%;
     left: 50%;
