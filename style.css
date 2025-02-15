@@ -581,34 +581,43 @@ body.night-mode {
 }
 
 .night-mode .search-container,
-.night-mode .search-bar, {
+.night-mode .search-bar {
      background-color: #2F4F4F;
 }
 
 /* ===== 📖 READING MODE ===== */
 body.reading-mode {
-    background-color: #F5E6CC;
-    color: #333;
+    background-color: #EDEDED;
+    color: #2C2C2C;
 }
 
 .reading-mode header, 
 .reading-mode footer {
-    background-color: #EADBC8;
-    color: #5C3D2E;
+    background-color: #B0AFAF;
+    color: #2C2C2C;
 }
 
-.reading-mode .article, 
-.reading-mode .search-container {
-    background-color: #FAF1E4;
-    color: black;
-    border: 1px solid #E5C29F;
+.reading-mode .article {
+    background-color: #B0AFAF;
+    color: 2C2C2C;
+    border: 1px solid #B0AFAF;
 }
 
-.reading-mode #category-btn, 
-.reading-mode #category-list, 
-.reading-mode #category-list li, 
-.reading-mode #sort-btn, 
-.reading-mode #mode-toggle-btn {
-    background-color: #E5C29F;
+.reading-mode #categoryBtn, 
+.reading-mode #sortBtn, 
+.reading-mode #modeToggleBtn,
+.reading-mode .post-preview,
+.reading-mode .sidebar,
+.reading-mode #modeList,
+.reading-mode #sortList,
+.reading-mode #categoryList {
+    background-color: #B0AFAF;
     color: black;
+}
+
+.reading-mode .search-container,
+.reading-mode .search-bar {
+    background-color: #EDEDED;
+    color: 2C2C2C;
+    border: 1px solid #EDEDED;
 }
