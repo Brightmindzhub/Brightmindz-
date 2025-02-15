@@ -12,6 +12,14 @@ body{
     flex-grow: 1;
 }
 
+.content {
+    position: relative;  /* Parent ko relative position dena zaroori hai */
+    height: 100vh; /* Full viewport height le */
+    display: flex;  /* Flexbox use karne ka ek aur tareeka */
+    justify-content: center; /* Horizontal center */
+    align-items: center; /* Vertical center */
+}
+
 .welcome-text {
     position: absolute;
     top: 50%;
