@@ -556,31 +556,28 @@ body.night-mode {
     color: white;
 }
 
-.night-mode header, .night-mode footer {
+.night-mode header, 
+.night-mode footer {
     background-color: #001233;
     color: white;
 }
 
-.night-mode .article {
+.night-mode .article, 
+.night-mode .search-container {
     background-color: #001233;
     color: white;
     border: 1px solid #444;
 }
 
-.night-mode #searchBar {
+.night-mode #search-bar {
     background-color: #333;
     color: white;
     border: 1px solid #555;
 }
 
-.night-mode #categoryBar, 
-.night-mode #sortBtn, 
-.night-mode #modeToggleBtn {
-    background-color: #001233;
-    color: white;
-}
-
-.night-mode #categoryBtn {
+.night-mode #category-btn, 
+.night-mode #sort-btn, 
+.night-mode #mode-toggle-btn {
     background-color: #001233;
     color: white;
 }
@@ -591,7 +588,8 @@ body.reading-mode {
     color: #333;
 }
 
-.reading-mode header, .reading-mode footer {
+.reading-mode header, 
+.reading-mode footer {
     background-color: #EADBC8;
     color: #5C3D2E;
 }
@@ -603,11 +601,11 @@ body.reading-mode {
     border: 1px solid #E5C29F;
 }
 
-.reading-mode #categoryBtn, 
-.reading-mode #categoryList, 
-.reading-mode #categoryList li, 
-.reading-mode #sortBtn, 
-.reading-mode #modeToggleBtn {
+.reading-mode #category-btn, 
+.reading-mode #category-list, 
+.reading-mode #category-list li, 
+.reading-mode #sort-btn, 
+.reading-mode #mode-toggle-btn {
     background-color: #E5C29F;
     color: black;
 }
