@@ -572,7 +572,10 @@ body.night-mode {
 .night-mode #sortBtn, 
 .night-mode #modeToggleBtn,
 .night-mode .post-preview,
-.night-mode .sidebar {
+.night-mode .sidebar,
+.night-mode #modeList,
+.night-mode #sortList,
+.night-mode #categoryList {
     background-color: #2C3E50;
     color: white;
 }
