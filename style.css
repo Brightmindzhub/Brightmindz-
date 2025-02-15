@@ -53,6 +53,7 @@ header {
     border: none;
     outline: none;
     font-size: 16px;
+    font-family: 'Newsreader', serif;
     padding: 5px;
     width: 100px;
     transition: width 0.3s ease-in-out;
@@ -123,6 +124,7 @@ header {
     padding: 10px 15px;
     border-radius: 5px;
     font-size: 14px;
+    font-family: 'Newsreader', serif;
     white-space: nowrap;
     animation: fadeIn 0.3s ease-in-out;
     z-index: 1001;
@@ -175,6 +177,7 @@ header {
 .sidebar ul li a {
     text-decoration: none;
     color: white;
+    font-family: 'Newsreader', serif;
     font-size: 14px;
     display: block;
 }
@@ -204,6 +207,7 @@ footer {
     max-width: 100%;
     bottom: 0;
     color: white;
+    font-family: 'Newsreader', serif;
 }
 
 #categoryContainer {
@@ -218,6 +222,7 @@ footer {
 #categoryBtn {
     background-color: #012A4A;
     color: white;
+    font-family: 'Newsreader', serif;
     font-size: 20px;
     padding: 15px 20px;
     border: none;
@@ -263,6 +268,7 @@ footer {
 #categoryList li:hover {
     background: #012A4A;
     color: white;
+    font-family: 'Newsreader', serif;
 }
 
 .open {
@@ -310,6 +316,7 @@ footer {
 #sortBtn, #viewBtn {
     background-color: #012A4A;
     color: white;
+    font-family: 'Newsreader', serif;
     font-size: 18px;
     padding: 12px 20px;
     border: none;
@@ -355,11 +362,13 @@ footer {
     cursor: pointer;
     transition: background 0.3s;
     text-align: center;
+    font-family: 'Newsreader', serif;
 }
 
 #sortList li:hover {
     background: #012A4A;
     color: white;
+    font-family: 'Newsreader', serif;
 }
 
 #sortList.open {
@@ -388,6 +397,7 @@ footer {
     margin: 10px auto;
     transition: transform 0.3s, box-shadow 0.3s;
     color: #fff;
+    font-family: 'Newsreader', serif;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
@@ -455,6 +465,7 @@ footer {
     background-color: #012A4A;
     color: white;
     font-size: 18px;
+    font-family: 'Newsreader', serif;
     padding: 12px 20px;
     border: none;
     border-radius: 5px;
