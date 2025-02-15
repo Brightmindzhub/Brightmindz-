@@ -245,3 +245,13 @@ function showPopup() {
         popup.style.display = "none";
     }, 2000); // 2 seconds me popup khatam ho jayega
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(function () {
+        let welcomeText = document.querySelector(".welcome-text");
+        if (welcomeText) {
+            welcomeText.style.opacity = "1";
+            welcomeText.style.transform = "translateX(0)";
+        }
+    }, 50);
+});
