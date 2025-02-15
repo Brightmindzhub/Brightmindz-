@@ -255,3 +255,17 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }, 50);
 });
+
+
+
+
+function updateThemeColor(mode) {
+    const metaThemeColor = document.querySelector("meta[name=theme-color]");
+    if (mode === "night-mode") {
+        metaThemeColor.setAttribute("content", "#2C3E50"); // Dark mode color
+    } else if (mode === "reading-mode") {
+        metaThemeColor.setAttribute("content", "#B0AFAF"); // Reading mode color
+    } else {
+        metaThemeColor.setAttribute("content", "#012A4A"); // Default light mode color
+    }
+}
