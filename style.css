@@ -409,7 +409,7 @@ footer {
 }
 
 .post-preview h2 {
-    font-size: 16px;
+    font-size: 17px;
     margin-bottom: 5px;
     white-space: nowrap;
     overflow: hidden;
@@ -417,7 +417,7 @@ footer {
 }
 
 .post-preview p {
-    font-size: 13px;
+    font-size: 14px;
     opacity: 0.9;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -426,7 +426,7 @@ footer {
 }
 
 .post-preview .read-more {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: bold;
     color: #fff;
     text-align: center;
