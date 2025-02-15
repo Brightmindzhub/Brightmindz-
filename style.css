@@ -553,12 +553,12 @@ body.day-mode {
 /* ===== 🌙 NIGHT MODE ===== */
 body.night-mode {
     background-color: #1a2a47;
-    color: #FFFFFF;
+    color: white;
 }
 
 .night-mode header, .night-mode footer {
     background-color: #001233;
-    color: #FFF;
+    color: white;
 }
 
 .night-mode .article {
@@ -582,7 +582,7 @@ body.night-mode {
 
 .night-mode #categoryBtn {
     background-color: #001233;
-    color: #fff;
+    color: white;
 }
 
 /* ===== 📖 READING MODE ===== */
