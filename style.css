@@ -21,6 +21,13 @@ body{
     text-transform: uppercase;
     letter-spacing: 2px;
     animation: fadeIn 1s ease-in-out;
+    
+    /* ✅ Fix for centering */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;  /* Ensure full width */
+    position: relative;
 }
 
 @keyframes fadeIn {
