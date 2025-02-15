@@ -562,18 +562,23 @@ body.night-mode {
     color: white;
 }
 
-.night-mode .article, 
-.night-mode .search-container {
+.night-mode .article, {
     background-color: #2C3E50;
     color: white;
     border: 1px solid #444;
 }
 
-.night-mode #category-btn, 
-.night-mode #sort-btn, 
-.night-mode #mode-toggle-btn {
+.night-mode #categoryBtn, 
+.night-mode #sortBtn, 
+.night-mode #modeToggleBtn,
+.night-mide #post-preview {
     background-color: #2C3E50;
     color: white;
+}
+
+.night-mode .search-container,
+.night-mide .search-bar {
+     background-color: #2F4F4F;
 }
 
 /* ===== 📖 READING MODE ===== */
