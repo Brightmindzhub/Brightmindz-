@@ -520,7 +520,7 @@ footer {
 }
 
 /* ===== 🌙 THEME TRANSITIONS ===== */
-body, header, footer, .article, #searchBar, #categoryBar, 
+body, header, footer, .article, #searchBar, #categoryBtn, 
 #sortBtn, #modeToggleBtn {
     transition: background-color 0.5s ease, color 0.5s ease;
 }
@@ -571,13 +571,14 @@ body.night-mode {
 .night-mode #categoryBtn, 
 .night-mode #sortBtn, 
 .night-mode #modeToggleBtn,
-.night-mide #post-preview {
+.night-mode .post-preview,
+.night-mode .sidebar {
     background-color: #2C3E50;
     color: white;
 }
 
 .night-mode .search-container,
-.night-mide .search-bar {
+.night-mode .search-bar, {
      background-color: #2F4F4F;
 }
 
