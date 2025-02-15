@@ -12,25 +12,13 @@ body{
     flex-grow: 1;
 }
 
-.welcome-text {
-    font-size: 40px;
-    font-weight: bold;
-    color: #012A4A;
-    text-align: center;
-    margin-top: 50px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    animation: fadeIn 1s ease-in-out;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    position: relative;
-}
-@keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(-10px); }
-    100% { opacity: 1; transform: translateY(0); }
+#welcome-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;  /* Pehle se visible ho */
+    transition: none;  /* Koi animation nahi hoga */
 }
 
 
