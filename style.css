@@ -42,7 +42,7 @@ header {
     justify-content: space-between;
     padding: 5px 0px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1;
+    z-index: 4;
 }
 
 .menu-icon {
@@ -67,7 +67,6 @@ header {
     transition: all 0.3s ease-in-out;
     width: 150px;
     overflow: hidden
-    z-index: 2;
 }
 
 .search-bar {
@@ -78,7 +77,6 @@ header {
     width: 100px;
     transition: width 0.3s ease-in-out;
     border-radius: 250px;
-    z-index: 3;
 }
 
 .search-icon {
@@ -91,7 +89,6 @@ header {
     transition: transform 0.3s ease-in-out;
     outline: none;
     border: none;
-    z-index: 4;
 }
 
 .search-container.active {
@@ -150,6 +147,7 @@ header {
     font-size: 14px;
     white-space: nowrap;
     animation: fadeIn 0.3s ease-in-out;
+    z-index: 5;
 }
 
 @keyframes fadeIn {
