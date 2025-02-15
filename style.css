@@ -558,27 +558,21 @@ body.night-mode {
 
 .night-mode header, 
 .night-mode footer {
-    background-color: #008B8B;
+    background-color: ##2C3E50;
     color: white;
 }
 
 .night-mode .article, 
 .night-mode .search-container {
-    background-color: #008B8B;
+    background-color: ##2C3E50;
     color: white;
     border: 1px solid #444;
-}
-
-.night-mode #search-bar {
-    background-color: #333;
-    color: white;
-    border: 1px solid #555;
 }
 
 .night-mode #category-btn, 
 .night-mode #sort-btn, 
 .night-mode #mode-toggle-btn {
-    background-color: #008B8B;
+    background-color: ##2C3E50;
     color: white;
 }
 
