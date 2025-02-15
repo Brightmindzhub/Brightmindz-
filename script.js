@@ -260,12 +260,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 function updateThemeColor(mode) {
-    const metaThemeColor = document.querySelector("meta[name=theme-color]");
-    if (mode === "night-mode") {
-        metaThemeColor.setAttribute("content", "#2C3E50"); // Dark mode color
-    } else if (mode === "reading-mode") {
-        metaThemeColor.setAttribute("content", "#B0AFAF"); // Reading mode color
-    } else {
-        metaThemeColor.setAttribute("content", "#012A4A"); // Default light mode color
+    let metaTag = document.querySelector("meta[name=theme-color]");
+    if (metaTag) {
+        metaTag.remove(); // Purana meta tag hatao
     }
+
+    metaTag = document.createElement("meta");
+    metaTag.setAttribute("name", "theme-color");
+
+    if (mode === "night-mode") {
+        metaTag.setAttribute("content", "#2C3E50"); // Dark mode color
+    } else if (mode === "reading-mode") {
+        metaTag.setAttribute("content", "#B0AFAF"); // Reading mode color
+    } else {
+        metaTag.setAttribute("content", "#012A4A"); // Default light mode color
+    }
+
+    document.head.appendChild(metaTag); // Naya meta tag add karo
 }
