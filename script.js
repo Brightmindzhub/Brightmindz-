@@ -234,3 +234,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+
+
+function showPopup() {
+    let popup = document.getElementById("popup-message");
+    popup.style.display = "block";
+
+    setTimeout(() => {
+        popup.style.display = "none";
+    }, 2000); // 2 seconds me popup khatam ho jayega
+}
