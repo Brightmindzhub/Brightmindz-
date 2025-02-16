@@ -21,24 +21,32 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            // ✅ **Content Format Fix**
-            let contentText = "";
+            // ✅ **Content Formatting (Headings + Paragraphs)**
+            let contentHTML = "";
             if (typeof article.content === "string") {
-                contentText = article.content; // ✅ Agar string hai, to direct use karo
+                contentHTML = `<p>${article.content.replace(/\n/g, "</p><p>")}</p>`; 
             } else if (Array.isArray(article.content)) {
-                contentText = article.content.join("<br><br>"); // ✅ Array hai, to paragraphs ke form me dikhana
+                contentHTML = article.content.map(text => {
+                    if (text.startsWith("# ")) {
+                        return `<h2>${text.replace("# ", "")}</h2>`; // ✅ **Main Heading (H2)**
+                    } else if (text.startsWith("## ")) {
+                        return `<h3>${text.replace("## ", "")}</h3>`; // ✅ **Sub Heading (H3)**
+                    } else {
+                        return `<p>${text}</p>`; // ✅ **Normal Paragraph**
+                    }
+                }).join("");
             } else if (typeof article.content === "object") {
-                contentText = JSON.stringify(article.content, null, 2); // ✅ Object hai, to readable format me convert karna
+                contentHTML = `<pre>${JSON.stringify(article.content, null, 2)}</pre>`; // ✅ **Backup for Objects**
             } else {
-                contentText = article.preview; // ✅ Backup agar content na ho
+                contentHTML = `<p>${article.preview}</p>`; // ✅ **Backup if no content**
             }
 
-            // ✅ Article **FULL CONTENT** display karo
+            // ✅ Article **FULL CONTENT with Formatting**
             articleContainer.innerHTML = `
                 <h1 id="article-title">${article.title}</h1>
                 <p><strong>Category:</strong> ${article.category} | <strong>Date:</strong> ${article.date}</p>
                 <img src="${article.image || 'https://brightmindzhub.github.io/default.jpg'}" alt="Article Image" style="max-width:100%;">
-                <p>${contentText}</p> <!-- ✅ FIXED CONTENT DISPLAY -->
+                ${contentHTML} <!-- ✅ Formatted Content -->
             `;
 
             // ✅ **Meta Tags Update karo**
