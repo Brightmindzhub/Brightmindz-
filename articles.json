@@ -1,13 +1,51 @@
 [
- {
-    "id": 1,
-    "title": "Latest Tech Innovations in 2025",
-    "category": "Technology",
-    "date": "2025-02-12",
-    "preview": "Discover the latest advancements in AI, robotics, and smart devices shaping our future.",
-    "url": "../article.html?id=1",
-    "image": "https://raw.githubusercontent.com/Brightmindzhub/Brightmindz-/main/default.jpg"
-},
+    {
+        "id": 1,
+        "title": "iPhone 16, full details and review",
+        "category": "Technology",
+        "date": "2025-02-16",
+        "preview": "Read about Apple's latest release iPhone 16. Here we talk about all new features in detail.",
+        "url": "../article.html?id=1",
+        "image": "https://brightmindzhub.github.io/default.jpg",
+        "content": {
+            "introduction": "Hello everyone, so Apple launched its new smartphone iPhone 16. Its design touches my heart but is it worth it? Let's find out its features which are different from previous iPhones. People troll it because of its regular design and camera placement, but here we talk about actual updates. So let's start.",
+            "Design": "At first, we are going to talk about its unique design. Apple gives a 6.1-inch (which is smaller than S25’s 6.9-inch) Super Retina XDR OLED display, showing vibrant colors and sharp visuals. The screen supports HDR for an immersive viewing experience for videos and pictures. And dynamic island is also introduced to provide intuitive access to notifications and live activities. Now talking about the body, iPhone 16 and iPhone 16 Plus come with aerospace-grade aluminum, but iPhone 16 Pro and iPhone 16 Pro Max come with a titanium frame and color-infused glass back. It not only looks elegant but also enhances durability. It offers better protection against accidental drops.",
+            "Performance": "In this series, Apple uses its most powerful chipset ‘A18’, which improves speed and efficiency. For making daily tasks smoother, it supports Apple Intelligence, enabling advanced AI features. The A18 ensures high performance in gaming, multitasking, or using augmented reality applications, providing a responsive and lag-free experience.",
+            "RAM and Storage Options": {
+                "iPhone 16 and iPhone 16 Plus": "These two variants come with 8GB RAM. Storage options are 128GB, 256GB, and 512GB.",
+                "iPhone 16 Pro and iPhone 16 Pro Max": "These two variants also come with 8GB RAM. Storage options are 256GB, 512GB, and 1TB."
+            },
+            "Camera": {
+                "iPhone 16 and iPhone 16 Plus": "1 = 48MP ‘Fusion’ main camera with 2x optical telephoto zoom, 2 = 12MP ultra-wide camera, Front camera = 12MP autofocus with focus pixel.",
+                "iPhone 16 Pro and iPhone 16 Pro Max": "1 = 48MP main wide camera, 2 = 48MP ultra-wide camera, 3 = 12MP telephoto camera with 5x optical zoom, Front camera = 12MP with optical image stabilization."
+            },
+            "Battery Life and Charging": "While Apple hasn't disclosed the exact battery capacity, real-world usage indicates that this device can handle tasks like streaming, gaming, and browsing without frequent charging. The device supports fast charging. Additionally, MagSafe technology offers wireless charging that enhances the overall user experience.",
+            "Prices": {
+                "iPhone 16": {
+                    "128GB": "$799",
+                    "256GB": "$899",
+                    "512GB": "$1,099"
+                },
+                "iPhone 16 Plus": {
+                    "128GB": "$899",
+                    "256GB": "$999",
+                    "512GB": "$1,199"
+                },
+                "iPhone 16 Pro": {
+                    "128GB": "$999",
+                    "256GB": "$1,099",
+                    "512GB": "$1,299",
+                    "1TB": "$1,499"
+                },
+                "iPhone 16 Pro Max": {
+                    "256GB": "$1,199",
+                    "512GB": "$1,399",
+                    "1TB": "$1,599"
+                }
+            },
+            "Conclusion": "You can buy this thing now or just wait for the same ……….. with some extra ……………"
+        }
+    },
   {
     "id": 2,
     "title": "Samsung Galaxy S25 Ultra: Full Review",
