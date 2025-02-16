@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     try {
-        // ✅ **Articles Fetch करो (Using `async/await`)**
+        // ✅ **Articles Fetch करो**
         const response = await fetch("https://brightmindzhub.github.io/Brightmindz-/articles.json");
         const articles = await response.json();
 
@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         if (typeof article.content === "object") {
             for (const [key, value] of Object.entries(article.content)) {
                 contentHTML += `<h2>${key}</h2>`; // ✅ Section Heading
-
                 if (typeof value === "object") {
                     for (const [subKey, subValue] of Object.entries(value)) {
                         contentHTML += `<p><strong>${subKey}:</strong> ${subValue}</p>`;
@@ -40,15 +39,17 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
 
         // ✅ **Article Display करो**
+        const imageUrl = article.image || "https://brightmindzhub.github.io/default.jpg";
+
         articleContainer.innerHTML = `
             <h1 id="article-title">${article.title}</h1>
             <p><strong>Category:</strong> ${article.category} | <strong>Date:</strong> ${article.date}</p>
-            <img src="${article.image || 'https://brightmindzhub.github.io/default.jpg'}" alt="Article Image" style="max-width:100%;">
+            <img src="${imageUrl}" alt="Article Image" style="max-width:100%;">
             ${contentHTML} <!-- ✅ Formatted Content -->
         `;
 
         // ✅ **Meta Tags Update करो (SEO + Social Media)**
-        updateMetaTags(article);
+        updateMetaTags(article, imageUrl);
     } catch (error) {
         console.error("❌ Error loading article:", error);
         articleContainer.innerHTML = "<p>❌ Error loading article.</p>";
@@ -56,7 +57,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 });
 
 // ✅ **Meta Tags Update करने का Function**
-function updateMetaTags(article) {
+function updateMetaTags(article, imageUrl) {
     document.title = article.title;
     setMetaTag("description", article.preview);
     setMetaTag("keywords", `${article.category}, Articles, Brightmindz`);
@@ -65,14 +66,14 @@ function updateMetaTags(article) {
     setMetaTag("og:type", "article", true);
     setMetaTag("og:title", article.title, true);
     setMetaTag("og:description", article.preview, true);
-    setMetaTag("og:image", article.image || "https://brightmindzhub.github.io/default.jpg", true);
+    setMetaTag("og:image", imageUrl, true);
     setMetaTag("og:url", window.location.href, true);
 
     // ✅ **Twitter Cards**
     setMetaTag("twitter:card", "summary_large_image");
     setMetaTag("twitter:title", article.title);
     setMetaTag("twitter:description", article.preview);
-    setMetaTag("twitter:image", article.image || "https://brightmindzhub.github.io/default.jpg");
+    setMetaTag("twitter:image", imageUrl);
 }
 
 // ✅ **Meta Tag Update करने वाला Helper Function**
