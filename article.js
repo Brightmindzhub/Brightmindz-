@@ -21,15 +21,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            // ✅ Article display करो
+            // ✅ Article **FULL CONTENT** display करो
             articleContainer.innerHTML = `
                 <h1 id="article-title">${article.title}</h1>
                 <p><strong>Category:</strong> ${article.category} | <strong>Date:</strong> ${article.date}</p>
-                <p>${article.preview}</p>
                 <img src="${article.image || 'https://brightmindzhub.github.io/default.jpg'}" alt="Article Image" style="max-width:100%;">
+                <p>${article.content || article.preview}</p> <!-- ✅ FULL CONTENT -->
             `;
 
-            // ✅ **Dynamic Meta Tags Update करो** (⚠ **Yeh yaha hona chahiye!**)
+            // ✅ **Meta Tags Update करो**
             document.title = article.title; // Page Title Update
             document.querySelector("meta[name='description']").setAttribute("content", article.preview);
             document.querySelector("meta[name='keywords']").setAttribute("content", `${article.category}, Articles, Brightmindz`);
