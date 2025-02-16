@@ -1,7 +1,7 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
     const articleContainer = document.getElementById("article-content");
 
-    // ✅ URL से `id` get करो
+    // ✅ URL से `id` get करो  
     const urlParams = new URLSearchParams(window.location.search);
     const articleId = parseInt(urlParams.get("id"), 10); // Convert to number
 
@@ -10,51 +10,84 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    // ✅ Articles load करो
-    fetch("https://brightmindzhub.github.io/Brightmindz-/articles.json")
-        .then(response => response.json())
-        .then(articles => {
-            const article = articles.find(a => a.id === articleId);
+    try {
+        // ✅ **Articles Fetch करो (Using `async/await`)**
+        const response = await fetch("https://brightmindzhub.github.io/Brightmindz-/articles.json");
+        const articles = await response.json();
 
-            if (!article) {
-                articleContainer.innerHTML = "<p>❌ Article not found.</p>";
-                return;
-            }
+        const article = articles.find(a => a.id === articleId);
+        if (!article) {
+            articleContainer.innerHTML = "<p>❌ Article not found.</p>";
+            return;
+        }
 
-            // ✅ **Content Formatting (Headings + Paragraphs)**
-            let contentHTML = "";
-            if (typeof article.content === "string") {
-                contentHTML = `<p>${article.content.replace(/\n/g, "</p><p>")}</p>`; 
-            } else if (Array.isArray(article.content)) {
-                contentHTML = article.content.map(text => {
-                    if (text.startsWith("# ")) {
-                        return `<h2>${text.replace("# ", "")}</h2>`; // ✅ **Main Heading (H2)**
-                    } else if (text.startsWith("## ")) {
-                        return `<h3>${text.replace("## ", "")}</h3>`; // ✅ **Sub Heading (H3)**
-                    } else {
-                        return `<p>${text}</p>`; // ✅ **Normal Paragraph**
+        // ✅ **Article Content Format करो**
+        let contentHTML = "";
+        if (typeof article.content === "object") {
+            for (const [key, value] of Object.entries(article.content)) {
+                contentHTML += `<h2>${key}</h2>`; // ✅ Section Heading
+
+                if (typeof value === "object") {
+                    for (const [subKey, subValue] of Object.entries(value)) {
+                        contentHTML += `<p><strong>${subKey}:</strong> ${subValue}</p>`;
                     }
-                }).join("");
-            } else if (typeof article.content === "object") {
-                contentHTML = `<pre>${JSON.stringify(article.content, null, 2)}</pre>`; // ✅ **Backup for Objects**
-            } else {
-                contentHTML = `<p>${article.preview}</p>`; // ✅ **Backup if no content**
+                } else {
+                    contentHTML += `<p>${value}</p>`;
+                }
             }
+        } else {
+            contentHTML = `<p>${article.preview}</p>`; // ✅ Backup content
+        }
 
-            // ✅ Article **FULL CONTENT with Formatting**
-            articleContainer.innerHTML = `
-                <h1 id="article-title">${article.title}</h1>
-                <p><strong>Category:</strong> ${article.category} | <strong>Date:</strong> ${article.date}</p>
-                <img src="${article.image || 'https://brightmindzhub.github.io/default.jpg'}" alt="Article Image" style="max-width:100%;">
-                ${contentHTML} <!-- ✅ Formatted Content -->
-            `;
+        // ✅ **Article Display करो**
+        articleContainer.innerHTML = `
+            <h1 id="article-title">${article.title}</h1>
+            <p><strong>Category:</strong> ${article.category} | <strong>Date:</strong> ${article.date}</p>
+            <img src="${article.image || 'https://brightmindzhub.github.io/default.jpg'}" alt="Article Image" style="max-width:100%;">
+            ${contentHTML} <!-- ✅ Formatted Content -->
+        `;
 
-            // ✅ **Meta Tags Update karo**
-            document.title = article.title;
-            document.querySelector("meta[name='description']").setAttribute("content", article.preview);
-        })
-        .catch(error => {
-            console.error("❌ Error loading article:", error);
-            articleContainer.innerHTML = "<p>❌ Error loading article.</p>";
-        });
+        // ✅ **Meta Tags Update करो (SEO + Social Media)**
+        updateMetaTags(article);
+    } catch (error) {
+        console.error("❌ Error loading article:", error);
+        articleContainer.innerHTML = "<p>❌ Error loading article.</p>";
+    }
 });
+
+// ✅ **Meta Tags Update करने का Function**
+function updateMetaTags(article) {
+    document.title = article.title;
+    setMetaTag("description", article.preview);
+    setMetaTag("keywords", `${article.category}, Articles, Brightmindz`);
+
+    // ✅ **Open Graph Meta Tags (Facebook, LinkedIn, WhatsApp)**
+    setMetaTag("og:type", "article", true);
+    setMetaTag("og:title", article.title, true);
+    setMetaTag("og:description", article.preview, true);
+    setMetaTag("og:image", article.image || "https://brightmindzhub.github.io/default.jpg", true);
+    setMetaTag("og:url", window.location.href, true);
+
+    // ✅ **Twitter Cards**
+    setMetaTag("twitter:card", "summary_large_image");
+    setMetaTag("twitter:title", article.title);
+    setMetaTag("twitter:description", article.preview);
+    setMetaTag("twitter:image", article.image || "https://brightmindzhub.github.io/default.jpg");
+}
+
+// ✅ **Meta Tag Update करने वाला Helper Function**
+function setMetaTag(name, content, isProperty = false) {
+    const selector = isProperty ? `meta[property='${name}']` : `meta[name='${name}']`;
+    let metaTag = document.querySelector(selector);
+
+    if (!metaTag) {
+        metaTag = document.createElement("meta");
+        if (isProperty) {
+            metaTag.setAttribute("property", name);
+        } else {
+            metaTag.setAttribute("name", name);
+        }
+        document.head.appendChild(metaTag);
+    }
+    metaTag.setAttribute("content", content);
+}
