@@ -21,31 +21,29 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            // ✅ Article **FULL CONTENT** display करो
+            // ✅ **Content Format Fix**
+            let contentText = "";
+            if (typeof article.content === "string") {
+                contentText = article.content; // ✅ Agar string hai, to direct use karo
+            } else if (Array.isArray(article.content)) {
+                contentText = article.content.join("<br><br>"); // ✅ Array hai, to paragraphs ke form me dikhana
+            } else if (typeof article.content === "object") {
+                contentText = JSON.stringify(article.content, null, 2); // ✅ Object hai, to readable format me convert karna
+            } else {
+                contentText = article.preview; // ✅ Backup agar content na ho
+            }
+
+            // ✅ Article **FULL CONTENT** display karo
             articleContainer.innerHTML = `
                 <h1 id="article-title">${article.title}</h1>
                 <p><strong>Category:</strong> ${article.category} | <strong>Date:</strong> ${article.date}</p>
                 <img src="${article.image || 'https://brightmindzhub.github.io/default.jpg'}" alt="Article Image" style="max-width:100%;">
-                <p>${article.content || article.preview}</p> <!-- ✅ FULL CONTENT -->
+                <p>${contentText}</p> <!-- ✅ FIXED CONTENT DISPLAY -->
             `;
 
-            // ✅ **Meta Tags Update करो**
-            document.title = article.title; // Page Title Update
+            // ✅ **Meta Tags Update karo**
+            document.title = article.title;
             document.querySelector("meta[name='description']").setAttribute("content", article.preview);
-            document.querySelector("meta[name='keywords']").setAttribute("content", `${article.category}, Articles, Brightmindz`);
-
-            // **Open Graph Meta Tags (Facebook, LinkedIn, WhatsApp)**
-            document.querySelector("meta[property='og:type']").setAttribute("content", "article");
-            document.querySelector("meta[property='og:title']").setAttribute("content", article.title);
-            document.querySelector("meta[property='og:description']").setAttribute("content", article.preview);
-            document.querySelector("meta[property='og:image']").setAttribute("content", article.image || "https://brightmindzhub.github.io/default.jpg");
-            document.querySelector("meta[property='og:url']").setAttribute("content", window.location.href);
-
-            // **Twitter Cards**
-            document.querySelector("meta[name='twitter:card']").setAttribute("content", "summary_large_image");
-            document.querySelector("meta[name='twitter:title']").setAttribute("content", article.title);
-            document.querySelector("meta[name='twitter:description']").setAttribute("content", article.preview);
-            document.querySelector("meta[name='twitter:image']").setAttribute("content", article.image || "https://brightmindzhub.github.io/default.jpg");
         })
         .catch(error => {
             console.error("❌ Error loading article:", error);
