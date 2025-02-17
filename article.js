@@ -96,6 +96,8 @@ function updateMetaTags(article, imageUrl) {
     setMetaTag("twitter:title", article.title);
     setMetaTag("twitter:description", article.preview);
     setMetaTag("twitter:image", imageUrl);
+
+    console.log("✅ Meta tags updated dynamically!");
 }
 
 // ✅ **Helper function: Meta tags set karne ke liye**
