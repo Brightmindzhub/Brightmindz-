@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", async function () {
     const articleContainer = document.getElementById("article-content");
 
-    // URL se 'id' get karo
+    // ✅ URL se 'id' get karo
     const urlParams = new URLSearchParams(window.location.search);
     const articleId = parseInt(urlParams.get("id"), 10); // Convert to number
 
@@ -11,22 +11,24 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     try {
-        // Articles ko fetch karo
+        // ✅ Articles ko fetch karo
         const response = await fetch("https://brightmindzhub.github.io/Brightmindz-/articles.json");
-        const articles = await response.json();
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
+        const articles = await response.json();
+        console.log("✅ Articles fetched:", articles); // Debug ke liye
+        
         const article = articles.find(a => a.id === articleId);
         if (!article) {
             articleContainer.innerHTML = "<p>❌ Article not found.</p>";
             return;
         }
 
-        // Article content ko format karna
+        // ✅ Article content format karo
         let contentHTML = formatContent(article.content);
-
-        // Article ko display karna
         const imageUrl = article.image || "https://brightmindzhub.github.io/default.jpg";
 
+        // ✅ Article ko display karo
         articleContainer.innerHTML = `
             <h1 id="article-title">${article.title}</h1>
             <p><strong>Category:</strong> ${article.category} | <strong>Date:</strong> ${article.date}</p>
@@ -34,7 +36,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             ${contentHTML}
         `;
 
-        // Meta tags update karna
+        // ✅ Meta tags update karo
         updateMetaTags(article, imageUrl);
 
     } catch (error) {
@@ -79,28 +81,16 @@ function formatContent(content) {
 }
 
 // ✅ **Meta Tags ko dynamically update karne wala function**
-document.addEventListener("DOMContentLoaded", async function () {
-    const urlParams = new URLSearchParams(window.location.search);
-    const articleId = parseInt(urlParams.get("id"), 10); // Convert to number
-
-    if (!articleId || isNaN(articleId)) return;
-
-    try {
-        const response = await fetch("https://brightmindzhub.github.io/Brightmindz-/articles.json");
-        const articles = await response.json();
-        const article = articles.find(a => a.id === articleId);
-
-        if (!article) return;
-
-        // ✅ Title ko dynamically update karo
-        document.title = article.title;
-        setMetaTag("og:title", article.title, true);
-        setMetaTag("twitter:title", article.title);
-
-    } catch (error) {
-        console.error("❌ Error loading article:", error);
-    }
-});
+function updateMetaTags(article, imageUrl) {
+    document.title = article.title;
+    setMetaTag("og:title", article.title, true);
+    setMetaTag("twitter:title", article.title);
+    setMetaTag("description", article.description || "Read this amazing article.");
+    setMetaTag("og:description", article.description || "Read this amazing article.", true);
+    setMetaTag("twitter:description", article.description || "Read this amazing article.");
+    setMetaTag("og:image", imageUrl, true);
+    setMetaTag("twitter:image", imageUrl);
+}
 
 // ✅ Helper Function: Meta Tags Ko Set Karne Ke Liye
 function setMetaTag(name, content, isProperty = false) {
