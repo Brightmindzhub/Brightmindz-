@@ -67,3 +67,51 @@ footer {
     text-align: center;
     margin-top: 30px;
 }
+
+.go-back {
+    display: inline-block;
+    text-decoration: none;
+    background: #012A4A;
+    color: white;
+    padding: 10px 18px;
+    font-size: 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 20px auto;
+    display: block;
+    text-align: center;
+    width: fit-content;
+    transition: 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.go-back:hover {
+    background: #01497C;
+    transform: scale(1.05);
+}
+
+#related-articles {
+    margin-top: 20px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.related-article {
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #E3F2FD;
+    border-radius: 5px;
+}
+
+.related-article h3 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.related-article p {
+    font-size: 14px;
+    color: #555;
+}
