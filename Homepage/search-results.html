@@ -5,19 +5,136 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Results</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.6.2/fuse.min.js"></script>
-    
     <link rel="stylesheet" href="../category.css">
-      <style>
-        body { font-family: Arial, sans-serif; padding: 20px; }
-        .result { margin-bottom: 15px; }
-        .result h2 { margin: 0; font-size: 22px; }
-        .result p { color: #555; }
+    <style>
+        /* ✅ Google Font Load */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+        /* ✅ Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ✅ Body */
+        body {
+            background-color: #F5F5F5; /* Light gray */
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* ✅ Header */
+        header {
+            background-color: #012A4A; /* Navy Blue */
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        /* ✅ Loading Text */
+        #loading {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 400;
+            margin-top: 20px;
+            color: #555;
+        }
+
+        /* ✅ Article Content Box */
+        #articles-list {
+            max-width: 900px;
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ✅ Article Preview */
+        .post-preview {
+            background: #E3F2FD;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+        .post-preview h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #012A4A;
+        }
+
+        .post-preview p {
+            font-size: 16px;
+            color: #333;
+            margin: 5px 0;
+        }
+
+        .post-preview small {
+            font-size: 14px;
+            color: #777;
+        }
+
+        /* ✅ Hover Effect */
+        .post-preview:hover {
+            background: #CFE8FF;
+            transform: scale(1.02);
+        }
+
+        /* ✅ Go Back Button */
+        .go-back {
+            display: inline-block;
+            text-decoration: none;
+            background: #012A4A;
+            color: white;
+            padding: 10px 18px;
+            font-size: 16px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 20px auto;
+            display: block;
+            text-align: center;
+            width: fit-content;
+            transition: 0.3s ease;
+        }
+
+        .go-back:hover {
+            background: #01497C;
+            transform: scale(1.05);
+        }
+
+        /* ✅ Footer (Sticky) */
+        footer {
+            background-color: #012A4A;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: auto;
+        }
     </style>
 </head>
 <body>
 
-<h1>Search Results</h1>
+<header>
+    Search Results
+</header>
+
+<div id="loading">Loading...</div>
 <div id="resultsContainer"></div>
+
+<a href="/" class="go-back">Go Back</a>
+
+<footer>
+    © 2025 Your Website Name. All Rights Reserved.
+</footer>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -44,10 +161,11 @@ document.addEventListener("DOMContentLoaded", function () {
         if (results.length > 0) {
             results.forEach(({ item }) => {
                 let articleElement = document.createElement("div");
-                articleElement.classList.add("result");
+                articleElement.classList.add("post-preview");
                 articleElement.innerHTML = `
                     <h2><a href="${item.url}">${item.title}</a></h2>
                     <p>${item.preview}</p>
+                    <small>Category: ${item.category}</small>
                 `;
                 resultsContainer.appendChild(articleElement);
             });
