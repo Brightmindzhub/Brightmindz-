@@ -1,31 +1,34 @@
-document.addEventListener("DOMContentLoaded", function () {
-    fetch("../articles.json")
-        .then(response => response.json())
-        .then(articles => {
-            // Current page ka URL se ID extract karna
-            const urlParams = new URLSearchParams(window.location.search);
-            const currentArticleId = parseInt(urlParams.get("id"));
+document.addEventListener('DOMContentLoaded', function () {
+  // Load the JSON data
+  fetch('../articles.json')
+    .then(response => response.json())
+    .then(data => {
+      // Get the current article category from URL or context
+      const currentArticleId = new URLSearchParams(window.location.search).get('id');
+      const currentArticle = data.find(article => article.id === parseInt(currentArticleId));
+      
+      // Display related articles based on the same category
+      const relatedArticles = data.filter(article => article.category === currentArticle.category && article.id !== currentArticle.id);
+      displayRelatedArticles(relatedArticles);
+    });
 
-            // Current article ka data dhoondhna
-            const currentArticle = articles.find(article => article.id === currentArticleId);
-            if (!currentArticle) return;
-
-            // Usi category ke articles filter karna (jo current article na ho)
-            const relatedArticles = articles
-                .filter(article => article.category === currentArticle.category && article.id !== currentArticleId)
-                .slice(0, 2); // Sirf 2 articles lena
-
-            // Related articles ko display karna
-            const relatedContainer = document.getElementById("related-articles");
-            relatedArticles.forEach(article => {
-                const articleElement = document.createElement("div");
-                articleElement.classList.add("related-article");
-                articleElement.innerHTML = `
-                    <h3><a href="${article.url}">${article.title}</a></h3>
-                    <p>${article.preview}</p>
-                `;
-                relatedContainer.appendChild(articleElement);
-            });
-        })
-        .catch(error => console.error("Error loading related articles:", error));
+  function displayRelatedArticles(articles) {
+    const container = document.getElementById('related-articles-container');
+    
+    // Show only 2 related articles
+    articles.slice(0, 2).forEach(article => {
+      const articleDiv = document.createElement('div');
+      articleDiv.classList.add('related-article');
+      
+      articleDiv.innerHTML = `
+        <a href="${article.url}">
+          <img src="${article.image}" alt="${article.title}">
+          <h3>${article.title}</h3>
+          <p>${article.preview}</p>
+        </a>
+      `;
+      
+      container.appendChild(articleDiv);
+    });
+  }
 });
