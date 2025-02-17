@@ -79,28 +79,30 @@ function formatContent(content) {
 }
 
 // ✅ **Meta Tags ko dynamically update karne wala function**
-function updateMetaTags(article, imageUrl) {
-    document.title = article.title;
-    setMetaTag("description", article.preview);
-    setMetaTag("keywords", `${article.category}, Articles, Brightmindz`);
+document.addEventListener("DOMContentLoaded", async function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const articleId = parseInt(urlParams.get("id"), 10); // Convert to number
 
-    // Open Graph tags
-    setMetaTag("og:type", "article", true);
-    setMetaTag("og:title", article.title, true);
-    setMetaTag("og:description", article.preview, true);
-    setMetaTag("og:image", imageUrl, true);
-    setMetaTag("og:url", window.location.href, true);
+    if (!articleId || isNaN(articleId)) return;
 
-    // Twitter cards
-    setMetaTag("twitter:card", "summary_large_image");
-    setMetaTag("twitter:title", article.title);
-    setMetaTag("twitter:description", article.preview);
-    setMetaTag("twitter:image", imageUrl);
+    try {
+        const response = await fetch("https://brightmindzhub.github.io/Brightmindz-/articles.json");
+        const articles = await response.json();
+        const article = articles.find(a => a.id === articleId);
 
-    console.log("✅ Meta tags updated dynamically!");
-}
+        if (!article) return;
 
-// ✅ **Helper function: Meta tags set karne ke liye**
+        // ✅ Title ko dynamically update karo
+        document.title = article.title;
+        setMetaTag("og:title", article.title, true);
+        setMetaTag("twitter:title", article.title);
+
+    } catch (error) {
+        console.error("❌ Error loading article:", error);
+    }
+});
+
+// ✅ Helper Function: Meta Tags Ko Set Karne Ke Liye
 function setMetaTag(name, content, isProperty = false) {
     const selector = isProperty ? `meta[property='${name}']` : `meta[name='${name}']`;
     let metaTag = document.querySelector(selector);
