@@ -26,12 +26,14 @@ document.addEventListener("DOMContentLoaded", async function () {
         if (typeof article.content === "object") {
             for (const [key, value] of Object.entries(article.content)) {
                 contentHTML += `<h2>${key}</h2>`; // ✅ Section Heading
+                
                 if (typeof value === "object") {
+                    // ✅ Agar nested object hai, toh properly format karo
                     for (const [subKey, subValue] of Object.entries(value)) {
                         contentHTML += `<p><strong>${subKey}:</strong> ${subValue}</p>`;
                     }
                 } else {
-                    contentHTML += `<p>${value}</p>`;
+                    contentHTML += `<p>${value}</p>`; // ✅ Normal Text
                 }
             }
         } else {
