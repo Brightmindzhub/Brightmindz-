@@ -21,27 +21,27 @@
             },
             "Battery Life and Charging": "While Apple hasn't disclosed the exact battery capacity, real-world usage indicates that this device can handle tasks like streaming, gaming, and browsing without frequent charging. The device supports fast charging. Additionally, MagSafe technology offers wireless charging that enhances the overall user experience.",
             "Prices": {
-                "iPhone 16": {
+                "iPhone 16": ,
                     "128GB": "$799",
                     "256GB": "$899",
-                    "512GB": "$1,099"
-                },
-                "iPhone 16 Plus": {
+                    "512GB": "$1,099",
+             
+                "iPhone 16 Plus": ,
                     "128GB": "$899",
                     "256GB": "$999",
-                    "512GB": "$1,199"
-                },
+                    "512GB": "$1,199",
+               
                 "iPhone 16 Pro": {
                     "128GB": "$999",
                     "256GB": "$1,099",
                     "512GB": "$1,299",
-                    "1TB": "$1,499"
-                },
-                "iPhone 16 Pro Max": {
+                    "1TB": "$1,499",
+                
+                "iPhone 16 Pro Max": ,
                     "256GB": "$1,199",
                     "512GB": "$1,399",
                     "1TB": "$1,599"
-                }
+                
             },
             "Conclusion": "You can buy this thing now or just wait for the same ……….. with some extra ……………"
         }
