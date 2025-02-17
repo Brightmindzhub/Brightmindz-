@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             articlesContainer.innerHTML = "<p>No articles found in this category.</p>";
         } else {
             articlesContainer.innerHTML = filteredArticles.map(article => `
-                <div class="post-preview" onclick="location.href='article.html?id=${article.id}'">
+                <div class="post-preview" onclick="location.href='${generateArticleURL(article)}'">
                     <h2>${article.title}</h2>
                     <p>${article.preview}</p>
                     <small>${article.date}</small>
@@ -36,9 +36,15 @@ document.addEventListener("DOMContentLoaded", async function () {
         articlesContainer.innerHTML = "<p>Error loading articles. Please try again.</p>";
     }
 
-    // ✅ 1 sec delay ke baad loading message hatado aur articles dikhado
+    // ✅ 1 sec delay ke baad loading message hata do aur articles dikha do
     setTimeout(() => {
         loadingMessage.classList.add("hidden");
         articlesContainer.classList.remove("hidden");
     }, 1000);
 });
+
+// ✅ Dynamic Article URL Generator Function
+function generateArticleURL(article) {
+    // Har article ke liye specific HTML file ka naam bana do
+    return `articles/${article.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}.html`;
+}
