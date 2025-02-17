@@ -22,24 +22,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
 
         // Article content ko format karna
-        let contentHTML = "";
-        if (typeof article.content === "object") {
-            for (const [key, value] of Object.entries(article.content)) {
-                contentHTML += `<h2>${key}</h2>`;
-                
-                if (typeof value === "object") {
-                    contentHTML += `<ul>`;
-                    for (const [subKey, subValue] of Object.entries(value)) {
-                        contentHTML += `<li><strong>${subKey}:</strong> ${subValue}</li>`;
-                    }
-                    contentHTML += `</ul>`;
-                } else {
-                    contentHTML += `<p>${value}</p>`;
-                }
-            }
-        } else {
-            contentHTML = `<p>${article.preview}</p>`;
-        }
+        let contentHTML = formatContent(article.content);
 
         // Article ko display karna
         const imageUrl = article.image || "https://brightmindzhub.github.io/default.jpg";
@@ -60,7 +43,33 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 });
 
-// Meta Tags ko dynamically update karne wala function
+// ✅ **Function: Nested JSON ko HTML me convert karega**
+function formatContent(content) {
+    let html = "";
+
+    function generateHTML(key, value, level = 1) {
+        if (typeof value === "object") {
+            html += `<h${level}>${key}</h${level}>`;
+            html += `<ul>`;
+            for (const [subKey, subValue] of Object.entries(value)) {
+                html += `<li>`;
+                generateHTML(subKey, subValue, level + 1);
+                html += `</li>`;
+            }
+            html += `</ul>`;
+        } else {
+            html += `<p><strong>${key}:</strong> ${value}</p>`;
+        }
+    }
+
+    for (const [key, value] of Object.entries(content)) {
+        generateHTML(key, value);
+    }
+
+    return html;
+}
+
+// ✅ **Meta Tags ko dynamically update karne wala function**
 function updateMetaTags(article, imageUrl) {
     document.title = article.title;
     setMetaTag("description", article.preview);
@@ -80,7 +89,7 @@ function updateMetaTags(article, imageUrl) {
     setMetaTag("twitter:image", imageUrl);
 }
 
-// Helper function to set meta tags dynamically
+// ✅ **Helper function: Meta tags set karne ke liye**
 function setMetaTag(name, content, isProperty = false) {
     const selector = isProperty ? `meta[property='${name}']` : `meta[name='${name}']`;
     let metaTag = document.querySelector(selector);
