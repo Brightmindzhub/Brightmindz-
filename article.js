@@ -29,9 +29,23 @@ document.addEventListener("DOMContentLoaded", async function () {
                 
                 if (typeof value === "object") {
                     // ✅ Agar nested object hai, toh properly format karo
-                    for (const [subKey, subValue] of Object.entries(value)) {
-                        contentHTML += `<p><strong>${subKey}:</strong> ${subValue}</p>`;
-                    }
+                    if (typeof value === "object") {
+    contentHTML += `<ul>`; // List format me show karne ke liye
+    for (const [subKey, subValue] of Object.entries(value)) {
+        if (typeof subValue === "object") { 
+            // ✅ **Agar subValue bhi ek object hai (e.g., Prices section), toh nested loop use karo**
+            contentHTML += `<li><strong>${subKey}:</strong><ul>`;
+            for (const [subSubKey, subSubValue] of Object.entries(subValue)) {
+                contentHTML += `<li>${subSubKey}: ${subSubValue}</li>`;
+            }
+            contentHTML += `</ul></li>`;
+        } else {
+            contentHTML += `<li><strong>${subKey}:</strong> ${subValue}</li>`;
+        }
+    }
+    contentHTML += `</ul>`;
+}
+                    
                 } else {
                     contentHTML += `<p>${value}</p>`; // ✅ Normal Text
                 }
