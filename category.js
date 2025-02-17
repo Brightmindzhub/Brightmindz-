@@ -45,6 +45,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 // ✅ Dynamic Article URL Generator Function
 function generateArticleURL(article) {
-    // Har article ke liye specific HTML file ka naam bana do
-    return `articles/${article.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}.html`;
+    return `articles/${article.title
+        .toLowerCase()              // ✅ Sab lowercase mein convert karo
+        .replace(/[^a-z0-9]+/g, "-") // ❌ Special characters hatao, spaces ko `-` se replace karo
+        .replace(/-+$/, "")          // ✅ Agar last me `-` aa raha ho to hata do
+    }.html`;
 }
