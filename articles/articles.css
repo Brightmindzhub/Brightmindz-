@@ -86,32 +86,61 @@ footer {
     cursor: pointer;
 }
 
-.go-back:hover {
-    background: #01497C;
-    transform: scale(1.05);
+/* Container for related articles */
+#related-articles-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
 }
 
-#related-articles {
-    margin-top: 20px;
-    background: white;
-    padding: 15px;
+/* Individual article preview */
+.post-preview {
+    width: 45%;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
-.related-article {
+/* Hover effect on article preview */
+.post-preview:hover {
+    transform: translateY(-5px);
+}
+
+/* Styling for the image */
+.post-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Content area */
+.post-content {
+    padding: 15px;
+    text-align: center;
+}
+
+.post-content h3 {
+    font-size: 1.5em;
     margin-bottom: 10px;
-    padding: 10px;
-    background: #E3F2FD;
-    border-radius: 5px;
 }
 
-.related-article h3 {
-    font-size: 18px;
-    margin: 0;
-}
-
-.related-article p {
-    font-size: 14px;
+.post-content p {
+    font-size: 1em;
     color: #555;
+    margin-bottom: 15px;
+}
+
+.read-more {
+    font-size: 0.9em;
+    color: #007bff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.read-more:hover {
+    text-decoration: underline;
 }
