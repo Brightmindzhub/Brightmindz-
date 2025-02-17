@@ -47,18 +47,27 @@ document.addEventListener("DOMContentLoaded", async function () {
 function formatContent(content) {
     let html = "";
 
-    function generateHTML(key, value, level = 1) {
+    function generateHTML(key, value) {
+        html += `<h2>${key}</h2>`; // 🟢 Headings hamesha `h2` rahengi
+
         if (typeof value === "object") {
-            html += `<h${level}>${key}</h${level}>`;
             html += `<ul>`;
             for (const [subKey, subValue] of Object.entries(value)) {
-                html += `<li>`;
-                generateHTML(subKey, subValue, level + 1);
+                html += `<li><strong>${subKey}:</strong> `;
+                if (typeof subValue === "object") {
+                    html += `<ul>`;
+                    for (const [nestedKey, nestedValue] of Object.entries(subValue)) {
+                        html += `<li><strong>${nestedKey}:</strong> ${nestedValue}</li>`;
+                    }
+                    html += `</ul>`;
+                } else {
+                    html += `${subValue}`;
+                }
                 html += `</li>`;
             }
             html += `</ul>`;
         } else {
-            html += `<p><strong>${key}:</strong> ${value}</p>`;
+            html += `<p>${value}</p>`;
         }
     }
 
