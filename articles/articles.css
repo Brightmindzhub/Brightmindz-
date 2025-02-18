@@ -101,6 +101,8 @@ footer {
     width: 45%;
     border: 1px solid #ddd;
     border-radius: 8px;
+    user-select: none;
+    cursor: pointer;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
