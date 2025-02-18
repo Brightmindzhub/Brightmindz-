@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const articlesContainer = document.getElementById("articles-list");
 
     try {
-        const response = await fetch("articles.json");
+        const response = await fetch("articles/preview.json");
         if (!response.ok) throw new Error("Failed to load JSON file!");
         const articles = await response.json();
 
