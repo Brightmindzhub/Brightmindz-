@@ -26,3 +26,23 @@ fetch("https://brightmindzhub.github.io/Brightmindz-/articles.json")
     });
 })
 .catch(error => console.error("Error loading the articles:", error));
+
+
+
+/* 🛑go back wala button🛑*/
+
+document.addEventListener("DOMContentLoaded", function () {
+    const articleContainer = document.querySelector(".article-content .container");
+
+    if (articleContainer) {
+        const backButton = document.createElement("button");
+        backButton.classList.add("go-back");
+        backButton.innerText = "← Go Back";
+        backButton.onclick = function () {
+            window.history.back();
+        };
+
+        // Article ke content se pehle insert karo
+        articleContainer.insertBefore(backButton, articleContainer.firstChild);
+    }
+});
