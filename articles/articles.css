@@ -52,7 +52,6 @@ header h1 {
 }
 
 .article-image {
-    display: none;
     width: 100%;
     max-height: 400px;
     object-fit: cover;
