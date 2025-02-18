@@ -1,5 +1,5 @@
 // Fetching data from the articles.json
-fetch("https://brightmindzhub.github.io/Brightmindz-/articles.json")
+fetch("../articles.json")
     .then(response => response.json())
     .then(data => {
         // Get current article category from URL
