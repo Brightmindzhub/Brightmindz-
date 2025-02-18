@@ -46,9 +46,9 @@ header h1 {
 .article-content .content {
     line-height: 1.8;
     font-size: 18px;
-    max-width: 90%;
+    max-width: 95%;
     margin: 0 auto;
-    text-align: justify;
+    text-align: centre;
 }
 
 .article-image {
