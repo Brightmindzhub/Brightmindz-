@@ -42,7 +42,8 @@ document.addEventListener("DOMContentLoaded", function () {
             window.history.back();
         };
 
-        // Article ke content se pehle insert karo
-        articleContainer.insertBefore(backButton, articleContainer.firstChild);
+        // Insert the button after the article content section
+        const articleContent = articleContainer.querySelector(".content");
+        articleContainer.insertBefore(backButton, articleContent.nextSibling);
     }
 });
