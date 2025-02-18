@@ -12,19 +12,20 @@ fetch("preview.json")
         const currentArticle = data.find(article => currentUrl.includes(article.url) || currentTitle.includes(article.title));
 
         if (currentArticle) {
-            // Hide the preview for the current article
-            const currentArticlePreview = document.querySelector(".article-content");
-            if (currentArticlePreview) {
-                currentArticlePreview.innerHTML = ""; // Clear the preview content of the current article
+            // Find the article content container and hide preview content
+            const currentArticleContent = document.querySelector(".article-content");
+            if (currentArticleContent) {
+                // Clear the content of the preview or any other old content
+                currentArticleContent.innerHTML = ""; 
+                
+                // Display the full article content
+                currentArticleContent.innerHTML = `
+                    <h2>${currentArticle.title}</h2>
+                    <p>${currentArticle.preview}</p>
+                    <img src="${currentArticle.image}" alt="${currentArticle.title}">
+                    <p>Published on: ${currentArticle.date}</p>
+                `;
             }
-
-            // Display current article content
-            document.querySelector(".article-content").innerHTML = `
-                <h2>${currentArticle.title}</h2>
-                <p>${currentArticle.preview}</p>
-                <img src="${currentArticle.image}" alt="${currentArticle.title}">
-                <p>Published on: ${currentArticle.date}</p>
-            `;
 
             // Get category of the current article
             const category = currentArticle.category;
