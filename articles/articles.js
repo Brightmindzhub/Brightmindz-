@@ -2,13 +2,12 @@
 fetch("https://brightmindzhub.github.io/Brightmindz-/articles.json")
     .then(response => response.json())
     .then(data => {
-        // Get current article ID and category from URL
+        // Get current article category from URL
         const urlParams = new URLSearchParams(window.location.search);
-        const currentArticleID = parseInt(urlParams.get("id"));
         const currentArticleCategory = urlParams.get("category");
 
         // Filter articles based on the same category but exclude the current article
-        let relatedArticles = data.filter(article => article.category === currentArticleCategory && article.id !== currentArticleID);
+        let relatedArticles = data.filter(article => article.category === currentArticleCategory);
 
         // Get the container to display related articles
         let container = document.getElementById("related-articles-container");
@@ -25,7 +24,7 @@ fetch("https://brightmindzhub.github.io/Brightmindz-/articles.json")
             postElement.classList.add("post-preview");
 
             postElement.innerHTML = `
-                <div class="post-button" onclick="window.location.href='${article.url}?id=${article.id}&category=${article.category}'">
+                <div class="post-button" onclick="window.location.href='${article.url}'">
                     <img src="${article.image}" alt="${article.title}" class="post-image">
                     <div class="post-content">
                         <h3>${article.title}</h3>
