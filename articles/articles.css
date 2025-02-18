@@ -11,7 +11,6 @@ body {
     text-align: center;
 }
 
-/* Header */
 header {
     background-color: #012A4A;
     color: white;
@@ -47,7 +46,7 @@ header h1 {
 .article-content .content {
     line-height: 1.8;
     font-size: 18px;
-    max-width: 70%;
+    max-width: 90%;
     margin: 0 auto;
     text-align: justify;
 }
