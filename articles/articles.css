@@ -9,6 +9,7 @@ body {
     font-family: 'Newsreader', serif;
     background-color: #f8f9fa;
     color: #333;
+    text-align: center; /* ✅ Pura text center align */
 }
 
 /* Header */
@@ -16,21 +17,15 @@ header {
     background-color: #012A4A;
     color: white;
     padding: 20px 0;
-    text-align: center;
 }
 
 header .container {
-    max-width: 1000px;
+    max-width: 95%; /* ✅ Screen se thoda gap */
     margin: 0 auto;
 }
 
 header h1 {
     font-size: 32px;
-}
-
-header .author, header .date {
-    font-size: 14px;
-    margin-top: 5px;
 }
 
 /* Article Content */
@@ -40,28 +35,32 @@ header .author, header .date {
 }
 
 .article-content .container {
-    max-width: 900px;
+    max-width: 90%; /* ✅ Screen width ka proper gap */
     margin: 0 auto;
 }
 
+/* Article Headings */
+.article-content h2, 
+.article-content h3 {
+    margin-top: 30px;
+    font-size: 24px;
+    text-align: center; /* ✅ Headings ko center me rakha */
+}
+
+/* Article Text */
+.article-content .content {
+    line-height: 1.8;
+    font-size: 18px;
+    max-width: 80%; /* ✅ Text ko beech me lane ke liye */
+    margin: 0 auto; /* ✅ Text ko center me set kiya */
+}
+
+/* Images */
 .article-image {
     width: 100%;
     height: auto;
     margin-bottom: 20px;
     border-radius: 10px;
-}
-
-/* Text Content */
-.article-content .content {
-    line-height: 1.8;
-    font-size: 18px;
-}
-
-.article-content h2 {
-    margin-top: 30px;
-    font-size: 24px;
-    border-left: 5px solid #007bff;
-    padding-left: 10px;
 }
 
 /* Footer */
@@ -97,7 +96,7 @@ footer {
     background: #0056b3;
 }
 
-/* Related Articles Section */
+/* Related Articles Section (Preview Design Pehle Jaisa Hi) */
 #related-articles-container {
     display: flex;
     flex-wrap: wrap;
@@ -106,37 +105,33 @@ footer {
     justify-content: center;
 }
 
-/* Individual Article Preview */
 .post-preview {
-    width: 300px;
-    background: white;
+    width: 45%;
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-    cursor: pointer;
 }
 
 .post-preview:hover {
     transform: translateY(-5px);
 }
 
-/* Image Styling */
 .post-image {
     width: 100%;
-    height: 180px;
+    height: auto;
     object-fit: cover;
+    border-bottom: 1px solid #ddd;
 }
 
-/* Content Area */
 .post-content {
     padding: 15px;
     text-align: center;
 }
 
 .post-content h3 {
-    font-size: 1.4em;
+    font-size: 1.5em;
     margin-bottom: 10px;
 }
 
@@ -146,7 +141,6 @@ footer {
     margin-bottom: 15px;
 }
 
-/* Read More Button */
 .read-more {
     font-size: 0.9em;
     color: #007bff;
