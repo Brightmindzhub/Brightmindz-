@@ -1,4 +1,4 @@
-fetch("https://brightmindzhub.github.io/Brightmindz-/preview.json")
+fetch("preview.json")
     .then(response => response.json())
     .then(data => {
         // Get the current article URL or title from the page (replace with actual selector)
