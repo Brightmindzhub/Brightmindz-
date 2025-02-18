@@ -1,10 +1,15 @@
 fetch("preview.json")
     .then(response => response.json())
     .then(data => {
-        // Get the category of the current article (replace with actual logic for category)
-        const currentCategory = "tech"; // Example category, replace with actual category logic
+        // Get the current article's category from the hidden <p> tag
+        const currentCategory = document.querySelector("#category") ? document.querySelector("#category").innerText : null;
 
-        // Filter articles by category
+        if (!currentCategory) {
+            console.error("Category not found in current article.");
+            return;
+        }
+
+        // Filter articles by category (excluding the current article)
         const filteredArticles = data.filter(article => article.category === currentCategory);
 
         // Sort articles by date (latest first)
@@ -17,7 +22,7 @@ fetch("preview.json")
         let container = document.getElementById("related-articles-container");
 
         if (top5Articles.length === 0) {
-            container.innerHTML = "No articles found in this category.";
+            container.innerHTML = "No related articles found.";
         } else {
             // Display each article
             top5Articles.forEach(article => {
