@@ -34,6 +34,7 @@ fetch("preview.json")
             if (relatedArticles.length === 0) {
                 container.innerHTML = "No related articles found in this category.";
             } else {
+                // Only display related articles, current article is excluded
                 relatedArticles.slice(0, 5).forEach(article => {
                     let postElement = document.createElement("div");
                     postElement.classList.add("post-preview");
@@ -56,7 +57,7 @@ fetch("preview.json")
     })
     .catch(error => console.error("Error loading the articles:", error));
 
-// New functionality to remove the current article from the related articles section
+// New functionality to remove the current article from the preview section
 fetch("preview.json")
     .then(response => response.json())
     .then(data => {
@@ -71,20 +72,28 @@ fetch("preview.json")
             return;
         }
 
-        // Filter out the current article from the list of articles to be displayed
-        const filteredArticles = data.filter(article => article.url !== currentArticle.url);
-
-        // Get the container where articles are being displayed
+        // Remove the current article's preview from the container
         let container = document.getElementById("related-articles-container");
+        let articlePreviews = container.getElementsByClassName("post-preview");
 
-        // Clear previous articles in the container
-        container.innerHTML = "";
+        for (let i = 0; i < articlePreviews.length; i++) {
+            let previewUrl = articlePreviews[i].querySelector(".post-button").getAttribute("onclick").split("'")[1];
 
-        if (filteredArticles.length === 0) {
-            container.innerHTML = "No related articles found.";
+            // If the preview is for the current article, remove it
+            if (previewUrl === currentArticle.url) {
+                container.removeChild(articlePreviews[i]);
+            }
+        }
+
+        // Now add the related articles below the current article
+        const relatedArticles = data.filter(article => 
+            article.category === currentArticle.category && article.url !== currentArticle.url
+        );
+
+        if (relatedArticles.length === 0) {
+            container.innerHTML = "No related articles found in this category.";
         } else {
-            // Display the filtered articles (excluding the current article)
-            filteredArticles.slice(0, 5).forEach(article => {
+            relatedArticles.slice(0, 5).forEach(article => {
                 let postElement = document.createElement("div");
                 postElement.classList.add("post-preview");
 
