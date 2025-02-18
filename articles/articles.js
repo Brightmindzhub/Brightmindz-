@@ -1,14 +1,28 @@
 // Fetching data from the articles.json
-fetch("https://raw.githubusercontent.com/Brightmindzhub/Brightmindz-/main/articles.json")
+fetch("https://brightmindzhub.github.io/Brightmindz-/articles.json")
     .then(response => response.json())
     .then(data => {
-        // Get category from URL parameters
-        const urlParams = new URLSearchParams(window.location.search);
-        const category = urlParams.get('category');
+        // Get the category from the article page
+        const category = document.getElementById("category").textContent;
 
-        if (category) {
-            // Filter articles based on the category
-            const relatedArticles = data.filter(article => article.category === category);
+        // Find the current article ID from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const articleId = urlParams.get('id'); // Get article ID from URL
+
+        // Find the current article by ID
+        const currentArticle = data.find(article => article.id == articleId);
+
+        if (currentArticle) {
+            // Display current article content
+            document.querySelector(".article-content").innerHTML = `
+                <h2>${currentArticle.title}</h2>
+                <p>${currentArticle.preview}</p>
+                <img src="${currentArticle.image}" alt="${currentArticle.title}">
+                <p>Published on: ${currentArticle.date}</p>
+            `;
+
+            // Filter related articles based on category
+            const relatedArticles = data.filter(article => article.category === category && article.id !== currentArticle.id);
 
             let container = document.getElementById("related-articles-container");
 
