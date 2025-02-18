@@ -1,15 +1,15 @@
 fetch("https://brightmindzhub.github.io/Brightmindz-/preview.json")
     .then(response => response.json())
     .then(data => {
-        // Get the category from the article page
-        const category = document.getElementById("category").textContent;
+        // Get the current article URL or title from the page (replace with actual selector)
+        const currentUrl = window.location.href;
+        const currentTitle = document.title; // Or, you can get it from a specific HTML element
 
-        // Find the current article ID from URL parameters
-        const urlParams = new URLSearchParams(window.location.search);
-        const articleId = urlParams.get('id'); // Get article ID from URL
+        console.log("Current URL:", currentUrl); // Debugging line to check the current URL
+        console.log("Current Title:", currentTitle); // Debugging line to check the current title
 
-        // Find the current article by ID
-        const currentArticle = data.find(article => article.id == articleId);
+        // Find the current article by URL or title
+        const currentArticle = data.find(article => currentUrl.includes(article.url) || currentTitle.includes(article.title));
 
         if (currentArticle) {
             // Display current article content
@@ -20,9 +20,13 @@ fetch("https://brightmindzhub.github.io/Brightmindz-/preview.json")
                 <p>Published on: ${currentArticle.date}</p>
             `;
 
+            // Get category of the current article
+            const category = currentArticle.category;
+            console.log("Category of current article: ", category); // Debugging line
+
             // Filter related articles based on category (and exclude the current article)
             const relatedArticles = data.filter(article => 
-                article.category === category && article.id !== currentArticle.id
+                article.category === category && article.url !== currentArticle.url
             );
 
             let container = document.getElementById("related-articles-container");
