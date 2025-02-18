@@ -213,6 +213,9 @@ footer {
     bottom: 0;
     color: white;
     font-family: 'Newsreader', serif;
+    box-sizing: border-box;
+    max-width: 100vw;
+    overflow: hidden;
 }
 
 #categoryContainer {
