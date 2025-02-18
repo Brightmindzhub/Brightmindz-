@@ -12,6 +12,12 @@ fetch("preview.json")
         const currentArticle = data.find(article => currentUrl.includes(article.url) || currentTitle.includes(article.title));
 
         if (currentArticle) {
+            // Hide the preview for the current article
+            const currentArticlePreview = document.querySelector(".article-content");
+            if (currentArticlePreview) {
+                currentArticlePreview.innerHTML = ""; // Clear the preview content of the current article
+            }
+
             // Display current article content
             document.querySelector(".article-content").innerHTML = `
                 <h2>${currentArticle.title}</h2>
