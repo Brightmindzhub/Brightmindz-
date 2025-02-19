@@ -45,3 +45,17 @@ fetch("preview.json")
         }
     })
     .catch(error => console.error("Error loading the articles:", error));
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".code-box").forEach(box => {
+        let button = box.querySelector(".copy-btn");
+        let code = box.querySelector("code").innerText;
+        
+        button.addEventListener("click", () => {
+            navigator.clipboard.writeText(code).then(() => {
+                button.innerText = "Copied!";
+                setTimeout(() => button.innerText = "Copy", 2000);
+            });
+        });
+    });
+});
