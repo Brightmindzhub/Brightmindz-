@@ -1,5 +1,13 @@
 [
 {
+    "title": "Web Development 101: A Beginner’s Guide to Building the Internet",
+    "category": "Programming and Web Development",
+    "date": "2025-02-19",
+    "preview": "Ever wondered how websites are built? This beginner-friendly guide will introduce you to web development, from HTML to backend magic!",
+    "url": "../articles/web-development-101-beginner-s-guide-to-building-the-internet.html",
+    "image": "https://raw.githubusercontent.com/Brightmindzhub/Brightmindz-/main/images/web-dev-guide.jpeg"
+},
+{
     "title": "Coding: The Superpower You Didn't Know You Needed",
     "category": "Programming and Web Development",
     "date": "2025-02-19",
