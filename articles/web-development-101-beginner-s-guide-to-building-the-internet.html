@@ -11,102 +11,138 @@
    <meta property="og:title" content="Web Development 101: A Beginner’s Guide to Building the Internet">
    <meta property="og:description" content="Ever wondered how websites are built? This beginner-friendly guide will introduce you to web development, from HTML to backend magic!">
    <meta property="og:image" content="https://raw.githubusercontent.com/Brightmindzhub/Brightmindz-/main/images/web-dev-guide.jpeg">
-   <meta property="og:url" content="../articles/web-development-101-beginner-s-guide-to-building-the-internet.html">
+   <meta property="og:url" content="../articles/web-development-101-a-beginner-s-guide-to-building-the-internet.html">
    <meta name="twitter:card" content="summary_large_image">
    <meta name="twitter:title" content="Web Development 101: A Beginner’s Guide to Building the Internet">
    <meta name="twitter:description" content="Ever wondered how websites are built? This beginner-friendly guide will introduce you to web development, from HTML to backend magic!">
    <meta name="twitter:image" content="https://raw.githubusercontent.com/Brightmindzhub/Brightmindz-/main/images/web-dev-guide.jpeg">
    <meta name="robots" content="index, follow">
-
    <link rel="stylesheet" href="articles.css">
    <script src="articles.js" defer></script>
-
 </head>
 <body>
-   <header>
-      <div class="container">
-         <h1>Web Development 101: A Beginner’s Guide to Building the Internet</h1>
-         <p class="date">2025-02-19</p>
-      </div>
-   </header>
 
-   <section class="article-content">
-      <div class="container">
-         <p id="category" style="display: none;">Programming and Web Development</p>
-         <article>
+<header>
+    <div class="container">
+        <h1>Web Development 101: A Beginner’s Guide to Building the Internet</h1>
+        <p class="date">2025-02-19</p>
+    </div>
+</header>
+
+<section class="article-content">
+    <div class="container">
+        <p id="category" style="display: none;">Programming and Web Development</p>
+        <article>
             <img src="https://raw.githubusercontent.com/Brightmindzhub/Brightmindz-/main/images/web-dev-guide.jpeg" alt="Web Development Guide" class="article-image">
 
             <div class="content">
-               <h2>What is Web Development?</h2>
-               <p>Web development is the process of creating websites and web applications. It involves coding, designing, and structuring web pages to function properly across different devices.</p>
+                <h2>What Even is Web Development? 🤔</h2>
+                <p>Web development is all about creating websites and web apps. It’s basically divided into three main parts:</p>
+                <ul>
+                    <li>1️⃣ <b>Frontend Development</b> (What users see) – The design, buttons, text, images, and animations.</li>
+                    <li>2️⃣ <b>Backend Development</b> (What happens behind the scenes) – Databases, user logins, and server logic.</li>
+                    <li>3️⃣ <b>Full-Stack Development</b> (The best of both worlds) – If you know both frontend and backend, you’re full-stack! 😎</li>
+                </ul>
 
-               <h2>Why Learn Web Development?</h2>
-               <ul>
-                  <li>💰 <b>High Demand:</b> Every business needs a website today.</li>
-                  <li>🎨 <b>Creative Freedom:</b> Design and build anything you imagine.</li>
-                  <li>🖥 <b>Work from Anywhere:</b> Many web developers work remotely.</li>
-                  <li>🚀 <b>Great Career Opportunities:</b> Web development skills open doors to well-paying jobs.</li>
-               </ul>
+                <h2>Step 1: Learn the Basics of Frontend Development 🎨</h2>
+                <p>Frontend consists of three main technologies:</p>
+                <ul>
+                    <li>✅ <b>HTML</b> – The skeleton of a website.</li>
+                    <li>✅ <b>CSS</b> – The styles, colors, and layouts.</li>
+                    <li>✅ <b>JavaScript</b> – Adds interactivity.</li>
+                </ul>
 
-               <h2>The Three Pillars of Web Development</h2>
-               <p>Web development has three core technologies:</p>
+                <h3>Example: Basic HTML Structure</h3>
+                <div class="code-box">
+                   <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                   <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;My First Website&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome to My Website!&lt;/h1&gt;
+    &lt;p&gt;This is my first ever website. Cool, right?&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
 
-               <h3>1️⃣ HTML (HyperText Markup Language)</h3>
-               <p>HTML is the backbone of any web page. It provides structure and tells the browser what elements to display.</p>
-               <div class="code-box">
-                   <button class="copy-btn">Copy</button>
-                   <code>&lt;h1&gt;Hello, World!&lt;/h1&gt;</code>
-               </div>
+                <h2>Step 2: Add Some Backend Magic 🧙‍♂️</h2>
+                <p>The backend is responsible for handling user data and website functionality.</p>
+                <p>Popular backend languages:</p>
+                <ul>
+                    <li>✔ Python (with Flask/Django)</li>
+                    <li>✔ Node.js (JavaScript)</li>
+                    <li>✔ PHP</li>
+                </ul>
 
-               <h3>2️⃣ CSS (Cascading Style Sheets)</h3>
-               <p>CSS is used to style HTML elements, making web pages visually appealing.</p>
-               <div class="code-box">
-                   <button class="copy-btn">Copy</button>
-                   <code>h1 { color: blue; text-align: center; }</code>
-               </div>
+                <h3>Example: A Simple Backend with Flask (Python)</h3>
+                <div class="code-box">
+                   <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                   <pre><code>from flask import Flask
+app = Flask(__name__)
 
-               <h3>3️⃣ JavaScript</h3>
-               <p>JavaScript adds interactivity to web pages, like pop-ups, animations, and dynamic content.</p>
-               <div class="code-box">
-                   <button class="copy-btn">Copy</button>
-                   <code>document.querySelector("h1").innerText = "Hello, Web!";</code>
-               </div>
+@app.route('/')
+def home():
+    return "Hello, World! This is my backend."
 
-               <h2>Where to Start?</h2>
-               <p>Here are the best platforms to learn web development for free:</p>
-               <ul>
-                  <li>🌍 <a href="https://www.w3schools.com/" target="_blank">W3Schools</a> – Beginner-friendly tutorials.</li>
-                  <li>🎓 <a href="https://www.freecodecamp.org/" target="_blank">FreeCodeCamp</a> – Hands-on coding exercises.</li>
-                  <li>📚 <a href="https://developer.mozilla.org/" target="_blank">MDN Web Docs</a> – The ultimate web development reference.</li>
-               </ul>
+if __name__ == '__main__':
+    app.run(debug=True)</code></pre>
+                </div>
 
-               <h2>Practice with Small Projects</h2>
-               <p>Build these beginner projects to practice:</p>
-               <ul>
-                  <li>✅ A simple webpage with HTML & CSS.</li>
-                  <li>✅ A personal portfolio website.</li>
-                  <li>✅ A to-do list using JavaScript.</li>
-               </ul>
+                <h2>Step 3: Database (Where the Data Lives) 📂</h2>
+                <p>Websites need a database to store information like user details, posts, and comments.</p>
+                <ul>
+                    <li>✅ MySQL – Structured and widely used.</li>
+                    <li>✅ MongoDB – Great for flexible, fast data storage.</li>
+                    <li>✅ PostgreSQL – Powerful and secure.</li>
+                </ul>
 
-               <h2>Final Thoughts</h2>
-               <p>Web development is an exciting skill that can lead to amazing career opportunities. Start with HTML, CSS, and JavaScript, build small projects, and keep learning!</p>
-               <p>Want to learn more? Check out our other articles on programming and web development.</p>
+                <h3>Example: Connecting Python to MySQL</h3>
+                <div class="code-box">
+                   <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                   <pre><code>import mysql.connector
+
+db = mysql.connector.connect(
+    host="localhost",
+    user="yourusername",
+    password="yourpassword",
+    database="yourdatabase"
+)
+
+cursor = db.cursor()
+cursor.execute("SELECT * FROM users")
+for user in cursor.fetchall():
+    print(user)</code></pre>
+                </div>
+
+                <h2>Step 4: Hosting Your Website 🌎</h2>
+                <p>Once your website is ready, you need to host it online. Some popular options:</p>
+                <ul>
+                    <li>🌍 GitHub Pages – Free for static sites.</li>
+                    <li>🚀 Netlify – Great for frontend projects.</li>
+                    <li>🖥 Railway – Free hosting for backend apps.</li>
+                </ul>
+
+                <h2>Final Words: Start Building Today! 🚀</h2>
+                <p>Web development is one of the most valuable skills today. Don’t just read—start coding and launch your first website soon! 💡</p>
+
             </div>
-         </article>
-      </div>
-   </section>
+        </article>
+    </div>
+</section>
 
-   <!-- Go Back Button in HTML -->
-   <button class="go-back" onclick="window.history.back()">← Go Back</button>
+<button class="go-back" onclick="window.history.back()">← Go Back</button>
 
-   <h2>Related Articles</h2>
-   <div id="related-articles-container"></div>
+<h2>Related Articles</h2>
+<div id="related-articles-container"></div>
 
-   <footer>
-      <div class="container">
-         <p>&copy; 2025 Brightmindz</p>
-      </div>
-   </footer>
+<footer>
+    <div class="container">
+        <p>&copy; 2025 Brightmindz</p>
+    </div>
+</footer>
 
 </body>
 </html>
