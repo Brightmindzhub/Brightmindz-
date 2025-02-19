@@ -149,3 +149,36 @@ footer {
 .read-more:hover {
     text-decoration: underline;
 }
+
+.code-box {
+    background-color: #f4f4f4;
+    border-left: 5px solid #007bff;
+    padding: 10px;
+    margin: 10px 0;
+    overflow-x: auto;
+    position: relative;
+    border-radius: 5px;
+}
+
+.code-box code {
+    font-family: monospace;
+    display: block;
+    white-space: pre;
+}
+
+.copy-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.copy-btn:hover {
+    background: #0056b3;
+}
