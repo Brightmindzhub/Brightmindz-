@@ -1,11 +1,11 @@
 [
 {
-    "title": "HTML 01: A Beginner’s Guide to Building Websites",
-    "category": "Programming and Web Development",
+    "title": "Cybersecurity: Protect Yourself in the Digital World",
+    "category": "Cybersecurity",
     "date": "2025-02-19",
-    "preview": "Ever wondered how websites are built? This beginner-friendly guide introduces you to HTML, the foundation of web development!",
-    "url": "../articles/html-01-beginner-s-guide-to-building-websites.html",
-    "image": "https://raw.githubusercontent.com/Brightmindzhub/Brightmindz-/main/images/website01.jpg"
+    "preview": "The internet is full of threats, but with the right precautions, you can stay safe. Learn about common cyber risks and how to protect yourself!",
+    "url": "../articles/cybersecurity-protect-yourself-in-the-digital-world.html",
+    "image": "https://raw.githubusercontent.com/Brightmindzhub/Brightmindz-/main/images/cybersecurity01.jpg"
 },
 {
     "title": "Web Development 101: A Beginner’s Guide to Building the Internet",
