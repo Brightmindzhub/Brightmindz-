@@ -49,6 +49,7 @@ header {
 
 /* ✅ Article Preview */
 .post-preview {
+    user-select: none;
     background: #E3F2FD;
     padding: 15px;
     margin-bottom: 15px;
