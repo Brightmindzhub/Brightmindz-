@@ -25,9 +25,12 @@ document.addEventListener("DOMContentLoaded", async function () {
         } else {
             articlesContainer.innerHTML = filteredArticles.map(article => `
                 <div class="post-preview" onclick="location.href='${generateArticleURL(article)}'">
-                    <h2>${article.title}</h2>
-                    <p>${article.preview}</p>
-                    <small>${article.date}</small>
+                    <img class="post-image" src="${article.image}" alt="${article.title}">
+                    <div class="post-content">
+                        <h2>${article.title}</h2>
+                        <p>${article.preview}</p>
+                        <small>${article.date}</small>
+                    </div>
                 </div>
             `).join("");
         }
