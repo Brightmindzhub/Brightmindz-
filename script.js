@@ -75,11 +75,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // ✅ Load Articles
-    let data = [];
-    let currentPage = 1;
-    let totalPages = 1;
+let data = [];
+let currentPage = 1;
+let totalPages = 1;
+const perPage = 5; // Kitne articles ek page par dikhane hain
 
-    fetch("https://brightmindzhub.github.io/Brightmindz-/articles/preview.json")
+fetch("https://brightmindzhub.github.io/Brightmindz-/articles/preview.json")
     .then(response => response.json())
     .then(jsonData => {
         if (!Array.isArray(jsonData) || jsonData.length === 0) {
@@ -89,72 +90,62 @@ document.addEventListener("DOMContentLoaded", function () {
 
         data = jsonData;
         totalPages = Math.ceil(data.length / perPage);
-        
+
         console.log("✅ Loaded Articles:", data);
 
         renderArticles(currentPage);
     })
     .catch(error => console.error("❌ Error loading JSON:", error));
 
-    function renderArticles(page) {
-        postsContainer.innerHTML = "";
-        let start = (page - 1) * perPage;
-        let end = start + perPage;
-        let articlesToShow = data.slice(0, end); 
+function renderArticles(page) {
+    postsContainer.innerHTML = "";
+    let start = (page - 1) * perPage;
+    let end = start + perPage;
+    let articlesToShow = data.slice(start, end);
 
-        if (articlesToShow.length === 0) {
-            postsContainer.innerHTML = "<p>No articles available.</p>";
-            return;
-        }
+    if (articlesToShow.length === 0) {
+        postsContainer.innerHTML = "<p>No articles available.</p>";
+        return;
+    }
 
-        articlesToShow.forEach(post => {
-            let postElement = document.createElement("div");
-            postElement.classList.add("post-preview");
+    articlesToShow.forEach(post => {
+        let postElement = document.createElement("div");
+        postElement.classList.add("post-preview");
 
-            if (isGridView) {
-                postElement.innerHTML = `
-                    <div class="post-button" onclick="window.location.href='${post.url}'">
-                        <h2>${post.title}</h2>
-                        <p>${post.preview}</p>
-                        <span class="read-more">Read More</span>
-                    </div>
-                `;
-            } else {
-                postElement.innerHTML = `
-                    <div class="post-button" onclick="window.location.href='${post.url}'">
-                        <h2>${post.title}</h2>
-                        <p><strong>Category:</strong> ${post.category} | <strong>Date:</strong> ${post.date}</p>
-                        <p>${post.preview}</p>
-                        <span class="read-more">Read More</span>
-                    </div>
-                `;
-            }
+        postElement.innerHTML = `
+            <div class="post-button" onclick="window.location.href='${post.url}'">
+                <img src="${post.image}" alt="${post.title}" loading="lazy">
+                <h2>${post.title}</h2>
+                <p><strong>Category:</strong> ${post.category} | <strong>Date:</strong> ${post.date}</p>
+                <p>${post.preview}</p>
+                <span class="read-more">Read More</span>
+            </div>
+        `;
 
-            postsContainer.appendChild(postElement);
+        postsContainer.appendChild(postElement);
+    });
+
+    renderPagination();
+}
+
+function renderPagination() {
+    let paginationContainer = document.getElementById("pagination");
+    paginationContainer.innerHTML = "";
+
+    for (let i = 1; i <= totalPages; i++) {
+        let pageBtn = document.createElement("button");
+        pageBtn.textContent = i;
+        pageBtn.classList.add("page-btn");
+        if (i === currentPage) pageBtn.classList.add("active");
+
+        pageBtn.addEventListener("click", function () {
+            currentPage = i;
+            renderArticles(currentPage);
         });
 
-        renderPagination();
+        paginationContainer.appendChild(pageBtn);
     }
-
-    function renderPagination() {
-        let paginationContainer = document.getElementById("pagination");
-        paginationContainer.innerHTML = "";
-
-        for (let i = 1; i <= totalPages; i++) {
-            let pageBtn = document.createElement("button");
-            pageBtn.textContent = i;
-            pageBtn.classList.add("page-btn");
-            if (i === currentPage) pageBtn.classList.add("active");
-
-            pageBtn.addEventListener("click", function () {
-                currentPage = i;
-                renderArticles(currentPage);
-            });
-
-            paginationContainer.appendChild(pageBtn);
-        }
-    }
-
+}
     // ✅ Sorting Functionality
     const sortOptions = document.querySelectorAll("#sortList li");
 
