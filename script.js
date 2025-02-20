@@ -99,39 +99,37 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(error => console.error("❌ Error loading JSON:", error));
 
     function renderArticles() {
-        if (!postsContainer) return;
+    if (!postsContainer) return;
 
-        postsContainer.innerHTML = ""; // ✅ Purane articles hatao, nahi toh duplicate honge!
+    let start = (currentPage - 1) * perPage;
+    let end = start + perPage;
+    let articlesToShow = data.slice(start, end);
 
-        let start = (currentPage - 1) * perPage;
-        let end = start + perPage;
-        let articlesToShow = data.slice(start, end);
-
-        if (articlesToShow.length === 0) {
-            return;
-        }
-
-        articlesToShow.forEach(post => {
-            let postElement = document.createElement("div");
-            postElement.classList.add("post-preview");
-
-            postElement.innerHTML = `
-                <div class="post-button" onclick="window.location.href='${post.url}'">
-                    <img src="${post.image}" alt="${post.title}" loading="lazy" class="post-image">
-                    <div class="post-content">
-                        <h2>${post.title}</h2>
-                        <p><strong>Category:</strong> ${post.category} | <strong>Date:</strong> ${formatDate(post.date)}</p>
-                        <p>${post.preview}</p>
-                        <span class="read-more">Read More</span>
-                    </div>
-                </div>
-            `;
-
-            postsContainer.appendChild(postElement);
-        });
-
-        updateLoadMoreButton();
+    if (articlesToShow.length === 0) {
+        return;
     }
+
+    articlesToShow.forEach(post => {
+        let postElement = document.createElement("div");
+        postElement.classList.add("post-preview");
+
+        postElement.innerHTML = `
+            <div class="post-button" onclick="window.location.href='${post.url}'">
+                <img src="${post.image}" alt="${post.title}" loading="lazy" class="post-image">
+                <div class="post-content">
+                    <h2>${post.title}</h2>
+                    <p><strong>Category:</strong> ${post.category} | <strong>Date:</strong> ${formatDate(post.date)}</p>
+                    <p>${post.preview}</p>
+                    <span class="read-more">Read More</span>
+                </div>
+            </div>
+        `;
+
+        postsContainer.appendChild(postElement); // ✅ Purane articles delete nahi honge, naye neeche add honge
+    });
+
+    updateLoadMoreButton();
+}
 
     function updateLoadMoreButton() {
         const loadMoreBtn = document.getElementById("loadMore");
