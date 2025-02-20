@@ -385,7 +385,7 @@ footer {
 }
 
 .posts-wrapper {
-    background: #012A4A
+    background: #012A4A;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -396,7 +396,7 @@ footer {
 }
 
 .post-preview {
-    background: #012A4A
+    background: #012A4A;
     display: flex;
     flex-direction: column;
     width: 90%;
@@ -407,7 +407,7 @@ footer {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background: #fff;
     transition: transform 0.2s ease-in-out;
-    margin: 10px 0;
+    margin: 15px auto;
 }
 
 .post-preview:hover {
@@ -425,12 +425,13 @@ footer {
 .post-image {
     width: 100%;
     height: auto;
-    max-height: unset;
+    max-height: 350px;
     object-fit: cover;
 }
 
 .post-content {
     padding: 15px;
+    background: #fff;
 }
 
 .post-content h2 {
@@ -456,6 +457,11 @@ footer {
     color: white;
     text-decoration: none;
     cursor: pointer;
+    background: #007bff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
 }
 
 #loadMore {
