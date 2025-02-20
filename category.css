@@ -8,7 +8,7 @@
 }
 
 body {
-    background-color: #F5F5F5;
+    background-color: #B9D9EB;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -33,7 +33,7 @@ header {
 }
 
 #articles-list {
-    background: #012A4A;
+    background-color: #B9D9EB;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
