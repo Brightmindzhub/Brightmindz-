@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
 let data = [];
 let currentPage = 1;
 let totalPages = 1;
-const perPage = 5; // Kitne articles ek page par dikhane hain
+const perPage = 5; // Ek page par kitne articles dikhenge (change as needed)
 
 fetch("https://brightmindzhub.github.io/Brightmindz-/articles/preview.json")
     .then(response => response.json())
@@ -101,7 +101,7 @@ function renderArticles(page) {
     postsContainer.innerHTML = "";
     let start = (page - 1) * perPage;
     let end = start + perPage;
-    let articlesToShow = data.slice(start, end);
+    let articlesToShow = data.slice(start, end); 
 
     if (articlesToShow.length === 0) {
         postsContainer.innerHTML = "<p>No articles available.</p>";
@@ -114,7 +114,7 @@ function renderArticles(page) {
 
         postElement.innerHTML = `
             <div class="post-button" onclick="window.location.href='${post.url}'">
-                <img src="${post.image}" alt="${post.title}" loading="lazy">
+                <img src="${post.image}" alt="${post.title}" loading="lazy" class="post-image">
                 <h2>${post.title}</h2>
                 <p><strong>Category:</strong> ${post.category} | <strong>Date:</strong> ${post.date}</p>
                 <p>${post.preview}</p>
