@@ -82,8 +82,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // ✅ Load Articles
+   document.addEventListener("DOMContentLoaded", function () {
+    console.log("✅ JavaScript Loaded");
+
+    const postsContainer = document.getElementById("posts");
+    let perPage = 5;
+    let currentPage = 1;
     let data = [];
 
+    // ✅ Load Articles
     fetch("https://brightmindzhub.github.io/Brightmindz-/articles/preview.json")
         .then(response => response.json())
         .then(jsonData => {
@@ -117,10 +124,12 @@ document.addEventListener("DOMContentLoaded", function () {
             postElement.innerHTML = `
                 <div class="post-button" onclick="window.location.href='${post.url}'">
                     <img src="${post.image}" alt="${post.title}" loading="lazy" class="post-image">
-                    <h2>${post.title}</h2>
-                    <p><strong>Category:</strong> ${post.category} | <strong>Date:</strong> ${post.date}</p>
-                    <p>${post.preview}</p>
-                    <span class="read-more">Read More</span>
+                    <div class="post-content">
+                        <h2>${post.title}</h2>
+                        <p><strong>Category:</strong> ${post.category} | <strong>Date:</strong> ${formatDate(post.date)}</p>
+                        <p>${post.preview}</p>
+                        <span class="read-more">Read More</span>
+                    </div>
                 </div>
             `;
 
@@ -140,6 +149,29 @@ document.addEventListener("DOMContentLoaded", function () {
             loadMoreBtn.style.display = "block";
         }
     }
+
+    function formatDate(dateString) {
+        let dateObj = new Date(dateString);
+        if (isNaN(dateObj)) return dateString; // Agar date invalid ho toh original return kar do
+        
+        // Custom formatting
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        let day = dateObj.getDate();
+        let month = months[dateObj.getMonth()];
+        let year = dateObj.getFullYear();
+
+        return `${month} ${day}, ${year}`;
+    }
+
+    const loadMoreBtn = document.getElementById("loadMore");
+
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener("click", function () {
+            currentPage++;
+            renderArticles();
+        });
+    }
+});
 
     // ✅ Load More Button
     const loadMoreBtn = document.getElementById("loadMore");
