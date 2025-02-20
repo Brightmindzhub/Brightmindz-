@@ -405,7 +405,6 @@ footer {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background: #fff;
     transition: transform 0.2s ease-in-out;
     margin: 15px auto;
 }
@@ -457,7 +456,6 @@ footer {
     color: white;
     text-decoration: none;
     cursor: pointer;
-    background: #007bff;
     padding: 5px 10px;
     border-radius: 5px;
     display: inline-block;
