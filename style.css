@@ -388,14 +388,15 @@ footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
-    padding: 10px;
+    gap: 20px; /* ✅ Gap thoda aur badhaya */
+    padding: 20px; /* ✅ Left-Right se bhi gap */
 }
 
 .post-preview {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 90%; /* ✅ Left-Right se chhota kiya */
+    max-width: 750px; /* ✅ Zyada bada na ho */
     border: 1px solid #ddd;
     border-radius: 10px;
     overflow: hidden;
@@ -418,7 +419,7 @@ footer {
 
 .post-image {
     width: 100%;
-    height: auto; /* ✅ Image full show hoga */
+    height: auto;
     max-height: unset;
     object-fit: cover;
 }
@@ -440,7 +441,7 @@ footer {
     font-size: 16px;
     color: #333;
     margin-bottom: 10px;
-    white-space: normal; /* ✅ Preview full show hoga */
+    white-space: normal; /* ✅ Preview bhi full dikhega */
     overflow: visible;
     text-overflow: clip;
 }
