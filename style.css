@@ -387,8 +387,8 @@ footer {
 .posts-wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* ✅ Center me laane ke liye */
-    gap: 20px;
+    justify-content: center;
+    gap: 10px;
     padding: 20px;
 }
 
@@ -403,7 +403,7 @@ footer {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background: #fff;
     transition: transform 0.2s ease-in-out;
-    margin: 0 auto; /* ✅ Pure center me laane ke liye */
+    margin: 10px 0;
 }
 
 .post-preview:hover {
