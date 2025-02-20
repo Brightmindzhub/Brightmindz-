@@ -436,6 +436,7 @@ footer {
 .post-content h2 {
     font-size: 20px;
     font-weight: bold;
+    color: white;
     margin-bottom: 5px;
     white-space: normal;
     overflow: visible;
@@ -444,7 +445,7 @@ footer {
 
 .post-content p {
     font-size: 16px;
-    color: #333;
+    color: white;
     margin-bottom: 10px;
     white-space: normal;
     overflow: visible;
