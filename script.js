@@ -68,6 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const postsContainer = document.getElementById("posts");
     let isGridView = false;
     let perPage = 5;
+    let currentPage = 1;
 
     if (viewBtn && postsContainer) {
         viewBtn.addEventListener("click", function () {
@@ -76,14 +77,12 @@ document.addEventListener("DOMContentLoaded", function () {
             viewBtn.textContent = isGridView ? "List View" : "Grid View";
             postsContainer.classList.toggle("grid-view", isGridView);
             postsContainer.classList.toggle("list-view", !isGridView);
-            renderArticles(1);
+            renderArticles();
         });
     }
 
     // ✅ Load Articles
     let data = [];
-    let currentPage = 1;
-    let totalPages = 1;
 
     fetch("https://brightmindzhub.github.io/Brightmindz-/articles/preview.json")
         .then(response => response.json())
@@ -94,23 +93,20 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             data = jsonData;
-            totalPages = Math.ceil(data.length / perPage);
             console.log("✅ Loaded Articles:", data);
 
-            renderArticles(currentPage);
+            renderArticles();
         })
         .catch(error => console.error("❌ Error loading JSON:", error));
 
-    function renderArticles(page) {
+    function renderArticles() {
         if (!postsContainer) return;
 
-        postsContainer.innerHTML = "";
-        let start = (page - 1) * perPage;
+        let start = (currentPage - 1) * perPage;
         let end = start + perPage;
         let articlesToShow = data.slice(start, end);
 
         if (articlesToShow.length === 0) {
-            postsContainer.innerHTML = "<p>No articles available.</p>";
             return;
         }
 
@@ -131,63 +127,27 @@ document.addEventListener("DOMContentLoaded", function () {
             postsContainer.appendChild(postElement);
         });
 
-        renderPagination();
+        updateLoadMoreButton();
     }
 
-    function renderPagination() {
-        let paginationContainer = document.getElementById("pagination");
-        if (!paginationContainer) return;
+    function updateLoadMoreButton() {
+        const loadMoreBtn = document.getElementById("loadMore");
+        if (!loadMoreBtn) return;
 
-        paginationContainer.innerHTML = "";
-
-        for (let i = 1; i <= totalPages; i++) {
-            let pageBtn = document.createElement("button");
-            pageBtn.textContent = i;
-            pageBtn.classList.add("page-btn");
-            if (i === currentPage) pageBtn.classList.add("active");
-
-            pageBtn.addEventListener("click", function () {
-                currentPage = i;
-                renderArticles(currentPage);
-            });
-
-            paginationContainer.appendChild(pageBtn);
+        if (currentPage * perPage >= data.length) {
+            loadMoreBtn.style.display = "none";
+        } else {
+            loadMoreBtn.style.display = "block";
         }
     }
-
-    // ✅ Sorting Functionality
-    const sortOptions = document.querySelectorAll("#sortList li");
-
-    sortOptions.forEach(option => {
-        option.addEventListener("click", function () {
-            let sortType = option.textContent.trim();
-
-            if (sortType === "Trending") {
-                data.sort((a, b) => new Date(b.date) - new Date(a.date));
-            } else if (sortType === "Recommended") {
-                data.sort((a, b) => a.title.localeCompare(b.title));
-            } else if (sortType === "Random") {
-                data.sort(() => Math.random() - 0.5);
-            }
-
-            console.log("✅ Sorted by:", sortType);
-            renderArticles(currentPage);
-            sortList.classList.remove("open");
-        });
-    });
 
     // ✅ Load More Button
     const loadMoreBtn = document.getElementById("loadMore");
 
     if (loadMoreBtn) {
         loadMoreBtn.addEventListener("click", function () {
-            if (currentPage < totalPages) {
-                currentPage++;
-                renderArticles(currentPage);
-            }
-            if (currentPage >= totalPages) {
-                loadMoreBtn.style.display = "none";
-            }
+            currentPage++;
+            renderArticles();
         });
     }
 });
