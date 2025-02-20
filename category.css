@@ -33,7 +33,7 @@ header {
 }
 
 #articles-list {
-    background-color: #B9D9EB;
+    background: #012A4A;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -103,7 +103,6 @@ header {
     display: inline-block;
     margin-top: 10px;
 }
-
 .go-back {
     display: inline-block;
     text-decoration: none;
