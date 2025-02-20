@@ -69,6 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let isGridView = false;
     let perPage = 5;
     let currentPage = 1;
+    let data = [];
 
     if (viewBtn && postsContainer) {
         viewBtn.addEventListener("click", function () {
@@ -80,15 +81,6 @@ document.addEventListener("DOMContentLoaded", function () {
             renderArticles();
         });
     }
-
-    // ✅ Load Articles
-   document.addEventListener("DOMContentLoaded", function () {
-    console.log("✅ JavaScript Loaded");
-
-    const postsContainer = document.getElementById("posts");
-    let perPage = 5;
-    let currentPage = 1;
-    let data = [];
 
     // ✅ Load Articles
     fetch("https://brightmindzhub.github.io/Brightmindz-/articles/preview.json")
@@ -108,6 +100,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function renderArticles() {
         if (!postsContainer) return;
+
+        postsContainer.innerHTML = ""; // ✅ Purane articles hatao, nahi toh duplicate honge!
 
         let start = (currentPage - 1) * perPage;
         let end = start + perPage;
@@ -153,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function formatDate(dateString) {
         let dateObj = new Date(dateString);
         if (isNaN(dateObj)) return dateString; // Agar date invalid ho toh original return kar do
-        
+
         // Custom formatting
         const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         let day = dateObj.getDate();
@@ -162,16 +156,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         return `${month} ${day}, ${year}`;
     }
-
-    const loadMoreBtn = document.getElementById("loadMore");
-
-    if (loadMoreBtn) {
-        loadMoreBtn.addEventListener("click", function () {
-            currentPage++;
-            renderArticles();
-        });
-    }
-});
 
     // ✅ Load More Button
     const loadMoreBtn = document.getElementById("loadMore");
