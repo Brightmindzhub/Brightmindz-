@@ -67,14 +67,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const viewBtn = document.getElementById("viewBtn");
     const postsContainer = document.getElementById("posts");
     let isGridView = false;
-    let perPage = 5;
+    let perPage = 10;
     let currentPage = 1;
     let data = [];
 
     if (viewBtn && postsContainer) {
         viewBtn.addEventListener("click", function () {
             isGridView = !isGridView;
-            perPage = isGridView ? 20 : 5;
+            perPage = isGridView ? 20 : 10;
             viewBtn.textContent = isGridView ? "List View" : "Grid View";
             postsContainer.classList.toggle("grid-view", isGridView);
             postsContainer.classList.toggle("list-view", !isGridView);
@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <img src="${post.image}" alt="${post.title}" loading="lazy" class="post-image">
                 <div class="post-content">
                     <h2>${post.title}</h2>
-                    <p><strong>Category:</strong> ${post.category} | <strong>Date:</strong> ${formatDate(post.date)}</p>
+                    <p><strong>Category:</strong> ${post.category} <br> <strong>Date:</strong> ${formatDate(post.date)}</p>
                     <p>${post.preview}</p>
                     <span class="read-more">Read More</span>
                 </div>
