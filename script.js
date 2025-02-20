@@ -60,13 +60,13 @@ document.addEventListener("DOMContentLoaded", function () {
     // ✅ View Toggle (Grid ↔ List)
     const viewBtn = document.getElementById("viewBtn");
     const postsContainer = document.getElementById("posts");
-    let isGridView = false; // Default: List View
-    let perPage = 10; // Default for list view
+    let isGridView = false; 
+    let perPage = 10; 
 
     if (viewBtn) {
         viewBtn.addEventListener("click", function () {
             isGridView = !isGridView;
-            perPage = isGridView ? 20 : 10; // Grid = 20, List = 10
+            perPage = isGridView ? 20 : 10; 
             viewBtn.textContent = isGridView ? "List View" : "Grid View";
             postsContainer.classList.toggle("grid-view", isGridView);
             postsContainer.classList.toggle("list-view", !isGridView);
@@ -75,77 +75,76 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // ✅ Load Articles
-let data = [];
-let currentPage = 1;
-let totalPages = 1;
-const perPage = 5; // Ek page par kitne articles dikhenge (change as needed)
+    let data = [];
+    let currentPage = 1;
+    let totalPages = 1;
+    const perPage = 5; 
 
-fetch("https://brightmindzhub.github.io/Brightmindz-/articles/preview.json")
-    .then(response => response.json())
-    .then(jsonData => {
-        if (!Array.isArray(jsonData) || jsonData.length === 0) {
-            console.error("❌ JSON is empty or not an array!");
+    fetch("https://brightmindzhub.github.io/Brightmindz-/articles/preview.json")
+        .then(response => response.json())
+        .then(jsonData => {
+            if (!Array.isArray(jsonData) || jsonData.length === 0) {
+                console.error("❌ JSON is empty or not an array!");
+                return;
+            }
+
+            data = jsonData;
+            totalPages = Math.ceil(data.length / perPage);
+            console.log("✅ Loaded Articles:", data);
+            renderArticles(currentPage);
+        })
+        .catch(error => console.error("❌ Error loading JSON:", error));
+
+    function renderArticles(page) {
+        postsContainer.innerHTML = "";
+        let start = (page - 1) * perPage;
+        let end = start + perPage;
+        let articlesToShow = data.slice(start, end); 
+
+        if (articlesToShow.length === 0) {
+            postsContainer.innerHTML = "<p>No articles available.</p>";
             return;
         }
 
-        data = jsonData;
-        totalPages = Math.ceil(data.length / perPage);
+        articlesToShow.forEach(post => {
+            let postElement = document.createElement("div");
+            postElement.classList.add("post-preview");
 
-        console.log("✅ Loaded Articles:", data);
+            postElement.innerHTML = `
+                <div class="post-button" onclick="window.location.href='${post.url}'">
+                    <img src="${post.image}" alt="${post.title}" loading="lazy" class="post-image">
+                    <h2>${post.title}</h2>
+                    <p><strong>Category:</strong> ${post.category} | <strong>Date:</strong> ${post.date}</p>
+                    <p>${post.preview}</p>
+                    <span class="read-more">Read More</span>
+                </div>
+            `;
 
-        renderArticles(currentPage);
-    })
-    .catch(error => console.error("❌ Error loading JSON:", error));
-
-function renderArticles(page) {
-    postsContainer.innerHTML = "";
-    let start = (page - 1) * perPage;
-    let end = start + perPage;
-    let articlesToShow = data.slice(start, end); 
-
-    if (articlesToShow.length === 0) {
-        postsContainer.innerHTML = "<p>No articles available.</p>";
-        return;
-    }
-
-    articlesToShow.forEach(post => {
-        let postElement = document.createElement("div");
-        postElement.classList.add("post-preview");
-
-        postElement.innerHTML = `
-            <div class="post-button" onclick="window.location.href='${post.url}'">
-                <img src="${post.image}" alt="${post.title}" loading="lazy" class="post-image">
-                <h2>${post.title}</h2>
-                <p><strong>Category:</strong> ${post.category} | <strong>Date:</strong> ${post.date}</p>
-                <p>${post.preview}</p>
-                <span class="read-more">Read More</span>
-            </div>
-        `;
-
-        postsContainer.appendChild(postElement);
-    });
-
-    renderPagination();
-}
-
-function renderPagination() {
-    let paginationContainer = document.getElementById("pagination");
-    paginationContainer.innerHTML = "";
-
-    for (let i = 1; i <= totalPages; i++) {
-        let pageBtn = document.createElement("button");
-        pageBtn.textContent = i;
-        pageBtn.classList.add("page-btn");
-        if (i === currentPage) pageBtn.classList.add("active");
-
-        pageBtn.addEventListener("click", function () {
-            currentPage = i;
-            renderArticles(currentPage);
+            postsContainer.appendChild(postElement);
         });
 
-        paginationContainer.appendChild(pageBtn);
+        renderPagination();
     }
-}
+
+    function renderPagination() {
+        let paginationContainer = document.getElementById("pagination");
+        paginationContainer.innerHTML = "";
+
+        for (let i = 1; i <= totalPages; i++) {
+            let pageBtn = document.createElement("button");
+            pageBtn.textContent = i;
+            pageBtn.classList.add("page-btn");
+            if (i === currentPage) pageBtn.classList.add("active");
+
+            pageBtn.addEventListener("click", function () {
+                currentPage = i;
+                renderArticles(currentPage);
+            });
+
+            paginationContainer.appendChild(pageBtn);
+        }
+    }
+
     // ✅ Sorting Functionality
     const sortOptions = document.querySelectorAll("#sortList li");
 
@@ -154,11 +153,11 @@ function renderPagination() {
             let sortType = option.textContent.trim();
 
             if (sortType === "Trending") {
-                data.sort((a, b) => new Date(b.date) - new Date(a.date)); // Newest first
+                data.sort((a, b) => new Date(b.date) - new Date(a.date)); 
             } else if (sortType === "Recommended") {
-                data.sort((a, b) => a.title.localeCompare(b.title)); // A-Z sorting
+                data.sort((a, b) => a.title.localeCompare(b.title)); 
             } else if (sortType === "Random") {
-                data.sort(() => Math.random() - 0.5); // Random shuffle
+                data.sort(() => Math.random() - 0.5); 
             }
 
             console.log("✅ Sorted by:", sortType);
