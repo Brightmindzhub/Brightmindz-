@@ -33,7 +33,7 @@ header {
 }
 
 #articles-list {
-    background: #012A4A;
+    background: #B9D9EB;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -47,7 +47,7 @@ header {
     background: #012A4A;
     display: flex;
     flex-direction: column;
-    width: 95%;
+    width: 97%;
     max-width: 750px;
     border: 1px solid #ddd;
     border-radius: 10px;
