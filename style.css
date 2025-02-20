@@ -606,7 +606,8 @@ body.night-mode {
 .night-mode .sidebar,
 .night-mode #modeList,
 .night-mode #sortList,
-.night-mode #categoryList {
+.night-mode #categoryList,
+.night-mode .post-content {
     background-color: #2C3E50;
     color: white;
 }
@@ -641,7 +642,8 @@ body.reading-mode {
 .reading-mode .sidebar,
 .reading-mode #modeList,
 .reading-mode #sortList,
-.reading-mode #categoryList {
+.reading-mode #categoryList,
+.reading-mide .post-content {
     background-color: #B0AFAF;
     color: black;
 }
