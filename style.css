@@ -385,6 +385,7 @@ footer {
 }
 
 .posts-wrapper {
+    background: #012A4A
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -395,6 +396,7 @@ footer {
 }
 
 .post-preview {
+    background: #012A4A
     display: flex;
     flex-direction: column;
     width: 90%;
@@ -451,8 +453,8 @@ footer {
 
 .read-more {
     font-weight: bold;
-    color: #007bff;
-    text-decoration: underline;
+    color: white;
+    text-decoration: none;
     cursor: pointer;
 }
 
