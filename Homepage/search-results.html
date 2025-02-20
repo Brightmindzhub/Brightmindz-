@@ -7,27 +7,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.6.2/fuse.min.js"></script>
     <link rel="stylesheet" href="../category.css">
     <style>
-        /* ✅ Google Font Load */
+
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
 
-        /* ✅ Global Styles */
+      
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* ✅ Body */
         body {
-            background-color: #F5F5F5; /* Light gray */
+            background-color: #F5F5F5;
             font-family: 'Poppins', sans-serif;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
             padding: 20px;
         }
-
-        /* ✅ Header */
         header {
             background-color: #012A4A; /* Navy Blue */
             color: white;
@@ -36,8 +33,6 @@
             font-size: 22px;
             font-weight: bold;
         }
-
-        /* ✅ Loading Text */
         #loading {
             text-align: center;
             font-size: 18px;
@@ -45,8 +40,6 @@
             margin-top: 20px;
             color: #555;
         }
-
-        /* ✅ Article Content Box */
         #articles-list {
             max-width: 900px;
             background: white;
@@ -55,8 +48,6 @@
             border-radius: 10px;
             box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
         }
-
-        /* ✅ Article Preview */
         .post-preview {
             background: #E3F2FD;
             padding: 15px;
@@ -65,31 +56,24 @@
             transition: 0.3s ease;
             cursor: pointer;
         }
-
         .post-preview h2 {
             font-size: 20px;
             font-weight: 600;
             color: #012A4A;
         }
-
         .post-preview p {
             font-size: 16px;
             color: #333;
             margin: 5px 0;
         }
-
         .post-preview small {
             font-size: 14px;
             color: #777;
         }
-
-        /* ✅ Hover Effect */
         .post-preview:hover {
             background: #CFE8FF;
             transform: scale(1.02);
         }
-
-        /* ✅ Go Back Button */
         .go-back {
             display: inline-block;
             text-decoration: none;
@@ -105,13 +89,10 @@
             width: fit-content;
             transition: 0.3s ease;
         }
-
         .go-back:hover {
             background: #01497C;
             transform: scale(1.05);
         }
-
-        /* ✅ Footer (Sticky) */
         footer {
             background-color: #012A4A;
             color: white;
@@ -146,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    fetch("https://brightmindzhub.github.io/Brightmindz-/articles.json")
+    fetch("https://brightmindzhub.github.io/Brightmindz-/articles/preview.json")
     .then(response => response.json())
     .then(articles => {
         let fuse = new Fuse(articles, {
