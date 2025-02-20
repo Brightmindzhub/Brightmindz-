@@ -1,7 +1,5 @@
-/* ✅ Google Font Load */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
 
-/* ✅ Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -9,17 +7,15 @@
     
 }
 
-/* ✅ Body */
 body {
-    background-color: #F5F5F5; /* Light gray */
+    background-color: #F5F5F5;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-/* ✅ Header */
 header {
-    background-color: #012A4A; /* Navy Blue */
+    background-color: #012A4A;
     color: white;
     text-align: center;
     padding: 15px 0;
@@ -28,7 +24,6 @@ header {
     font-family: 'Poppins', sans-serif; /* Updated Font */
 }
 
-/* ✅ Loading Text */
 #loading {
     text-align: center;
     font-size: 18px;
@@ -37,51 +32,78 @@ header {
     color: #555;
 }
 
-/* ✅ Article Content Box */
 #articles-list {
-    max-width: 900px;
-    background: white;
+    background: #012A4A;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
     padding: 20px;
-    margin: 20px auto;
-    border-radius: 10px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* ✅ Article Preview */
 .post-preview {
-    user-select: none;
-    background: #E3F2FD;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    transition: 0.3s ease;
+    background: #012A4A;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    max-width: 750px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    margin: 15px auto;
     cursor: pointer;
 }
 
-.post-preview h2 {
-    font-size: 20px;
-    font-weight: 600;
-    color: #012A4A;
-}
-
-.post-preview p {
-    font-size: 16px;
-    color: #333;
-    margin: 5px 0;
-}
-
-.post-preview small {
-    font-size: 14px;
-    color: #777;
-}
-
-/* ✅ Hover Effect */
 .post-preview:hover {
-    background: #CFE8FF;
     transform: scale(1.02);
 }
 
-/* ✅ Go Back Button */
+.post-image {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: cover;
+}
+
+.post-content {
+    padding: 15px;
+    background: #012A4A;
+}
+
+.post-content h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 5px;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+}
+
+.post-content p {
+    font-size: 16px;
+    color: white;
+    margin-bottom: 10px;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+}
+
+.read-more {
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
 .go-back {
     display: inline-block;
     text-decoration: none;
@@ -103,7 +125,6 @@ header {
     transform: scale(1.05);
 }
 
-/* ✅ Footer (Sticky) */
 footer {
     background-color: #012A4A;
     color: white;
