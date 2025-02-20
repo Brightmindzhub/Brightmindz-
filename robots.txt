@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://brightmindzhub.github.io/Brightmindz-/Homepage/sitemap.xml
