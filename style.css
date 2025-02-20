@@ -387,22 +387,23 @@ footer {
 .posts-wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px; /* ✅ Gap thoda aur badhaya */
-    padding: 20px; /* ✅ Left-Right se bhi gap */
+    justify-content: center; /* ✅ Center me laane ke liye */
+    gap: 20px;
+    padding: 20px;
 }
 
 .post-preview {
     display: flex;
     flex-direction: column;
-    width: 90%; /* ✅ Left-Right se chhota kiya */
-    max-width: 750px; /* ✅ Zyada bada na ho */
+    width: 90%;
+    max-width: 750px;
     border: 1px solid #ddd;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background: #fff;
     transition: transform 0.2s ease-in-out;
+    margin: 0 auto; /* ✅ Pure center me laane ke liye */
 }
 
 .post-preview:hover {
@@ -441,7 +442,7 @@ footer {
     font-size: 16px;
     color: #333;
     margin-bottom: 10px;
-    white-space: normal; /* ✅ Preview bhi full dikhega */
+    white-space: normal;
     overflow: visible;
     text-overflow: clip;
 }
