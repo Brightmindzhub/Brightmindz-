@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // ✅ Load Articles
-    fetch("https://brightmindzhub.github.io/Brightmindz-/articles/preview.json")
+    fetch("../articles/preview.json")
         .then(response => response.json())
         .then(jsonData => {
             if (!Array.isArray(jsonData) || jsonData.length === 0) {
