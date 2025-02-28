@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Newsreader", serif;
+        }
+        body {
+            background: #f5f5f5;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        header {
+            background: #012A4A;
+            color: white;
+            padding: 15px;
+            font-size: 24px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        #backBtn {
+            background: #ff5e5e;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        main {
+            margin-top: 80px;
+            padding: 20px;
+        }
+        .about-content {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            margin-top: 20px;
+            color: #012A4A;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>About Us</h1>
+    </header>
+    <main>
+     <section class="about-content">
+    <h2>Introduction</h2>
+    <p>Hello everyone, it's the Brightmindz team. We are here to provide valuable information. We publish articles on various topics, mainly focusing on technology and current affairs.</p>
+
+    <h2>Creator</h2>
+    <p>Hi, my name is Lovepreet Singh. I created this website with the help of AI, and all articles are written and managed by me. The main purpose of this website is to provide useful information to our users. We are constantly exploring new topics and improving the quality of our content.</p>
+
+    <h2>Resources</h2>
+    <p>Our content is a combination of online resources, AI assistance, and manual research. We strive to ensure accuracy in our articles, but we recommend cross-checking the information for confirmation.</p>
+</section>
+    </main>
+
+    <button id="backBtn">⬅ Go Back</button>
+    <script>
+        document.getElementById("backBtn").addEventListener("click", function () {
+            window.history.back(); // Back button functionality
+        });
+    </script>
+</body>
+</html>
