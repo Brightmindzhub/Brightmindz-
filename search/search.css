@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     background-color: #F5F5F5;
     font-family: 'Poppins', sans-serif;
@@ -13,6 +14,7 @@ body {
     min-height: 100vh;
     padding: 20px;
 }
+
 header {
     background-color: #012A4A;
     color: white;
@@ -21,6 +23,8 @@ header {
     font-size: 22px;
     font-weight: bold;
 }
+
+/* Search Box Styling */
 .search-container {
     max-width: 600px;
     margin: 20px auto;
@@ -28,52 +32,66 @@ header {
     flex-direction: column;
     position: relative;
 }
+
 .search-container input {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     font-size: 16px;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
     border-radius: 5px;
+    outline: none;
 }
+
 .search-container button {
     margin-top: 10px;
-    padding: 10px 15px;
+    padding: 12px 15px;
     font-size: 16px;
     border: none;
     background: #012A4A;
     color: white;
     border-radius: 5px;
     cursor: pointer;
+    transition: background 0.3s;
 }
+
 .search-container button:hover {
     background: #01497C;
 }
+
+/* Suggestions Dropdown */
 #suggestions {
     list-style: none;
     background: white;
     border: 1px solid #ddd;
     position: absolute;
-    top: 40px;
+    top: 44px;
     width: 100%;
     z-index: 10;
+    border-radius: 5px;
+    overflow: hidden;
 }
+
 #suggestions li {
-    padding: 8px;
+    padding: 10px;
     cursor: pointer;
     border-bottom: 1px solid #eee;
 }
+
 #suggestions li:hover {
     background: #f0f0f0;
 }
+
+/* Search Results */
 .posts-wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
+
 .post-preview {
     background: #012A4A;
     width: 95%;
@@ -82,28 +100,37 @@ header {
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 15px auto;
+    transition: transform 0.3s;
 }
+
 .post-preview:hover {
     transform: scale(1.02);
 }
+
 .post-content {
     padding: 15px;
     background: #012A4A;
-}
-.post-content h2 {
-    font-size: 20px;
     color: white;
 }
+
+.post-content h2 {
+    font-size: 22px;
+    font-weight: bold;
+}
+
 .post-content p {
     font-size: 16px;
-    color: white;
 }
+
+/* No Results Found */
 .empty-search {
     text-align: center;
     color: red;
     font-weight: bold;
     margin-top: 20px;
 }
+
+/* Footer */
 footer {
     background-color: #012A4A;
     color: white;
