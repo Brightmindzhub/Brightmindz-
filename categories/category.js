@@ -8,13 +8,16 @@ document.addEventListener("DOMContentLoaded", async function () {
         return;
     }
 
+    console.log("Extracted Category:", categoryName); // ✅ Debugging ke liye
+
     document.getElementById("category-title").innerText = categoryName;
 
     const loadingMessage = document.getElementById("loading");
     const articlesContainer = document.getElementById("articles-list");
 
     try {
-        const response = await fetch("articles/preview.json");
+        console.log("Fetching JSON from:", "/Categories/articles/preview.json"); // ✅ Debugging ke liye
+        const response = await fetch("/Categories/articles/preview.json");
         if (!response.ok) throw new Error("Failed to load JSON file!");
         const articles = await response.json();
 
@@ -39,14 +42,13 @@ document.addEventListener("DOMContentLoaded", async function () {
         articlesContainer.innerHTML = "<p>Error loading articles. Please try again.</p>";
     }
 
-    // ✅ 1 sec delay ke baad loading message hata do aur articles dikha do
     setTimeout(() => {
         loadingMessage.classList.add("hidden");
         articlesContainer.classList.remove("hidden");
     }, 1000);
 });
 
-// ✅ Dynamic Article URL Generator Function
+// ✅ Clean Article URL Generator
 function generateArticleURL(article) {
-    return `articles/${article.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}.html`;
+    return `/articles/${article.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}.html`;
 }
