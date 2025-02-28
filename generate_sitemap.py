@@ -53,7 +53,7 @@ for article in articles:
     <url>
         <loc>{url}</loc>
         <lastmod>{lastmod}</lastmod>
-        <changefreq=weekly</changefreq>
+        <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     """
