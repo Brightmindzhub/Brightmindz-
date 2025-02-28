@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Disallow: /search/
+Disallow: /categories/category.html?
+
+Sitemap: https://rgthinks.top/sitemap.xml
