@@ -1,0 +1,36 @@
+name: Generate Sitemap
+
+on:
+  push:
+    branches:
+      - main 
+
+  schedule:
+    - cron: '0 0 * * 1'  
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
+
+      - name: Install Dependencies
+        run: pip install requests
+
+      - name: Run Sitemap Generator
+        run: python generate_sitemap.py
+
+      - name: Commit and Push Sitemap
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
+          git add sitemap.xml
+          git commit -m "Auto-generate sitemap.xml" || echo "No changes to commit"
+          git push
