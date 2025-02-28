@@ -94,20 +94,20 @@ header {
 
 .post-preview {
     background: #012A4A;
-    width: 90%; /* Yeh 90% screen ke hisaab se adjust hoga */
-    max-width: 600px; /* Large screens par limit */
-    min-width: 300px; /* Small screens par chhota */
+    flex-grow: 1;
+    width: 100%;
+    max-width: 600px;
+    min-width: 280px;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 10px auto;
+    margin: 10px;
     transition: transform 0.3s;
 }
 
 @media (max-width: 768px) {
     .post-preview {
-        width: 95%; /* Mobile devices par aur flexible */
-        max-width: 450px; /* Mobile par limit */
+        max-width: 100%;
     }
 }
 
