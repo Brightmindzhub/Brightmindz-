@@ -67,7 +67,11 @@
         <h2>AI-Generated Content Disclaimer</h2>
         <p>If any AI-generated content unintentionally contains copyrighted material, please inform us immediately so we can remove it.</p>
 
-        <a href="Homepage/" class="back-btn">Go Back</a>
-    </div>
+          <button id="backBtn">⬅ Go Back</button>
+    <script>
+        document.getElementById("backBtn").addEventListener("click", function () {
+            window.history.back(); // Back button functionality
+        });
+    </script>
 </body>
 </html>
