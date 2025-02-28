@@ -56,7 +56,11 @@
         <p>We do not integrate third-party tracking services or cookies that collect personal information.</p>
         <h2>Changes to Privacy Policy</h2>
         <p>We may update this privacy policy as needed. Any updates will be reflected on this page.</p>
-        <a href="Homepage/" class="back-btn">Go Back</a>
-    </div>
+            <button id="backBtn">⬅ Go Back</button>
+    <script>
+        document.getElementById("backBtn").addEventListener("click", function () {
+            window.history.back(); // Back button functionality
+        });
+    </script>
 </body>
 </html>
